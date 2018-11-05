@@ -24,9 +24,17 @@ namespace FarmSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ManagerForm mg = new ManagerForm();
-            this.Hide();
-            mg.Show();
+            string storedUser = lblUser.Text;
+            string storedPass = lblPassword.Text;
+            bool isManager = false;
+
+            DataAccess da = new DataAccess();
+
+            da.test(storedUser, storedPass, isManager);
+
+           // ManagerForm mg = new ManagerForm();
+           // this.Hide();
+           // mg.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
