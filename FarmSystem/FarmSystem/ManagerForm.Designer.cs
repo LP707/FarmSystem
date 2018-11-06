@@ -34,6 +34,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewLabourerByNameToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lstManager1 = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -44,7 +45,7 @@
             this.queryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(530, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -60,14 +61,14 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -85,11 +86,20 @@
             this.viewLabourerByNameToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.viewLabourerByNameToolStripMenuItem.Text = "View Labourer by name";
             // 
+            // lstManager1
+            // 
+            this.lstManager1.FormattingEnabled = true;
+            this.lstManager1.Location = new System.Drawing.Point(12, 148);
+            this.lstManager1.Name = "lstManager1";
+            this.lstManager1.Size = new System.Drawing.Size(498, 290);
+            this.lstManager1.TabIndex = 1;
+            // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(530, 450);
+            this.Controls.Add(this.lstManager1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManagerForm";
@@ -109,5 +119,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewLabourerByNameToolStripMenuItem;
+        private System.Windows.Forms.ListBox lstManager1;
     }
 }

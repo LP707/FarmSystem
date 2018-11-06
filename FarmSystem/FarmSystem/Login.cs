@@ -31,10 +31,6 @@ namespace FarmSystem
             DataAccess da = new DataAccess();
 
             da.test(storedUser, storedPass, isManager);
-
-           // ManagerForm mg = new ManagerForm();
-           // this.Hide();
-           // mg.Show();
         }
 
         private void label1_Click(object sender, EventArgs e)
