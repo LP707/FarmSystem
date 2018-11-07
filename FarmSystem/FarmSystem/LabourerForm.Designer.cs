@@ -36,6 +36,7 @@
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.viewTimetableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.viewChecklistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -82,16 +83,23 @@
             // queryToolStripMenuItem
             // 
             this.queryToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.viewTimetableToolStripMenuItem});
+            this.viewTimetableToolStripMenuItem,
+            this.viewChecklistToolStripMenuItem});
             this.queryToolStripMenuItem.Name = "queryToolStripMenuItem";
-            this.queryToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
-            this.queryToolStripMenuItem.Text = "Query";
+            this.queryToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.queryToolStripMenuItem.Text = "View";
             // 
             // viewTimetableToolStripMenuItem
             // 
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
-            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
+            // 
+            // viewChecklistToolStripMenuItem
+            // 
+            this.viewChecklistToolStripMenuItem.Name = "viewChecklistToolStripMenuItem";
+            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewChecklistToolStripMenuItem.Text = "View Checklist";
             // 
             // LabourerForm
             // 
@@ -118,5 +126,6 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem viewTimetableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem viewChecklistToolStripMenuItem;
     }
 }

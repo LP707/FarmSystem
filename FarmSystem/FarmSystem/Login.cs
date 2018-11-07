@@ -22,7 +22,7 @@ namespace FarmSystem
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             string storedUser = lblUser.Text;
             string storedPass = lblPassword.Text;
