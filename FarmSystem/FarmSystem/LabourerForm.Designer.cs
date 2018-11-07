@@ -94,6 +94,7 @@
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
             this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
+            this.viewTimetableToolStripMenuItem.Click += new System.EventHandler(this.viewTimetableToolStripMenuItem_Click);
             // 
             // viewChecklistToolStripMenuItem
             // 

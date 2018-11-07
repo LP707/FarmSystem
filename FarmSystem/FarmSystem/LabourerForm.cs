@@ -33,5 +33,10 @@ namespace FarmSystem
         {
 
         }
+
+        private void viewTimetableToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
