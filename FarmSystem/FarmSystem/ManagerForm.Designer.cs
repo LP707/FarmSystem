@@ -42,6 +42,7 @@
             this.btncontainers = new System.Windows.Forms.Button();
             this.btnfertiliser = new System.Windows.Forms.Button();
             this.btnstorage = new System.Windows.Forms.Button();
+            this.btnmnglbr = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,72 +105,82 @@
             // 
             // btnsowing
             // 
-            this.btnsowing.Location = new System.Drawing.Point(22, 45);
+            this.btnsowing.Location = new System.Drawing.Point(34, 100);
             this.btnsowing.Name = "btnsowing";
-            this.btnsowing.Size = new System.Drawing.Size(75, 23);
+            this.btnsowing.Size = new System.Drawing.Size(96, 23);
             this.btnsowing.TabIndex = 2;
-            this.btnsowing.Text = "Sewing";
+            this.btnsowing.Text = "Manage Sewing";
             this.btnsowing.UseVisualStyleBackColor = true;
             // 
             // btncrops
             // 
-            this.btncrops.Location = new System.Drawing.Point(121, 45);
+            this.btncrops.Location = new System.Drawing.Point(160, 45);
             this.btncrops.Name = "btncrops";
-            this.btncrops.Size = new System.Drawing.Size(75, 23);
+            this.btncrops.Size = new System.Drawing.Size(97, 23);
             this.btncrops.TabIndex = 3;
-            this.btncrops.Text = "Crops";
+            this.btncrops.Text = "Manage Crops";
             this.btncrops.UseVisualStyleBackColor = true;
             // 
             // btnvehicles
             // 
-            this.btnvehicles.Location = new System.Drawing.Point(240, 45);
+            this.btnvehicles.Location = new System.Drawing.Point(275, 45);
             this.btnvehicles.Name = "btnvehicles";
-            this.btnvehicles.Size = new System.Drawing.Size(75, 23);
+            this.btnvehicles.Size = new System.Drawing.Size(107, 23);
             this.btnvehicles.TabIndex = 4;
-            this.btnvehicles.Text = "Vehicles";
+            this.btnvehicles.Text = "Manage Vehicles";
             this.btnvehicles.UseVisualStyleBackColor = true;
             // 
             // btnharvest
             // 
-            this.btnharvest.Location = new System.Drawing.Point(357, 45);
+            this.btnharvest.Location = new System.Drawing.Point(398, 45);
             this.btnharvest.Name = "btnharvest";
-            this.btnharvest.Size = new System.Drawing.Size(86, 23);
+            this.btnharvest.Size = new System.Drawing.Size(120, 23);
             this.btnharvest.TabIndex = 5;
-            this.btnharvest.Text = "Harvest Time";
+            this.btnharvest.Text = "Manage Harvest Time";
             this.btnharvest.UseVisualStyleBackColor = true;
             // 
             // btncontainers
             // 
-            this.btncontainers.Location = new System.Drawing.Point(22, 100);
+            this.btncontainers.Location = new System.Drawing.Point(150, 100);
             this.btncontainers.Name = "btncontainers";
-            this.btncontainers.Size = new System.Drawing.Size(75, 23);
+            this.btncontainers.Size = new System.Drawing.Size(107, 23);
             this.btncontainers.TabIndex = 6;
-            this.btncontainers.Text = "Containers";
+            this.btncontainers.Text = "Manage Containers";
             this.btncontainers.UseVisualStyleBackColor = true;
             // 
             // btnfertiliser
             // 
-            this.btnfertiliser.Location = new System.Drawing.Point(121, 100);
+            this.btnfertiliser.Location = new System.Drawing.Point(275, 100);
             this.btnfertiliser.Name = "btnfertiliser";
-            this.btnfertiliser.Size = new System.Drawing.Size(75, 23);
+            this.btnfertiliser.Size = new System.Drawing.Size(105, 23);
             this.btnfertiliser.TabIndex = 7;
-            this.btnfertiliser.Text = "Fertilisers";
+            this.btnfertiliser.Text = "Manage Fertilisers";
             this.btnfertiliser.UseVisualStyleBackColor = true;
             // 
             // btnstorage
             // 
-            this.btnstorage.Location = new System.Drawing.Point(240, 99);
+            this.btnstorage.Location = new System.Drawing.Point(409, 100);
             this.btnstorage.Name = "btnstorage";
-            this.btnstorage.Size = new System.Drawing.Size(75, 23);
+            this.btnstorage.Size = new System.Drawing.Size(101, 23);
             this.btnstorage.TabIndex = 8;
-            this.btnstorage.Text = "Storage";
+            this.btnstorage.Text = "Manage Storage";
             this.btnstorage.UseVisualStyleBackColor = true;
+            // 
+            // btnmnglbr
+            // 
+            this.btnmnglbr.Location = new System.Drawing.Point(12, 45);
+            this.btnmnglbr.Name = "btnmnglbr";
+            this.btnmnglbr.Size = new System.Drawing.Size(118, 23);
+            this.btnmnglbr.TabIndex = 9;
+            this.btnmnglbr.Text = "Manage Labourers";
+            this.btnmnglbr.UseVisualStyleBackColor = true;
             // 
             // ManagerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(530, 450);
+            this.Controls.Add(this.btnmnglbr);
             this.Controls.Add(this.btnstorage);
             this.Controls.Add(this.btnfertiliser);
             this.Controls.Add(this.btncontainers);
@@ -205,5 +216,6 @@
         private System.Windows.Forms.Button btncontainers;
         private System.Windows.Forms.Button btnfertiliser;
         private System.Windows.Forms.Button btnstorage;
+        private System.Windows.Forms.Button btnmnglbr;
     }
 }
