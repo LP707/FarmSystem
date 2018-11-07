@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Vehicle
+    public class Vehicle
     {
         private string wHeels;
         private string dRiver;
@@ -18,8 +18,9 @@ namespace FarmSystem
 
         public class Tractor : Vehicle
         {
+
             string aTach;
-            string[] aTa = new string[] { "bailer", "plough" };
+            string[] aTa = new string[] { "baler", "plough", "trailer", "fertiliser" , "sewing"};
             
         }
 
