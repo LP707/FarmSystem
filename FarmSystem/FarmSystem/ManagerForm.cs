@@ -28,5 +28,10 @@ namespace FarmSystem
         {
             Application.Exit();
         }
+
+        private void lstManager1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
