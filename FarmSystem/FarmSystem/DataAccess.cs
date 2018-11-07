@@ -13,13 +13,14 @@ namespace FarmSystem
 
         List<Employee.Manager> Managers = new List<Employee.Manager>();
         List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-
+        
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
                 @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+            
             try
             {
                 conn.Open();
@@ -88,6 +89,8 @@ namespace FarmSystem
             return reader;
         }
 
+        
+
         public void test(string user, string pass, bool staus)
         {
             string theUser = user;
@@ -96,6 +99,8 @@ namespace FarmSystem
 
             connectionToDB();
 
+            
+            
             if (Managers.Where(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)).Any())
             {
                 ManagerForm mg = new ManagerForm();
@@ -115,6 +120,7 @@ namespace FarmSystem
                 Login lg = new Login();
                 lg.Show();
             }
+            
 
         }
     }
