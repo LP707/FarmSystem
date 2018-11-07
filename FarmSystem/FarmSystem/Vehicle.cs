@@ -18,7 +18,9 @@ namespace FarmSystem
 
         public class Tractor : Vehicle
         {
-
+            string aTach;
+            string[] aTa = new string[] { "bailer", "plough" };
+            
         }
 
         public class Cmbhrv : Vehicle
@@ -27,10 +29,7 @@ namespace FarmSystem
         }
 
 
-        public class Bailer : Vehicle
-        {
-
-        }
+       
 
 
 
