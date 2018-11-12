@@ -105,7 +105,7 @@
             // 
             // btnsowing
             // 
-            this.btnsowing.Location = new System.Drawing.Point(34, 100);
+            this.btnsowing.Location = new System.Drawing.Point(22, 100);
             this.btnsowing.Name = "btnsowing";
             this.btnsowing.Size = new System.Drawing.Size(96, 23);
             this.btnsowing.TabIndex = 2;
