@@ -11,15 +11,15 @@ namespace FarmSystem
     class DataAccess
     {
 
-        List<Employee.Manager> Managers = new List<Employee.Manager>();
-        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        public List<Employee.Manager> Managers = new List<Employee.Manager>();
+        public List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
         
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\Source\Repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             
             try
             {
@@ -44,18 +44,18 @@ namespace FarmSystem
                 //set query string to be used in Select method
                 OleDbDataReader dr1 = Select("SELECT ManagerID, FirstName, LastName, FROM Managers;", conn);
 
-                while (dr.Read())
+                while (dr1.Read())
                 {
                     //set attributes of the manager subclass
                     Employee.Manager mg = new Employee.Manager();
-                    mg.theID = dr.GetInt32(0);
-                    mg.FName = dr.GetString(1);
-                    mg.LName = dr.GetString(2);
+                    mg.theID = dr1.GetInt32(0);
+                    mg.FName = dr1.GetString(1);
+                    mg.LName = dr1.GetString(2);
                     //adds to the manager list
                     Managers.Add(mg);
                 }
                 //close Data Reader
-                dr.Close();
+                dr1.Close();
                 //conn.Close();
             }
             catch (Exception ex)
