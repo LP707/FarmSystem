@@ -11,7 +11,11 @@ namespace FarmSystem
         private string wHeels;
         private string dRiver;
         private string aTach;
+        private string registration;
+        private int theID;
 
+        public int ID { get { return theID; } }
+        public string Reg { get { return registration; } }
         public string wheels { get { return wHeels; } }
         public string driver { get { return dRiver; } }
         public string atach { get { return aTach; } }

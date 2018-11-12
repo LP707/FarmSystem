@@ -11,16 +11,18 @@ namespace FarmSystem
     class DataAccess
     {
 
-        List<Employee.Manager> Managers = new List<Employee.Manager>();
-        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-        
+        public List<Employee.Manager> Managers = new List<Employee.Manager>();
+        public List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        public List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
+        public List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
+
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-            
+                @"Data source= C:\Users\398019\Source\Repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+
             try
             {
                 conn.Open();
@@ -40,9 +42,16 @@ namespace FarmSystem
                     //adds to the labourer list
                     Labourers.Add(Lb);
                 }
-
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
                 //set query string to be used in Select method
-                OleDbDataReader dr1 = Select("SELECT ManagerID, FirstName, LastName, FROM Managers;", conn);
+                OleDbDataReader dr = Select("SELECT ManagerID, FirstName, LastName, FROM Managers;", conn);
 
                 while (dr.Read())
                 {
@@ -53,6 +62,50 @@ namespace FarmSystem
                     mg.LName = dr.GetString(2);
                     //adds to the manager list
                     Managers.Add(mg);
+            }
+            //close Data Reader
+            dr.Close();
+            //conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                //set query string to be used in Select method
+                OleDbDataReader dr = Select("SELECT VehicleID, VehicleRegistration FROM Vehicles WHERE VehcileType = 'Tractor';", conn);
+
+                while (dr.Read())
+                {
+                    //set attributes of the tractor subclass
+                    Vehicle.Tractor tr = new Vehicle.Tractor();
+                    tr.ID = dr.GetInt32(0);
+                    tr.Reg = dr.GetString(1);
+                    //adds to the tractor list
+                    Tractors.Add(tr);
+                }
+                //close Data Reader
+                dr.Close();
+                //conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                //set query string to be used in Select method
+                OleDbDataReader dr = Select("SELECT VehicleID, VehicleRegistration FROM Vehicles WHERE VehcileType = 'Combine';", conn);
+
+                while (dr.Read())
+                {
+                    //set attributes of the combine subclass
+                    Vehicle.Cmbhrv cm = new Vehicle.Cmbhrv();
+                    cm.ID = dr.GetInt32(0);
+                    cm.Reg = dr.GetString(1);
+                    //adds to the combine list
+                    Combines.Add(cm);
                 }
                 //close Data Reader
                 dr.Close();
