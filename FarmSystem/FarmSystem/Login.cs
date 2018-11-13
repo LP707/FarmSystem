@@ -26,11 +26,11 @@ namespace FarmSystem
         {
             string storedUser = lblUser.Text;
             string storedPass = lblPassword.Text;
-            bool isManager = false;
+            
 
             DataAccess da = new DataAccess();
 
-            da.test(storedUser, storedPass, isManager);
+            da.test(storedUser, storedPass);
         }
 
         private void label1_Click(object sender, EventArgs e)

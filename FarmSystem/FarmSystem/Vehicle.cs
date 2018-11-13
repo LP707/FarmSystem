@@ -8,17 +8,17 @@ namespace FarmSystem
 {
     public class Vehicle
     {
-        private string wHeels;
-        private string dRiver;
-        private string aTach;
-        private string registration;
-        private int theID;
+        public string WHeels { get; set; }
+        public double theID { get; set; }
+        //private string wHeels;
+        //private string dRiver;
+        //private string aTach;
+        public string reg { get; set; }
+        public string name { get; set; }
+        public string type { get; set; }
 
-        public int ID { get { return theID; } }
-        public string Reg { get { return registration; } }
-        public string wheels { get { return wHeels; } }
-        public string driver { get { return dRiver; } }
-        public string atach { get { return aTach; } }
+        //public string driver { get { return dRiver; } }
+        //public string atach { get { return aTach; } }
 
         public class Tractor : Vehicle
         {

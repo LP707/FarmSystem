@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data.OleDb;
+using Microsoft.SqlServer.Server;
 
 namespace FarmSystem
 {
@@ -20,13 +21,13 @@ namespace FarmSystem
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" +
+                @"Data source= C:\Users\def1a\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
                 conn.Open();
-                OleDbDataReader dr = Select("SELECT LabourerID, FirstName, LastName, Speciality FROM Labourers;", conn);
+                OleDbDataReader dr = Select("SELECT * FROM Labourers;", conn);
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -36,13 +37,13 @@ namespace FarmSystem
                         Lb.FName = dr.GetString(1);
                         Lb.LName = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
-
-                        Debug.WriteLine(Lb.theID);
+                        Lb.testManager = dr.GetBoolean(4);
                     }
                     //adds to the labourer list
                     Labourers.Add(Lb);
                 }
                 dr.Close();
+                conn.Close();
             }
             catch (Exception ex)
             {
@@ -51,20 +52,23 @@ namespace FarmSystem
             try
             {
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT ManagerID, FirstName, LastName, FROM Managers;", conn);
-
-                while (dr.Read())
+                conn.Open();
+                OleDbDataReader dr1 = Select("SELECT * FROM Managers;", conn);
+               
+                while (dr1.Read())
                 {
                     //set attributes of the manager subclass
                     Employee.Manager mg = new Employee.Manager();
-                    mg.theID = dr.GetInt32(0);
-                    mg.FName = dr.GetString(1);
-                    mg.LName = dr.GetString(2);
+                    mg.theID = dr1.GetInt32(0);
+                    mg.FName = dr1.GetString(1);
+                    mg.LName = dr1.GetString(2);
+                    mg.testManager = dr1.GetBoolean(3);
                     //adds to the manager list
                     Managers.Add(mg);
-            }
+                }
             //close Data Reader
-            dr.Close();
+            dr1.Close();
+            conn.Close();
             //conn.Close();
             }
             catch (Exception ex)
@@ -73,20 +77,24 @@ namespace FarmSystem
             }
             try
             {
+                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT VehicleID, VehicleRegistration FROM Vehicles WHERE VehcileType = 'Tractor';", conn);
+                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';", conn);
 
                 while (dr.Read())
                 {
                     //set attributes of the tractor subclass
                     Vehicle.Tractor tr = new Vehicle.Tractor();
-                    tr.ID = dr.GetInt32(0);
-                    tr.Reg = dr.GetString(1);
+                    tr.theID = dr.GetDouble(0);
+                    tr.name = dr.GetString(1);
+                    tr.type = dr.GetString(2);
+                    tr.reg = dr.GetString(3);
                     //adds to the tractor list
                     Tractors.Add(tr);
                 }
                 //close Data Reader
                 dr.Close();
+                conn.Close();
                 //conn.Close();
             }
             catch (Exception ex)
@@ -95,15 +103,18 @@ namespace FarmSystem
             }
             try
             {
+                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT VehicleID, VehicleRegistration FROM Vehicles WHERE VehcileType = 'Combine';", conn);
+                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Combine';", conn);
 
                 while (dr.Read())
                 {
                     //set attributes of the combine subclass
                     Vehicle.Cmbhrv cm = new Vehicle.Cmbhrv();
-                    cm.ID = dr.GetInt32(0);
-                    cm.Reg = dr.GetString(1);
+                    cm.theID = dr.GetDouble(0);
+                    cm.name = dr.GetString(1);
+                    cm.type = dr.GetString(2);
+                    cm.reg = dr.GetString(3);
                     //adds to the combine list
                     Combines.Add(cm);
                 }
@@ -131,42 +142,38 @@ namespace FarmSystem
             OleDbDataReader reader = null;
             try
             {
+             
                 OleDbCommand command = new OleDbCommand(query);
-                command.Connection = (OleDbConnection)connection;
+                command.Connection = connection;
                 reader = command.ExecuteReader();
             }
             catch (Exception e)
             {
-                
+                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
             }
             return reader;
         }
 
         
 
-        public void test(string user, string pass, bool staus)
+        public void test(string user, string pass)
         {
             string theUser = user;
             string thePass = pass;
-            bool theStatus = staus;
 
             connectionToDB();
 
             
             
-            if (Managers.Where(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)).Any())
+            if (Managers.Any(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)))
             {
                 ManagerForm mg = new ManagerForm();
                 mg.Show();
-                theStatus = true;
-                return;
             }
-            else if (Labourers.Where(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)).Any())
+            else if (Labourers.Any(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)))
             {
                 LabourerForm lb = new LabourerForm();
                 lb.Show();
-                theStatus = false;
-                return;
             }
             else
             {
