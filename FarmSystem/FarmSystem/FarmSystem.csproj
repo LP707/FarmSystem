@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Crops.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="DBException.cs" />
     <Compile Include="Login.cs">
@@ -59,6 +60,12 @@
     </Compile>
     <Compile Include="LabourerForm.Designer.cs">
       <DependentUpon>LabourerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageCrops.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageCrops.Designer.cs">
+      <DependentUpon>ManageCrops.cs</DependentUpon>
     </Compile>
     <Compile Include="ManageLabourer.cs">
       <SubType>Form</SubType>
@@ -86,6 +93,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="LabourerForm.resx">
       <DependentUpon>LabourerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageCrops.resx">
+      <DependentUpon>ManageCrops.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ManageLabourer.resx">
       <DependentUpon>ManageLabourer.cs</DependentUpon>

@@ -58,5 +58,12 @@ namespace FarmSystem
             ManageVehicle ml = new ManageVehicle();
             ml.Show();
         }
+
+        private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCrops mc = new ManageCrops();
+            this.Hide();
+            mc.Show();
+        }
     }
 }

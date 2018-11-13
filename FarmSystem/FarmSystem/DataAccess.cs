@@ -17,13 +17,14 @@ namespace FarmSystem
         public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
         public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
         public static List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
+        public static List<Crops> Crops = new List<Crops>();
 
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\source\repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -77,6 +78,30 @@ namespace FarmSystem
             try
             {
                 conn.Open();
+                OleDbDataReader dr = Select("SELECT * FROM Crops;", conn);
+                while (dr.Read())
+                {
+                    //set attributes of the labourer subclass
+                    Crops cr = new Crops();
+                    {
+                        cr.theID = dr.GetInt32(0);
+                        cr.cropName = dr.GetString(1);
+                        cr.cropPrice = dr.GetInt32(2);
+                        cr.Quant = dr.GetInt32(3);
+                    }
+                    //adds to the labourer list
+                    Crops.Add(cr);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                conn.Open();
                 //set query string to be used in Select method
                 OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';", conn);
 
@@ -84,7 +109,7 @@ namespace FarmSystem
                 {
                     //set attributes of the tractor subclass
                     Vehicle.Tractor tr = new Vehicle.Tractor();
-                    tr.theID = dr.GetDouble(0);
+                    tr.theID = dr.GetInt32(0);
                     tr.name = dr.GetString(1);
                     tr.type = dr.GetString(2);
                     tr.reg = dr.GetString(3);
@@ -110,7 +135,7 @@ namespace FarmSystem
                 {
                     //set attributes of the combine subclass
                     Vehicle.Cmbhrv cm = new Vehicle.Cmbhrv();
-                    cm.theID = dr.GetDouble(0);
+                    cm.theID = dr.GetInt32(0);
                     cm.name = dr.GetString(1);
                     cm.type = dr.GetString(2);
                     cm.reg = dr.GetString(3);
@@ -155,8 +180,8 @@ namespace FarmSystem
 
         public void Delete(int theID)
         {
-            string query = "DELTE FROM Labourers WHERE LabourerID = " + theID;
-            Select(query, conn);
+            //string query = "DELTE FROM Labourers WHERE LabourerID = " + theID;
+            //Select(query, conn);
         }
 
         public void test(string user, string pass)
@@ -198,6 +223,11 @@ namespace FarmSystem
         public List<Vehicle.Cmbhrv> returnCVehicleList()
         {
             return Combines;
+        }
+
+        public List<Crops> returnCropList()
+        {
+            return Crops;
         }
 
     }

@@ -8,8 +8,8 @@ namespace FarmSystem
 {
     public class Vehicle
     {
-        public string WHeels { get; set; }
-        public double theID { get; set; }
+        //public string WHeels { get; set; }
+        public int theID { get; set; }
         //private string wHeels;
         //private string dRiver;
         //private string aTach;
