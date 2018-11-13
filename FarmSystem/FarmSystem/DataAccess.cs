@@ -13,24 +13,17 @@ namespace FarmSystem
     class DataAccess
     {
 
-        public List<Employee.Manager> Managers = new List<Employee.Manager>();
-        public List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-        public List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
-        public List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
-
-        public List<Employee.Labourer> returnList(List<Employee.Labourer> passedList)
-        {
-            List<Employee.Labourer> theLabourers = new List<Employee.Labourer>();
-            theLabourers = Labourers;
-            return theLabourers;
-        }
+        public static List<Employee.Manager> Managers = new List<Employee.Manager>();
+        public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
+        public static List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
 
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\418906\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\source\repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -160,6 +153,12 @@ namespace FarmSystem
             return reader;
         }
 
+        public void Delete(int theID)
+        {
+            string query = "DELTE FROM Labourers WHERE LabourerID = " + theID;
+            Select(query, conn);
+        }
+
         public void test(string user, string pass)
         {
             string theUser = user;
@@ -179,6 +178,26 @@ namespace FarmSystem
                 ManagerForm mg = new ManagerForm();
                 mg.Show();
             }
+        }
+
+        public List<Employee.Labourer> returnLabourerList()
+        {
+            return Labourers;
+        }
+
+        public List<Vehicle.Tractor> returnTVehicleList()
+        {
+            return Tractors;
+        }
+
+        public List<Employee.Manager> returnManageList()
+        {
+            return Managers;
+        }
+
+        public List<Vehicle.Cmbhrv> returnCVehicleList()
+        {
+            return Combines;
         }
 
     }

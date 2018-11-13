@@ -60,11 +60,23 @@
     <Compile Include="LabourerForm.Designer.cs">
       <DependentUpon>LabourerForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ManageLabourer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageLabourer.Designer.cs">
+      <DependentUpon>ManageLabourer.cs</DependentUpon>
+    </Compile>
     <Compile Include="ManagerForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="ManagerForm.Designer.cs">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ManageVehicle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageVehicle.Designer.cs">
+      <DependentUpon>ManageVehicle.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -75,8 +87,14 @@
     <EmbeddedResource Include="LabourerForm.resx">
       <DependentUpon>LabourerForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ManageLabourer.resx">
+      <DependentUpon>ManageLabourer.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ManagerForm.resx">
       <DependentUpon>ManagerForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ManageVehicle.resx">
+      <DependentUpon>ManageVehicle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

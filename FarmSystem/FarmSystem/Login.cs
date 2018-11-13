@@ -26,7 +26,7 @@ namespace FarmSystem
         {
             string storedUser = lblUser.Text;
             string storedPass = lblPassword.Text;
-            
+            this.Hide();
 
             DataAccess da = new DataAccess();
 

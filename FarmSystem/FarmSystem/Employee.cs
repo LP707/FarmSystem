@@ -13,9 +13,7 @@ namespace FarmSystem
         private string lName;
         private string role;
         private int ID;
-        private bool isManager;
 
-        public bool testManager { get; set; }
         public int theID { get { return ID; } set { ID = value; } }
         public string FName { get { return fName; } set { fName = value; } }
         public string LName { get { return lName; } set { lName = value; } }

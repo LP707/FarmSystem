@@ -12,6 +12,8 @@ namespace FarmSystem
 {
     public partial class ManagerForm : Form
     {
+        DataAccess da = new DataAccess();
+
         public ManagerForm()
         {
             InitializeComponent();
@@ -35,12 +37,26 @@ namespace FarmSystem
 
         }
 
-        private void btnmnglbr_Click(object sender, EventArgs e)
+        private void btnViewManRoster_Click(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-            DataAccess da = new DataAccess();
-            da.returnList(Labourers);
-            lstManager1.DataSource = Labourers;
+            List<Employee.Manager> Man = new List<Employee.Manager>();
+            Man = da.returnManageList();
+            dataView.DataSource = Man;
+            dataView.Refresh();
+        }
+
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageLabourer ml = new ManageLabourer();
+            ml.Show();
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ManageVehicle ml = new ManageVehicle();
+            ml.Show();
         }
     }
 }
