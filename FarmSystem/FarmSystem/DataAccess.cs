@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data.OleDb;
 using Microsoft.SqlServer.Server;
+using System.Linq;
 
 namespace FarmSystem
 {
@@ -21,8 +22,8 @@ namespace FarmSystem
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;" +
-                @"Data source= C:\Users\def1a\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
+                @"Data source= E:\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -37,7 +38,6 @@ namespace FarmSystem
                         Lb.FName = dr.GetString(1);
                         Lb.LName = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
-                        Lb.testManager = dr.GetBoolean(4);
                     }
                     //adds to the labourer list
                     Labourers.Add(Lb);
@@ -62,7 +62,6 @@ namespace FarmSystem
                     mg.theID = dr1.GetInt32(0);
                     mg.FName = dr1.GetString(1);
                     mg.LName = dr1.GetString(2);
-                    mg.testManager = dr1.GetBoolean(3);
                     //adds to the manager list
                     Managers.Add(mg);
                 }
@@ -154,8 +153,6 @@ namespace FarmSystem
             return reader;
         }
 
-        
-
         public void test(string user, string pass)
         {
             string theUser = user;
@@ -163,25 +160,21 @@ namespace FarmSystem
 
             connectionToDB();
 
-            
-            
-            if (Managers.Any(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)))
-            {
-                ManagerForm mg = new ManagerForm();
-                mg.Show();
-            }
-            else if (Labourers.Any(o => string.Equals(user, null, StringComparison.OrdinalIgnoreCase)))
-            {
-                LabourerForm lb = new LabourerForm();
-                lb.Show();
-            }
-            else
-            {
-                Login lg = new Login();
-                lg.Show();
-            }
-            
 
+            //Employee.Manager foundItem = Managers.FirstOrDefault(i => i.FName == user);
+            //if (foundItem != null)
+            //{
+            //    ManagerForm mg = new ManagerForm();
+            //    mg.Show();
+            //}
+            //else
+            //{
+            //    LabourerForm lb = new LabourerForm();
+            //    lb.Show();
+            //}
         }
+
     }
-}
+
+        
+    }
