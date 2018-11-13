@@ -174,6 +174,7 @@
             this.btnmnglbr.TabIndex = 9;
             this.btnmnglbr.Text = "Manage Labourers";
             this.btnmnglbr.UseVisualStyleBackColor = true;
+            this.btnmnglbr.Click += new System.EventHandler(this.btnmnglbr_Click);
             // 
             // ManagerForm
             // 

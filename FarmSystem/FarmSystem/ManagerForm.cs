@@ -15,9 +15,10 @@ namespace FarmSystem
         public ManagerForm()
         {
             InitializeComponent();
+            
         }
 
-        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+            private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login lg = new Login();
             this.Hide();
@@ -32,6 +33,14 @@ namespace FarmSystem
         private void lstManager1_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnmnglbr_Click(object sender, EventArgs e)
+        {
+            List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+            DataAccess da = new DataAccess();
+            da.returnList(Labourers);
+            lstManager1.DataSource = Labourers;
         }
     }
 }

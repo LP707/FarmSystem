@@ -18,12 +18,19 @@ namespace FarmSystem
         public List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
         public List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
 
+        public List<Employee.Labourer> returnList(List<Employee.Labourer> passedList)
+        {
+            List<Employee.Labourer> theLabourers = new List<Employee.Labourer>();
+            theLabourers = Labourers;
+            return theLabourers;
+        }
+
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= E:\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\418906\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -161,17 +168,17 @@ namespace FarmSystem
             connectionToDB();
 
 
-            //Employee.Manager foundItem = Managers.FirstOrDefault(i => i.FName == user);
-            //if (foundItem != null)
-            //{
-            //    ManagerForm mg = new ManagerForm();
-            //    mg.Show();
-            //}
-            //else
-            //{
-            //    LabourerForm lb = new LabourerForm();
-            //    lb.Show();
-            //}
+            Employee.Manager foundItem = Managers.FirstOrDefault(i => i.FName == user);
+            if (foundItem != null)
+            {
+                ManagerForm mg = new ManagerForm();
+                mg.Show();
+            }
+            else
+            {
+                ManagerForm mg = new ManagerForm();
+                mg.Show();
+            }
         }
 
     }
