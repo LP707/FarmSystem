@@ -46,6 +46,8 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDel = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
+            this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewC)).BeginInit();
@@ -90,6 +92,8 @@
             this.managmentToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.labourersToolStripMenuItem,
             this.vahiclesToolStripMenuItem,
+            this.cropsToolStripMenuItem,
+            this.taskManagerToolStripMenuItem,
             this.homeToolStripMenuItem});
             this.managmentToolStripMenuItem.Name = "managmentToolStripMenuItem";
             this.managmentToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
@@ -98,21 +102,21 @@
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vahiclesToolStripMenuItem
             // 
             this.vahiclesToolStripMenuItem.Name = "vahiclesToolStripMenuItem";
-            this.vahiclesToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.vahiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vahiclesToolStripMenuItem.Text = "Vahicles";
             this.vahiclesToolStripMenuItem.Click += new System.EventHandler(this.vahiclesToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -201,6 +205,18 @@
             this.label3.TabIndex = 21;
             this.label3.Text = "Vehicle Atch.";
             // 
+            // cropsToolStripMenuItem
+            // 
+            this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropsToolStripMenuItem.Text = "Crops";
+            // 
+            // taskManagerToolStripMenuItem
+            // 
+            this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManagerToolStripMenuItem.Text = "Task Manager";
+            // 
             // ManageVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -250,5 +266,7 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnDel;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
     }
 }

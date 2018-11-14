@@ -12,7 +12,12 @@ namespace FarmSystem
 {
     class DataAccess
     {
-
+        //public List<Employee.Manager> Managers { get; set; }
+        //public List<Employee.Labourer> Labourer { get; set; }
+        //public List<Vehicle.Tractor> Tractors { get; set; }
+        //public List<Vehicle.Cmbhrv> Combines { get; set; }
+        //public List<Crops> Crops { get; set; }
+        //public List<Task> Tasks { get; set; }
         public static List<Employee.Manager> Managers = new List<Employee.Manager>();
         public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
         public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
@@ -25,7 +30,7 @@ namespace FarmSystem
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\418906\source\repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\source\repos\FarmSystem3\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -39,8 +44,8 @@ namespace FarmSystem
                         Lb.theID = dr.GetInt32(0);
                         Lb.FName = dr.GetString(1);
                         Lb.LName = dr.GetString(2);
-                        Lb.DOB = dr.GetString(2);
-                        Lb.Phone = dr.GetString(2);
+                        //Lb.DOB = dr.GetString(2);
+                        //Lb.Phone = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
                     }
                     //adds to the labourer list
@@ -277,7 +282,7 @@ namespace FarmSystem
 
         public void addToLCropList(Crops TheCrop)
         {
-            //string query = ""
+            Crops.Add(TheCrop);
         }
 
     }

@@ -87,5 +87,19 @@ namespace FarmSystem
         {
 
         }
+
+        private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCrops mc = new ManageCrops();
+            this.Hide();
+            mc.Show();
+        }
+
+        private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager tm = new TaskManager();
+            this.Hide();
+            this.Show();
+        }
     }
 }
