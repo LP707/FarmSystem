@@ -77,10 +77,15 @@ namespace FarmSystem
         private void dataView_MouseClick(object sender, MouseEventArgs e)
         {
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
-            txtID.Text = lb.theID.ToString();
+            
             txtFirstN.Text = lb.FName;
             txtLastN.Text = lb.LName;
             txtSpec.Text = lb.Role;
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

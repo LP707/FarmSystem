@@ -45,8 +45,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtID = new System.Windows.Forms.TextBox();
-            this.lblID = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
@@ -144,24 +142,25 @@
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // txtFirstN
             // 
-            this.txtFirstN.Location = new System.Drawing.Point(645, 198);
+            this.txtFirstN.Location = new System.Drawing.Point(645, 174);
             this.txtFirstN.Name = "txtFirstN";
             this.txtFirstN.Size = new System.Drawing.Size(100, 20);
             this.txtFirstN.TabIndex = 4;
             // 
             // txtLastN
             // 
-            this.txtLastN.Location = new System.Drawing.Point(645, 224);
+            this.txtLastN.Location = new System.Drawing.Point(645, 200);
             this.txtLastN.Name = "txtLastN";
             this.txtLastN.Size = new System.Drawing.Size(100, 20);
             this.txtLastN.TabIndex = 5;
             // 
             // txtSpec
             // 
-            this.txtSpec.Location = new System.Drawing.Point(645, 250);
+            this.txtSpec.Location = new System.Drawing.Point(645, 226);
             this.txtSpec.Name = "txtSpec";
             this.txtSpec.Size = new System.Drawing.Size(100, 20);
             this.txtSpec.TabIndex = 6;
@@ -169,53 +168,35 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(575, 205);
+            this.label1.Location = new System.Drawing.Point(575, 181);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(57, 13);
+            this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 7;
-            this.label1.Text = "First Name";
+            this.label1.Text = "First Name:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(575, 231);
+            this.label2.Location = new System.Drawing.Point(575, 207);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 8;
-            this.label2.Text = "Last Name";
+            this.label2.Text = "Last Name:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(575, 257);
+            this.label3.Location = new System.Drawing.Point(601, 233);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(52, 13);
+            this.label3.Size = new System.Drawing.Size(34, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "Speciality";
-            // 
-            // txtID
-            // 
-            this.txtID.Location = new System.Drawing.Point(645, 172);
-            this.txtID.Name = "txtID";
-            this.txtID.Size = new System.Drawing.Size(100, 20);
-            this.txtID.TabIndex = 10;
-            // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(575, 179);
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(18, 13);
-            this.lblID.TabIndex = 11;
-            this.lblID.Text = "ID";
+            this.label3.Text = "Task:";
             // 
             // ManageLabourer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.lblID);
-            this.Controls.Add(this.txtID);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -257,7 +238,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtID;
-        private System.Windows.Forms.Label lblID;
     }
 }

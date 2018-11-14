@@ -12,11 +12,15 @@ namespace FarmSystem
         private string fName;
         private string lName;
         private string role;
+        private string dob;
+        private string phone;
         private int ID;
 
         public int theID { get { return ID; } set { ID = value; } }
         public string FName { get { return fName; } set { fName = value; } }
         public string LName { get { return lName; } set { lName = value; } }
+        public string DOB { get { return dob; } set { dob = value; } }
+        public string Phone { get { return phone; } set { phone = value; } }
         public string Role { get { return role; } set { role = value; } }
 
         public class Manager : Employee

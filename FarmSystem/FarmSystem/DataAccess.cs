@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data.OleDb;
 using Microsoft.SqlServer.Server;
-using System.Linq;
+
 
 namespace FarmSystem
 {
@@ -25,7 +25,7 @@ namespace FarmSystem
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\365541\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -39,6 +39,8 @@ namespace FarmSystem
                         Lb.theID = dr.GetInt32(0);
                         Lb.FName = dr.GetString(1);
                         Lb.LName = dr.GetString(2);
+                        Lb.DOB = dr.GetString(2);
+                        Lb.Phone = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
                     }
                     //adds to the labourer list
