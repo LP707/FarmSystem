@@ -25,6 +25,11 @@ namespace FarmSystem
 
         private void ManageCrops_Load(object sender, EventArgs e)
         {
+            refreshForm();
+        }
+
+        public void refreshForm()
+        {
             List<Crops> cr = new List<Crops>();
             cr = da.returnCropList();
             dataView.DataSource = cr;
@@ -37,6 +42,16 @@ namespace FarmSystem
             txtName.Text = lb.cropName;
             txtPrice.Text = lb.cropPrice.ToString();
             txtQuant.Text = lb.Quant.ToString();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            Crops crop = new Crops();
+            crop.cropName = txtName.ToString();
+            crop.cropPrice = int.Parse(txtPrice.Text);
+            crop.Quant = int.Parse(txtQuant.Text);
+            da.addToLCropList(crop);
+            refreshForm();
         }
     }
 }

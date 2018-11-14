@@ -25,7 +25,7 @@ namespace FarmSystem
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\418906\source\repos\FarmSystem2\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -208,6 +208,16 @@ namespace FarmSystem
             return reader;
         }
 
+        public OleDbCommand Add(string query, OleDbConnection connection)
+        {
+            return null;
+        }
+
+        public OleDbCommand Update(string query, OleDbConnection connection)
+        {
+            return null;
+        }
+
         public void Delete(int theID)
         {
             //string query = "DELTE FROM Labourers WHERE LabourerID = " + theID;
@@ -263,6 +273,11 @@ namespace FarmSystem
         public List<Task> returnTaskList()
         {
             return Tasks;
+        }
+
+        public void addToLCropList(Crops TheCrop)
+        {
+            //string query = ""
         }
 
     }
