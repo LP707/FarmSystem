@@ -65,5 +65,25 @@ namespace FarmSystem
             this.Hide();
             mc.Show();
         }
+
+        private void dataView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataView_MouseClick(object sender, MouseEventArgs e)
+        {
+            Employee.Manager lb = (Employee.Manager)dataView.CurrentRow.DataBoundItem;
+            txtID.Text = lb.theID.ToString();
+            txtFirstN.Text = lb.FName;
+            txtLastN.Text = lb.LName;
+        }
+
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager ta = new TaskManager();
+            this.Hide();
+            ta.Show();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace FarmSystem
         public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
         public static List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
         public static List<Crops> Crops = new List<Crops>();
+        public static List<Task> Tasks = new List<Task>();
 
         public void connectionToDB()
         {
@@ -91,6 +92,33 @@ namespace FarmSystem
                     }
                     //adds to the labourer list
                     Crops.Add(cr);
+                }
+                dr.Close();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                conn.Open();
+                OleDbDataReader dr = Select("SELECT * FROM Tasks;", conn);
+                while (dr.Read())
+                {
+                    //set attributes of the labourer subclass
+                    Task ta = new Task();
+                    {
+                        ta.taskiD = dr.GetInt32(0);
+                        ta.employeeID = dr.GetInt32(1);
+                        ta.taskType = dr.GetString(2);
+                        ta.emplyT = dr.GetString(3);
+                        ta.crops = dr.GetInt32(4);
+                        ta.theStart = dr.GetDateTime(5);
+                        ta.theEnd = dr.GetDateTime(6);
+                    }
+                    //adds to the labourer list
+                    Tasks.Add(ta);
                 }
                 dr.Close();
                 conn.Close();
@@ -228,6 +256,11 @@ namespace FarmSystem
         public List<Crops> returnCropList()
         {
             return Crops;
+        }
+
+        public List<Task> returnTaskList()
+        {
+            return Tasks;
         }
 
     }
