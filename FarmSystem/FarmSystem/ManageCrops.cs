@@ -53,5 +53,45 @@ namespace FarmSystem
             da.addToLCropList(crop);
             refreshForm();
         }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login lg = new Login();
+            this.Hide();
+            lg.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageLabourer ml = new ManageLabourer();
+            this.Hide();
+            ml.Show();
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageVehicle ml = new ManageVehicle();
+            this.Hide();
+            ml.Show();
+        }
+
+        private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager tm = new TaskManager();
+            this.Hide();
+            tm.Show();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManagerForm mf = new ManagerForm();
+            this.Hide();
+            mf.Show();
+        }
     }
 }
