@@ -215,8 +215,13 @@ namespace FarmSystem
 
         public OleDbCommand Update(string query, OleDbConnection connection)
         {
+            OleDbDataReader reader = null;
+            OleDbCommand command = new OleDbCommand(query);
+            command.Connection = connection;
+           // reader = command.ExecuteReader();
             return null;
         }
+
 
         public void Delete(int theID)
         {
