@@ -25,12 +25,17 @@ namespace FarmSystem
         public static List<Crops> Crops = new List<Crops>();
         public static List<Task> Tasks = new List<Task>();
 
+        public void returnConString(string theConString)
+        {
+            //theConString = 
+        }
+
         public void connectionToDB()
         {
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\source\repos\FarmSystem3\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -218,20 +223,15 @@ namespace FarmSystem
             return null;
         }
 
-        public OleDbCommand Update(string query, OleDbConnection connection)
+        public OleDbDataReader Update(string query, OleDbConnection connection)
         {
+            connection.Open();
             OleDbDataReader reader = null;
             OleDbCommand command = new OleDbCommand(query);
             command.Connection = connection;
-           // reader = command.ExecuteReader();
-            return null;
-        }
-
-
-        public void Delete(int theID)
-        {
-            //string query = "DELTE FROM Labourers WHERE LabourerID = " + theID;
-            //Select(query, conn);
+            reader = command.ExecuteReader();
+            connection.Close();
+            return reader;
         }
 
         public void test(string user, string pass)

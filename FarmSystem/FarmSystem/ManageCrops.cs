@@ -46,12 +46,7 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            Crops crop = new Crops();
-            crop.cropName = txtName.ToString();
-            crop.cropPrice = int.Parse(txtPrice.Text);
-            crop.Quant = int.Parse(txtQuant.Text);
-            da.addToLCropList(crop);
-            refreshForm();
+            
         }
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -92,6 +87,11 @@ namespace FarmSystem
             ManagerForm mf = new ManagerForm();
             this.Hide();
             mf.Show();
+        }
+
+        private void btnUpd_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

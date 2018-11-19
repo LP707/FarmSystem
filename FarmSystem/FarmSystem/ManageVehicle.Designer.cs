@@ -35,6 +35,8 @@
             this.managmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labourersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vahiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataViewT = new System.Windows.Forms.DataGridView();
             this.dataViewC = new System.Windows.Forms.DataGridView();
@@ -44,10 +46,8 @@
             this.txtAtch = new System.Windows.Forms.TextBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDel = new System.Windows.Forms.Button();
+            this.btnUpd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataViewC)).BeginInit();
@@ -102,21 +102,33 @@
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vahiclesToolStripMenuItem
             // 
             this.vahiclesToolStripMenuItem.Name = "vahiclesToolStripMenuItem";
-            this.vahiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vahiclesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.vahiclesToolStripMenuItem.Text = "Vahicles";
             this.vahiclesToolStripMenuItem.Click += new System.EventHandler(this.vahiclesToolStripMenuItem_Click);
+            // 
+            // cropsToolStripMenuItem
+            // 
+            this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.cropsToolStripMenuItem.Text = "Crops";
+            // 
+            // taskManagerToolStripMenuItem
+            // 
+            this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.taskManagerToolStripMenuItem.Text = "Task Manager";
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -186,15 +198,17 @@
             this.btnAdd.TabIndex = 13;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnDel
+            // btnUpd
             // 
-            this.btnDel.Location = new System.Drawing.Point(721, 415);
-            this.btnDel.Name = "btnDel";
-            this.btnDel.Size = new System.Drawing.Size(75, 23);
-            this.btnDel.TabIndex = 12;
-            this.btnDel.Text = "Delete";
-            this.btnDel.UseVisualStyleBackColor = true;
+            this.btnUpd.Location = new System.Drawing.Point(721, 415);
+            this.btnUpd.Name = "btnUpd";
+            this.btnUpd.Size = new System.Drawing.Size(75, 23);
+            this.btnUpd.TabIndex = 12;
+            this.btnUpd.Text = "Update";
+            this.btnUpd.UseVisualStyleBackColor = true;
+            this.btnUpd.Click += new System.EventHandler(this.btnUpd_Click);
             // 
             // label3
             // 
@@ -204,18 +218,6 @@
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 21;
             this.label3.Text = "Vehicle Atch.";
-            // 
-            // cropsToolStripMenuItem
-            // 
-            this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
-            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.cropsToolStripMenuItem.Text = "Crops";
-            // 
-            // taskManagerToolStripMenuItem
-            // 
-            this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.taskManagerToolStripMenuItem.Text = "Task Manager";
             // 
             // ManageVehicle
             // 
@@ -229,7 +231,7 @@
             this.Controls.Add(this.txtAtch);
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnDel);
+            this.Controls.Add(this.btnUpd);
             this.Controls.Add(this.dataViewC);
             this.Controls.Add(this.dataViewT);
             this.Controls.Add(this.menuStrip1);
@@ -264,7 +266,7 @@
         private System.Windows.Forms.TextBox txtAtch;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Button btnDel;
+        private System.Windows.Forms.Button btnUpd;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;

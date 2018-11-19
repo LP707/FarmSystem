@@ -87,5 +87,15 @@ namespace FarmSystem
             txtAtch.Text = cm.type;
 
         }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnUpd_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

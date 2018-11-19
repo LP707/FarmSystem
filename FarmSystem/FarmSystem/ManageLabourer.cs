@@ -85,12 +85,14 @@ namespace FarmSystem
         private void btnDel_Click(object sender, EventArgs e)
         {
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
+                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
             rl = txtSpec.Text;
             id = lb.theID;
-            string query = "UPDATE labourers SET FirstName = " + fn + ", LastName = " + ln + ", Task = " + rl + ", WHERE LabourerID = " + id;
+            string query = "UPDATE Labourers SET FirstName = " + fn + ", LastName = " + ln + ", Task = " + rl + ", WHERE LabourerID = '" + id + "';";
              
             da.Update(query, con);
             
@@ -101,6 +103,8 @@ namespace FarmSystem
         private void btnAdd_Click(object sender, EventArgs e)
         {
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
+                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
@@ -109,7 +113,7 @@ namespace FarmSystem
             string query = "INSERT INTO labourers (FirstName, LastName, Task) VALUES (@FirstName = " + fn + ", @LastName = " + ln + ", @Task = " + rl + " )";
 
             da.Update(query, con);
-
+            da.connectionToDB();
             dataView.Refresh();
         }
 
