@@ -78,7 +78,6 @@ namespace FarmSystem
             txtFirstN.Text = lb.FName;
             txtLastN.Text = lb.LName;
             txtSpec.Text = lb.Role;
-
             
         }
 
@@ -92,10 +91,10 @@ namespace FarmSystem
             ln = txtLastN.Text;
             rl = txtSpec.Text;
             id = lb.theID;
-            string query = "UPDATE Labourers SET FirstName = " + fn + ", LastName = " + ln + ", Task = " + rl + ", WHERE LabourerID = '" + id + "';";
-             
-            da.Update(query, con);
-            
+            string query = "UPDATE Labourers SET FirstName = '"+fn+ "', LastName = '" + ln + "', Task = '" + rl + "' WHERE LabourerID = " + id + ";";
+
+            da.ExecuteNonQuery(query, con);
+            da.connectionToDB();
             dataView.Refresh();
         }
 
@@ -105,14 +104,12 @@ namespace FarmSystem
             System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
             con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
                 @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-            Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
             rl = txtSpec.Text;
-            id = lb.theID;
-            string query = "INSERT INTO labourers (FirstName, LastName, Task) VALUES (@FirstName = " + fn + ", @LastName = " + ln + ", @Task = " + rl + " )";
+            string query = "INSERT INTO Labourers (LabourerID, FirstName, LastName, Task) VALUES ('"+fn+"', '"+ln+"', '"+rl+"');";
 
-            da.Update(query, con);
+            da.ExecuteNonQuery(query, con);
             da.connectionToDB();
             dataView.Refresh();
         }

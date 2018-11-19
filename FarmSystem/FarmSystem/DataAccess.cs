@@ -218,20 +218,23 @@ namespace FarmSystem
             return reader;
         }
 
-        public OleDbCommand Add(string query, OleDbConnection connection)
+        public void ExecuteNonQuery(string sql, OleDbConnection conn)
         {
-            return null;
-        }
-
-        public OleDbDataReader Update(string query, OleDbConnection connection)
-        {
-            connection.Open();
-            OleDbDataReader reader = null;
-            OleDbCommand command = new OleDbCommand(query);
-            command.Connection = connection;
-            reader = command.ExecuteReader();
-            connection.Close();
-            return reader;
+            try
+            {
+                conn.Open();
+                OleDbCommand cmd =
+                    new OleDbCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
+            }
+            finally
+            {
+                if (conn != null) conn.Close();
+            }
         }
 
         public void test(string user, string pass)
