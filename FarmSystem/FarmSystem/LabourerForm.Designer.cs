@@ -54,7 +54,7 @@
             this.queryToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(557, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(554, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -94,14 +94,14 @@
             // viewTimetableToolStripMenuItem
             // 
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
-            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
             this.viewTimetableToolStripMenuItem.Click += new System.EventHandler(this.viewTimetableToolStripMenuItem_Click);
             // 
             // viewChecklistToolStripMenuItem
             // 
             this.viewChecklistToolStripMenuItem.Name = "viewChecklistToolStripMenuItem";
-            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.viewChecklistToolStripMenuItem.Text = "View Checklist";
             // 
             // dataView
@@ -116,7 +116,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(557, 450);
+            this.ClientSize = new System.Drawing.Size(554, 450);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;

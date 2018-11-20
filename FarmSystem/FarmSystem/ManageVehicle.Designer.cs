@@ -38,8 +38,7 @@
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataViewT = new System.Windows.Forms.DataGridView();
-            this.dataViewC = new System.Windows.Forms.DataGridView();
+            this.dataView = new System.Windows.Forms.DataGridView();
             this.txtReg = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -49,8 +48,7 @@
             this.btnUpd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewC)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -116,14 +114,14 @@
             // cropsToolStripMenuItem
             // 
             this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
-            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.cropsToolStripMenuItem.Text = "Crops";
             this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
             // 
             // taskManagerToolStripMenuItem
             // 
             this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
@@ -134,24 +132,15 @@
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
-            // dataViewT
+            // dataView
             // 
-            this.dataViewT.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewT.Location = new System.Drawing.Point(12, 59);
-            this.dataViewT.Name = "dataViewT";
-            this.dataViewT.Size = new System.Drawing.Size(338, 379);
-            this.dataViewT.TabIndex = 2;
-            this.dataViewT.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataViewT_CellMouseClick);
-            this.dataViewT.Click += new System.EventHandler(this.dataViewT_Click);
-            // 
-            // dataViewC
-            // 
-            this.dataViewC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewC.Location = new System.Drawing.Point(356, 59);
-            this.dataViewC.Name = "dataViewC";
-            this.dataViewC.Size = new System.Drawing.Size(338, 379);
-            this.dataViewC.TabIndex = 3;
-            this.dataViewC.Click += new System.EventHandler(this.dataViewC_Click);
+            this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataView.Location = new System.Drawing.Point(12, 59);
+            this.dataView.Name = "dataView";
+            this.dataView.Size = new System.Drawing.Size(673, 379);
+            this.dataView.TabIndex = 2;
+            this.dataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataViewT_CellMouseClick);
+            this.dataView.Click += new System.EventHandler(this.dataViewT_Click);
             // 
             // txtReg
             // 
@@ -234,8 +223,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpd);
-            this.Controls.Add(this.dataViewC);
-            this.Controls.Add(this.dataViewT);
+            this.Controls.Add(this.dataView);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManageVehicle";
@@ -244,8 +232,7 @@
             this.Load += new System.EventHandler(this.ManageVehicle_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewC)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -261,8 +248,7 @@
         private System.Windows.Forms.ToolStripMenuItem labourersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vahiclesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
-        private System.Windows.Forms.DataGridView dataViewT;
-        private System.Windows.Forms.DataGridView dataViewC;
+        private System.Windows.Forms.DataGridView dataView;
         private System.Windows.Forms.TextBox txtReg;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;

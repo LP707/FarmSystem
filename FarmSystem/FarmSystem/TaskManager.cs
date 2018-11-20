@@ -66,7 +66,7 @@ namespace FarmSystem
         {
             List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
-            List<Vehicle.Tractor> Veh = da.returnTVehicleList();
+            List<Vehicle> Veh = da.returnVehicleList();
             dataView.DataSource = Task;
             dataView.Refresh();
             cmbType.DataSource = ta.returnList();
@@ -110,7 +110,7 @@ namespace FarmSystem
         {
             List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
-            List<Vehicle.Tractor> Veh = da.returnTVehicleList();
+            List<Vehicle> Veh = da.returnVehicleList();
             dataView.DataSource = Task;
             dataView.Refresh();
             cmbType.DataSource = ta.returnList();

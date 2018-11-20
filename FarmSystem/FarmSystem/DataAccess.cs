@@ -20,8 +20,7 @@ namespace FarmSystem
         //public List<Task> Tasks { get; set; }
         public static List<Employee.Manager> Managers = new List<Employee.Manager>();
         public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-        public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
-        public static List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
+        public static List<Vehicle> Vehicles = new List<Vehicle>();
         public static List<Crops> Crops = new List<Crops>();
         public static List<Task> Tasks = new List<Task>();
 
@@ -35,7 +34,7 @@ namespace FarmSystem
             System.Data.OleDb.OleDbConnection conn = new
             System.Data.OleDb.OleDbConnection();
             conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= F:\BSc Year 2\Software Eng\FarmSystem\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+                @"Data source= C:\Users\398019\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
 
             try
             {
@@ -158,7 +157,7 @@ namespace FarmSystem
                     tr.type = dr.GetString(2);
                     tr.reg = dr.GetString(3);
                     //adds to the tractor list
-                    Tractors.Add(tr);
+                    Vehicles.Add(tr);
                 }
                 //close Data Reader
                 dr.Close();
@@ -184,7 +183,7 @@ namespace FarmSystem
                     cm.type = dr.GetString(2);
                     cm.reg = dr.GetString(3);
                     //adds to the combine list
-                    Combines.Add(cm);
+                    Vehicles.Add(cm);
                 }
                 //close Data Reader
                 dr.Close();
@@ -267,19 +266,14 @@ namespace FarmSystem
             return Labourers;
         }
 
-        public List<Vehicle.Tractor> returnTVehicleList()
+        public List<Vehicle> returnVehicleList()
         {
-            return Tractors;
+            return Vehicles;
         }
 
         public List<Employee.Manager> returnManageList()
         {
             return Managers;
-        }
-
-        public List<Vehicle.Cmbhrv> returnCVehicleList()
-        {
-            return Combines;
         }
 
         public List<Crops> returnCropList()
