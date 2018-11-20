@@ -227,6 +227,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManageLabourer";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageLabourer";
             this.Load += new System.EventHandler(this.ManageLabourer_Load);
             this.Click += new System.EventHandler(this.ManageLabourer_Click);

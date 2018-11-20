@@ -122,12 +122,16 @@ namespace FarmSystem
                     Task ta = new Task();
                     {
                         ta.taskiD = dr.GetInt32(0);
-                        ta.employeeID = dr.GetInt32(1);
-                        ta.taskType = dr.GetString(2);
-                        ta.emplyT = dr.GetString(3);
-                        ta.crops = dr.GetInt32(4);
-                        ta.theStart = dr.GetDateTime(5);
-                        ta.theEnd = dr.GetDateTime(6);
+                        ta.taskType = dr.GetString(1);
+                        ta.employeeID = dr.GetInt32(2);
+                        ta.lbFirstN = dr.GetString(3);
+                        ta.lbLastN = dr.GetString(4);
+                        ta.crops = dr.GetInt32(5);
+                        ta.VehOnTask = dr.GetString(6);
+                        ta.attach = dr.GetString(7);
+                        ta.vehID = dr.GetInt32(8);
+                        ta.theStart = dr.GetDateTime(9);
+                        ta.theEnd = dr.GetDateTime(10);
                     }
                     //adds to the labourer list
                     Tasks.Add(ta);

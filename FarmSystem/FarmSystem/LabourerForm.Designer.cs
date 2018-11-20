@@ -94,14 +94,14 @@
             // viewTimetableToolStripMenuItem
             // 
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
-            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
             this.viewTimetableToolStripMenuItem.Click += new System.EventHandler(this.viewTimetableToolStripMenuItem_Click);
             // 
             // viewChecklistToolStripMenuItem
             // 
             this.viewChecklistToolStripMenuItem.Name = "viewChecklistToolStripMenuItem";
-            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.viewChecklistToolStripMenuItem.Text = "View Checklist";
             // 
             // dataView
@@ -121,6 +121,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "LabourerForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LabourerForm";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
