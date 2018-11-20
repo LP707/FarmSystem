@@ -44,9 +44,14 @@
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbType = new System.Windows.Forms.ComboBox();
-            this.cmnEmployee = new System.Windows.Forms.ComboBox();
+            this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.cmbSD = new System.Windows.Forms.ComboBox();
             this.cmbED = new System.Windows.Forms.ComboBox();
+            this.cmbVeh = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.cmbVehA = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnUpd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +59,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(810, 418);
+            this.lblID.Location = new System.Drawing.Point(950, 449);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(58, 13);
             this.lblID.TabIndex = 23;
@@ -63,7 +68,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(810, 496);
+            this.label3.Location = new System.Drawing.Point(950, 580);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 21;
@@ -72,7 +77,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(810, 470);
+            this.label2.Location = new System.Drawing.Point(950, 554);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 20;
@@ -81,7 +86,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(810, 444);
+            this.label1.Location = new System.Drawing.Point(950, 472);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 19;
@@ -89,7 +94,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(809, 547);
+            this.btnAdd.Location = new System.Drawing.Point(953, 613);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 15;
@@ -102,8 +107,9 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(12, 65);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(774, 505);
+            this.dataView.Size = new System.Drawing.Size(847, 589);
             this.dataView.TabIndex = 13;
+            this.dataView.Click += new System.EventHandler(this.dataView_Click);
             // 
             // menuStrip1
             // 
@@ -112,7 +118,7 @@
             this.managementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1058, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1173, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -181,24 +187,24 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(896, 410);
+            this.cmbType.Location = new System.Drawing.Point(1036, 441);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 21);
             this.cmbType.TabIndex = 24;
             this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
-            // cmnEmployee
+            // cmbEmployee
             // 
-            this.cmnEmployee.FormattingEnabled = true;
-            this.cmnEmployee.Location = new System.Drawing.Point(896, 440);
-            this.cmnEmployee.Name = "cmnEmployee";
-            this.cmnEmployee.Size = new System.Drawing.Size(121, 21);
-            this.cmnEmployee.TabIndex = 25;
+            this.cmbEmployee.FormattingEnabled = true;
+            this.cmbEmployee.Location = new System.Drawing.Point(1036, 468);
+            this.cmbEmployee.Name = "cmbEmployee";
+            this.cmbEmployee.Size = new System.Drawing.Size(121, 21);
+            this.cmbEmployee.TabIndex = 25;
             // 
             // cmbSD
             // 
             this.cmbSD.FormattingEnabled = true;
-            this.cmbSD.Location = new System.Drawing.Point(896, 467);
+            this.cmbSD.Location = new System.Drawing.Point(1036, 551);
             this.cmbSD.Name = "cmbSD";
             this.cmbSD.Size = new System.Drawing.Size(121, 21);
             this.cmbSD.TabIndex = 26;
@@ -206,19 +212,67 @@
             // cmbED
             // 
             this.cmbED.FormattingEnabled = true;
-            this.cmbED.Location = new System.Drawing.Point(896, 493);
+            this.cmbED.Location = new System.Drawing.Point(1036, 577);
             this.cmbED.Name = "cmbED";
             this.cmbED.Size = new System.Drawing.Size(121, 21);
             this.cmbED.TabIndex = 27;
+            // 
+            // cmbVeh
+            // 
+            this.cmbVeh.FormattingEnabled = true;
+            this.cmbVeh.Location = new System.Drawing.Point(1036, 495);
+            this.cmbVeh.Name = "cmbVeh";
+            this.cmbVeh.Size = new System.Drawing.Size(121, 21);
+            this.cmbVeh.TabIndex = 29;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(950, 499);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(42, 13);
+            this.label4.TabIndex = 28;
+            this.label4.Text = "Vehicle";
+            // 
+            // cmbVehA
+            // 
+            this.cmbVehA.FormattingEnabled = true;
+            this.cmbVehA.Location = new System.Drawing.Point(1036, 524);
+            this.cmbVehA.Name = "cmbVehA";
+            this.cmbVehA.Size = new System.Drawing.Size(121, 21);
+            this.cmbVehA.TabIndex = 31;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(950, 528);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(61, 13);
+            this.label5.TabIndex = 30;
+            this.label5.Text = "Vehicle Att.";
+            // 
+            // btnUpd
+            // 
+            this.btnUpd.Location = new System.Drawing.Point(865, 613);
+            this.btnUpd.Name = "btnUpd";
+            this.btnUpd.Size = new System.Drawing.Size(75, 23);
+            this.btnUpd.TabIndex = 32;
+            this.btnUpd.Text = "Update";
+            this.btnUpd.UseVisualStyleBackColor = true;
             // 
             // TaskManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 619);
+            this.ClientSize = new System.Drawing.Size(1173, 666);
+            this.Controls.Add(this.btnUpd);
+            this.Controls.Add(this.cmbVehA);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.cmbVeh);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.cmbED);
             this.Controls.Add(this.cmbSD);
-            this.Controls.Add(this.cmnEmployee);
+            this.Controls.Add(this.cmbEmployee);
             this.Controls.Add(this.cmbType);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.label3);
@@ -256,8 +310,13 @@
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ComboBox cmbType;
-        private System.Windows.Forms.ComboBox cmnEmployee;
+        private System.Windows.Forms.ComboBox cmbEmployee;
         private System.Windows.Forms.ComboBox cmbSD;
         private System.Windows.Forms.ComboBox cmbED;
+        private System.Windows.Forms.ComboBox cmbVeh;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox cmbVehA;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button btnUpd;
     }
 }

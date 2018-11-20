@@ -14,6 +14,7 @@ namespace FarmSystem
     {
         DataAccess da = new DataAccess();
         Task ta = new Task();
+        Employee.Labourer lb = new Employee.Labourer();
 
         public TaskManager()
         {
@@ -62,11 +63,14 @@ namespace FarmSystem
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
-            List<Task> Task = new List<Task>();
-            Task = da.returnTaskList();
+            List<Employee.Labourer> Labourers = da.returnLabourerList();
+            List<Task> Task = da.returnTaskList();
+            List<Vehicle.Tractor> Veh = da.returnTVehicleList();
             dataView.DataSource = Task;
             dataView.Refresh();
             cmbType.DataSource = ta.returnList();
+            cmbEmployee.DataSource = Labourers;
+            cmbEmployee.DisplayMember = "DName";
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -77,6 +81,11 @@ namespace FarmSystem
         private void btnAdd_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void dataView_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

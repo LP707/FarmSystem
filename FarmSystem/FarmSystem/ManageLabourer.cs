@@ -127,5 +127,10 @@ namespace FarmSystem
             this.Hide();
             this.Show();
         }
+
+        private void ManageLabourer_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

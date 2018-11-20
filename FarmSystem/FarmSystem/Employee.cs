@@ -9,6 +9,7 @@ namespace FarmSystem
 {
     public class Employee
     {
+        private string displayName;
         private string fName;
         private string lName;
         private string role;
@@ -22,7 +23,8 @@ namespace FarmSystem
         public string DOB { get { return dob; } set { dob = value; } }
         public string Phone { get { return phone; } set { phone = value; } }
         public string Role { get { return role; } set { role = value; } }
-
+        public string DName { get { return fName + LName; } set { displayName = value; } }
+        //public string toString
         public class Manager : Employee
         {
 
