@@ -125,5 +125,35 @@ namespace FarmSystem
         {
 
         }
+
+        private void btnUpd_Click(object sender, EventArgs e)
+        {
+            //NEEDS TO BE EDITED TO WORK FOR UPDATE
+            //
+            //
+            //
+            //
+            //string name, taskType, employeeN, VehicleN, VehicleA;
+            //int TaskID, EmID, VhID;
+            //DateTime start, end;
+
+            //System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            //con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
+            //    @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+            //name = cmbType.ToString();
+            //TaskID = 2;
+            //employeeN = cmbEmployee.ToString();
+            //VehicleN = cmbVeh.ToString();
+            //VehicleA = cmbVehA.ToString();
+            //EmID = 2;
+            //VhID = 2;
+            //start = startDate.Value;
+            //end = endDate.Value;
+            //string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+
+            //da.ExecuteNonQuery(query, con);
+            //da.connectionToDB();
+            //dataView.Refresh();
+        }
     }
 }
