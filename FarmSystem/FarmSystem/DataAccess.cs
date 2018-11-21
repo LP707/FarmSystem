@@ -12,6 +12,7 @@ namespace FarmSystem
 {
     class DataAccess
     {
+        DbConection db = DBCheck.instance();
         //public List<Employee.Manager> Managers { get; set; }
         //public List<Employee.Labourer> Labourer { get; set; }
         //public List<Vehicle.Tractor> Tractors { get; set; }
@@ -27,6 +28,19 @@ namespace FarmSystem
         public void returnConString(string theConString)
         {
             //theConString = 
+        }
+
+        static private DataAccess m_instance = null;
+
+        private DataAccess() { }
+
+        static public DataAccess instance()
+        {
+            if (null == m_instance)
+            {
+                m_instance = new DataAccess();
+            }
+            return m_instance;
         }
 
         public void connectionToDB()

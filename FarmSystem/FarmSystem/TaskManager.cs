@@ -12,7 +12,7 @@ namespace FarmSystem
 {
     public partial class TaskManager : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
         Task ta = new Task();
         Employee.Labourer lb = new Employee.Labourer();
         Vehicle.Tractor tr = new Vehicle.Tractor();
