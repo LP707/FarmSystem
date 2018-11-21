@@ -56,6 +56,7 @@ namespace FarmSystem
                         //Lb.DOB = dr.GetString(2);
                         //Lb.Phone = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
+                        Lb.Pass = dr.GetString(4);
                     }
                     //adds to the labourer list
                     Labourers.Add(Lb);
@@ -223,17 +224,26 @@ namespace FarmSystem
 
             connectionToDB();
 
-
-            Employee.Manager foundItem = Managers.FirstOrDefault(i => i.FName == user);
-            if (foundItem != null)
+            Employee.Labourer tlb = new Employee.Labourer();
+            Employee.Manager tmg = new Employee.Manager();
+            var newLList = Labourers.Select(Labourers.Where(lb => lb.FName == user && lb.Pass == pass).ToList()).ToList();
+            var newMist = Managers.Select(Managers.Where(mg => mg.FName == user && mg.Pass == pass).ToList()).ToList();
+            int listLCount, listMCount;
+            listLCount = newLList.count();
+            listMCount = newMist.count();
+            if (listMCount <= 1)
             {
-                ManagerForm mg = new ManagerForm();
-                mg.Show();
+                ManagerForm tmf = new ManagerForm();
+                tmf.Show();
+            }
+            else if (listLCount <=1)
+            {
+                LabourerForm tlf = new LabourerForm();
+                tlf.Show();
             }
             else
             {
-                ManagerForm mg = new ManagerForm();
-                mg.Show();
+                
             }
         }
 
