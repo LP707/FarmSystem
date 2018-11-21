@@ -20,6 +20,7 @@ namespace FarmSystem
         private DBCheck()
         {
             m_properties = new Dictionary<string, string>();
+            //m_properties = new Dictionary<string, string> { get; { return propfile; }
         }
 
         public static DbConection instance()
@@ -37,6 +38,7 @@ namespace FarmSystem
             DbConection connection = null;
             try
             {
+                m_properties = getProperties();
                 string provider = m_properties["Provider"];
                 if (provider.Equals("Microsoft.ACE.OLEDB.16.0"))
                     connection = new DBConn(m_properties);
@@ -87,7 +89,7 @@ namespace FarmSystem
 
         bool CloseConnection();
 
-        DbDataReader Select(String query);
+        OleDbDataReader Select(String query);
 
         DataSet getDataSet(string sqlStatement);
 

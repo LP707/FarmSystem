@@ -14,13 +14,13 @@ namespace FarmSystem
         private Dictionary<string, string> m_properties;
         private OleDbConnection connection;
         private bool open;
-        public OleDbConnection(Dictionary<string, string> properties)
+
+        public DBConn(Dictionary<string, string> properties)
         {
             m_properties = properties;
             open = false;
             initialize();
         }
-
 
         private void initialize()
         {
@@ -78,9 +78,9 @@ namespace FarmSystem
             return true;
         }
 
-        public DbDataReader Select(string query)
+        public OleDbDataReader Select(string query)
         {
-            DbDataReader reader = null;
+            OleDbDataReader reader = null;
             try
             {
                 OleDbCommand command = new OleDbCommand(query);

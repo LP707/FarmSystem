@@ -12,6 +12,7 @@ namespace FarmSystem
 {
     public partial class TaskManager : Form
     {
+        DbConection con = DBCheck.instance();
         DataAccess da = DataAccess.instance();
         Task ta = new Task();
         Employee.Labourer lb = new Employee.Labourer();
@@ -87,9 +88,6 @@ namespace FarmSystem
             int TaskID, EmID, VhID;
             DateTime start, end;
 
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             name = cmbType.ToString();
             TaskID = 2;
             employeeN = cmbEmployee.ToString();

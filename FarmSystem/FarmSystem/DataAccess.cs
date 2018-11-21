@@ -13,17 +13,13 @@ namespace FarmSystem
     class DataAccess
     {
         DbConection db = DBCheck.instance();
-        //public List<Employee.Manager> Managers { get; set; }
-        //public List<Employee.Labourer> Labourer { get; set; }
-        //public List<Vehicle.Tractor> Tractors { get; set; }
-        //public List<Vehicle.Cmbhrv> Combines { get; set; }
-        //public List<Crops> Crops { get; set; }
-        //public List<Task> Tasks { get; set; }
-        public static List<Employee.Manager> Managers = new List<Employee.Manager>();
-        public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-        public static List<Vehicle> Vehicles = new List<Vehicle>();
-        public static List<Crops> Crops = new List<Crops>();
-        public static List<Task> Tasks = new List<Task>();
+        List<Employee.Manager> Managers = new List<Employee.Manager>();
+        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        List<Vehicle> Vehicles = new List<Vehicle>();
+        List<Crops> Crops = new List<Crops>();
+        List<Task> Tasks = new List<Task>();
+
+        DbConection conn = DBCheck.instance();
 
         public void returnConString(string theConString)
         {
@@ -45,15 +41,10 @@ namespace FarmSystem
 
         public void connectionToDB()
         {
-            System.Data.OleDb.OleDbConnection conn = new
-            System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\source\repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
+            conn.OpenConnection();
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Labourers;", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Labourers;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -70,7 +61,6 @@ namespace FarmSystem
                     Labourers.Add(Lb);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -79,8 +69,7 @@ namespace FarmSystem
             try
             {
                 //set query string to be used in Select method
-                conn.Open();
-                OleDbDataReader dr1 = Select("SELECT * FROM Managers;", conn);
+                OleDbDataReader dr1 = conn.Select("SELECT * FROM Managers;");
                
                 while (dr1.Read())
                 {
@@ -94,8 +83,6 @@ namespace FarmSystem
                 }
             //close Data Reader
             dr1.Close();
-            conn.Close();
-            //conn.Close();
             }
             catch (Exception ex)
             {
@@ -103,8 +90,7 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Crops;", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Crops;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -119,7 +105,6 @@ namespace FarmSystem
                     Crops.Add(cr);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -127,8 +112,7 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Tasks;", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Tasks;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -150,7 +134,6 @@ namespace FarmSystem
                     Tasks.Add(ta);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -158,9 +141,8 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';");
 
                 while (dr.Read())
                 {
@@ -175,8 +157,6 @@ namespace FarmSystem
                 }
                 //close Data Reader
                 dr.Close();
-                conn.Close();
-                //conn.Close();
             }
             catch (Exception ex)
             {
@@ -184,9 +164,8 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Combine';", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Vehicles WHERE VehicleType = 'Combine';");
 
                 while (dr.Read())
                 {
@@ -209,7 +188,7 @@ namespace FarmSystem
             }
             finally
             {
-                conn.Close();
+                conn.CloseConnection();
             }
         }
 
@@ -218,30 +197,13 @@ namespace FarmSystem
 
         }
 
-        public OleDbDataReader Select(string query, OleDbConnection connection)
-        {
-            OleDbDataReader reader = null;
-            try
-            {
-             
-                OleDbCommand command = new OleDbCommand(query);
-                command.Connection = connection;
-                reader = command.ExecuteReader();
-            }
-            catch (Exception e)
-            {
-                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
-            }
-            return reader;
-        }
-
-        public void ExecuteNonQuery(string sql, OleDbConnection conn)
+        public void ExecuteNonQuery(string sql, DbConection connection)
         {
             try
             {
-                conn.Open();
+                connection.OpenConnection();
                 OleDbCommand cmd =
-                    new OleDbCommand(sql, conn);
+                    new OleDbCommand(sql);
                 cmd.ExecuteNonQuery();
             }
             catch (Exception e)
@@ -250,7 +212,7 @@ namespace FarmSystem
             }
             finally
             {
-                if (conn != null) conn.Close();
+                connection.CloseConnection();
             }
         }
 

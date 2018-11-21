@@ -28,7 +28,7 @@ namespace FarmSystem
             string storedPass = lblPassword.Text;
             this.Hide();
 
-            DataAccess da = new DataAccess();
+            DataAccess da = DataAccess.instance();
 
             da.test(storedUser, storedPass);
         }

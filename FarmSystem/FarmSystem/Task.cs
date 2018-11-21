@@ -51,9 +51,9 @@ namespace FarmSystem
             {
             List<Employee.Labourer> newLab = new List<Employee.Labourer>();
             Employee.Labourer lb = new Employee.Labourer();
-            DataAccess da = new DataAccess();
-            
-            }
+            DataAccess da = DataAccess.instance();
+
+        }
 
             public class Sewing : Task
             {

@@ -12,7 +12,8 @@ namespace FarmSystem
 {
     public partial class ManageCrops : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
+        DbConection con = DBCheck.instance();
         string cName;
         int price;
         int qty;
@@ -89,10 +90,6 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);
@@ -107,10 +104,6 @@ namespace FarmSystem
 
         private void btnUpd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);

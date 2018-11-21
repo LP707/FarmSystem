@@ -8,7 +8,7 @@ namespace FarmSystem
 {
     class Audit
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
 
         public int TaskID { get; set; }
         public string TaskName { get; set; }

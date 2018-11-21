@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.OleDb;
 
 namespace FarmSystem
 {
     public partial class ManageVehicle : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
+        DbConection con = DBCheck.instance();
         string vType;
         string vAtt;
         string vReg;
@@ -89,9 +91,6 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source=E:\SWENG\Programming\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             vReg = txtReg.Text;
             vType = txtName.Text;
             vAtt = txtAtch.Text;
@@ -105,9 +104,6 @@ namespace FarmSystem
 
         private void btnUpd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= E:\SWENG\Programming\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             Vehicle vehi = (Vehicle)dataView.CurrentRow.DataBoundItem;
             vType = txtName.Text;
             vReg = txtReg.Text;

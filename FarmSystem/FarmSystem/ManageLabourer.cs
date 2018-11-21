@@ -14,7 +14,8 @@ namespace FarmSystem
 
     public partial class ManageLabourer : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
+        DbConection con = DBCheck.instance();
         string fn;
         string ln;
         string rl;
@@ -83,9 +84,6 @@ namespace FarmSystem
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
@@ -101,9 +99,6 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
             rl = txtSpec.Text;
