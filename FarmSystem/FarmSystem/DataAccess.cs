@@ -129,8 +129,8 @@ namespace FarmSystem
                         ta.VehOnTask = dr.GetString(6);
                         ta.attach = dr.GetString(7);
                         ta.vehID = dr.GetInt32(8);
-                        ta.theStart = dr.GetDateTime(9);
-                        ta.theEnd = dr.GetDateTime(10);
+                        ta.theStart = dr.GetString(9);
+                        ta.theEnd = dr.GetString(10);
                     }
                     //adds to the labourer list
                     Tasks.Add(ta);

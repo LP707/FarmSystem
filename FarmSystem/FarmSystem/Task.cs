@@ -16,7 +16,7 @@ namespace FarmSystem
             private string fName, lName, vOJ, atch;
             private int vID;
             private int cropQuant;
-            private DateTime startTime, endTime;
+            private string startTime, endTime;
 
             public static List<string> taskTypes = new List<string>();
 
@@ -31,8 +31,8 @@ namespace FarmSystem
             public string VehOnTask { get { return vOJ; } set { vOJ = value; } }
             public string attach { get { return atch; } set { atch = value; } }
             public int vehID { get { return vID; } set { vID = value; } }
-            public DateTime theStart { get { return startTime; } set { startTime = value; } }
-                public DateTime theEnd { get { return endTime; } set { endTime = value; } }
+            public string theStart { get { return startTime; } set { startTime = value; } }
+                public string theEnd { get { return endTime; } set { endTime = value; } }
 
             public void popList()
             {

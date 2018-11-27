@@ -76,6 +76,8 @@ namespace FarmSystem
 
         public void refreshData()
         {
+            Man = da.returnLabourerList();
+            dataView.DataSource = Man;
             this.Refresh();
         }
 

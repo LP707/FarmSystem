@@ -84,20 +84,22 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            List<Task> Task = da.returnTaskList();
+
             string name, taskType, employeeN, VehicleN, VehicleA;
             int TaskID, EmID, VhID;
-            DateTime start, end;
+            string start, end;
 
-            name = cmbType.ToString();
-            TaskID = 2;
-            employeeN = cmbEmployee.ToString();
-            VehicleN = cmbVeh.ToString();
-            VehicleA = cmbVehA.ToString();
+            name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
+            TaskID = Task.Count + 1;
+            employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
+            VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
+            VehicleA = this.cmbVehA.GetItemText(this.cmbVehA.SelectedItem);
             EmID = 2;
             VhID = 2;
-            start = startDate.Value;
-            end = endDate.Value;
-            string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+            start = startDate.Value.ToString("MM/dd/yyyy");
+            end = endDate.Value.ToString("MM/dd/yyyy");
+            string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "','" + name + "', '" + EmID + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
@@ -126,32 +128,26 @@ namespace FarmSystem
 
         private void btnUpd_Click(object sender, EventArgs e)
         {
-            //NEEDS TO BE EDITED TO WORK FOR UPDATE
-            //
-            //
-            //
-            //
-            //string name, taskType, employeeN, VehicleN, VehicleA;
-            //int TaskID, EmID, VhID;
-            //DateTime start, end;
+            List<Task> Task = da.returnTaskList();
 
-            //System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            //con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-            //    @"Data source= C:\Users\398019\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-            //name = cmbType.ToString();
-            //TaskID = 2;
-            //employeeN = cmbEmployee.ToString();
-            //VehicleN = cmbVeh.ToString();
-            //VehicleA = cmbVehA.ToString();
-            //EmID = 2;
-            //VhID = 2;
-            //start = startDate.Value;
-            //end = endDate.Value;
-            //string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+            string name, taskType, employeeN, VehicleN, VehicleA;
+            int TaskID, EmID, VhID;
+            string start, end;
 
-            //da.ExecuteNonQuery(query, con);
-            //da.connectionToDB();
-            //dataView.Refresh();
+            name = this.cmbVT.GetItemText(this.cmbVT.SelectedItem);
+            TaskID = Task.Count + 1;
+            employeeN = this.cmbVE.GetItemText(this.cmbVE.SelectedItem);
+            VehicleN = this.cmbVV.GetItemText(this.cmbVV.SelectedItem);
+            VehicleA = this.cmbVVA.GetItemText(this.cmbVVA.SelectedItem);
+            EmID = 2;
+            VhID = 2;
+            start = startV.Value.ToString("MM/dd/yyyy");
+            end = endV.Value.ToString("MM/dd/yyyy");
+            string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+            dataView.Refresh();
         }
     }
 }
