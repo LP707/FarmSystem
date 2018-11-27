@@ -13,6 +13,8 @@ namespace FarmSystem
             private string tType;
             private string employeeT;
             private string desc;
+            private string fName, lName, vOJ, atch;
+            private int vID;
             private int cropQuant;
             private DateTime startTime, endTime;
 
@@ -24,8 +26,13 @@ namespace FarmSystem
             public string emplyT { get { return employeeT; } set { employeeT = value; } }
             public int crops { get { return cropQuant; } set { cropQuant = value; } }
             public string Desc { get { return desc; } set { desc = value; } }
+            public string lbFirstN { get { return fName; } set { fName = value; } }
+            public string lbLastN { get { return lName; } set { lName = value; } }
+            public string VehOnTask { get { return vOJ; } set { vOJ = value; } }
+            public string attach { get { return atch; } set { atch = value; } }
+            public int vehID { get { return vID; } set { vID = value; } }
             public DateTime theStart { get { return startTime; } set { startTime = value; } }
-            public DateTime theEnd { get { return endTime; } set { endTime = value; } }
+                public DateTime theEnd { get { return endTime; } set { endTime = value; } }
 
             public void popList()
             {
@@ -44,9 +51,9 @@ namespace FarmSystem
             {
             List<Employee.Labourer> newLab = new List<Employee.Labourer>();
             Employee.Labourer lb = new Employee.Labourer();
-            DataAccess da = new DataAccess();
-            
-            }
+            DataAccess da = DataAccess.instance();
+
+        }
 
             public class Sewing : Task
             {

@@ -12,7 +12,7 @@ namespace FarmSystem
 {
     public partial class ManagerForm : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
 
         public ManagerForm()
         {

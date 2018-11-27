@@ -217,6 +217,7 @@
             this.Controls.Add(this.btnUpd);
             this.Controls.Add(this.dataView);
             this.Name = "ManageCrops";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ManageCrops";
             this.Load += new System.EventHandler(this.ManageCrops_Load);
             this.Click += new System.EventHandler(this.ManageCrops_Click);

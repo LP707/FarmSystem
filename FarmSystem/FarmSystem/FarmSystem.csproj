@@ -45,8 +45,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Audit.cs" />
     <Compile Include="Crops.cs" />
     <Compile Include="DataAccess.cs" />
+    <Compile Include="DBCheck.cs" />
+    <Compile Include="DBConn.cs" />
     <Compile Include="DBException.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>

@@ -8,6 +8,7 @@ namespace FarmSystem
 {
     public class Vehicle
     {
+        private string displayName;
         //public string WHeels { get; set; }
         public int theID { get; set; }
         //private string wHeels;
@@ -17,8 +18,10 @@ namespace FarmSystem
         public string name { get; set; }
         public string type { get; set; }
 
+
         //public string driver { get { return dRiver; } }
         //public string atach { get { return aTach; } }
+        public string DName { get { return name + " " + reg; } set { displayName = value; } }
 
         public class Tractor : Vehicle
         {
