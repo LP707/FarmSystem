@@ -87,7 +87,7 @@ namespace FarmSystem
             List<Task> Task = da.returnTaskList();
 
             string name, employeeN, VehicleN, VehicleA;
-            int TaskID, EmID, VhID;
+            int TaskID;
             string start, end;
 
             name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
@@ -95,15 +95,28 @@ namespace FarmSystem
             employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
             VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
             VehicleA = this.cmbVehA.GetItemText(this.cmbVehA.SelectedItem);
-            EmID = 2;
-            VhID = 2;
             start = startDate.Value.ToString("MM/dd/yyyy");
             end = endDate.Value.ToString("MM/dd/yyyy");
-            string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "','" + name + "', '" + EmID + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " +
+                "('" + TaskID + "','" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
+            RefreshMeth();
+        }
+
+        public void RefreshMeth()
+        {
+            List<Employee.Labourer> Labourers = da.returnLabourerList();
+            List<Task> Task = da.returnTaskList();
+            List<Vehicle> Veh = da.returnVehicleList();
+            dataView.DataSource = Task;
             dataView.Refresh();
+            cmbType.DataSource = ta.returnList();
+            cmbEmployee.DataSource = Labourers;
+            cmbEmployee.DisplayMember = "DName";
+            cmbVeh.DataSource = Veh;
+            cmbVeh.DisplayMember = "DName";
         }
 
         private void dataView_Click(object sender, EventArgs e)

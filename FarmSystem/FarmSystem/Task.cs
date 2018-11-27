@@ -13,7 +13,7 @@ namespace FarmSystem
             private string tType;
             private string employeeT;
             private string desc;
-            private string fName, lName, vOJ, atch;
+            private string TName, vOJ, atch;
             private int vID;
             private int cropQuant;
             private string startTime, endTime;
@@ -21,16 +21,17 @@ namespace FarmSystem
             public static List<string> taskTypes = new List<string>();
 
             public int taskiD { get { return taskID; } set { taskID = value; } }
-            public int employeeID { get { return taskID; } set { taskID = value; } }
+            //public int employeeID { get { return taskID; } set { taskID = value; } }
             public string taskType { get { return tType; } set { tType = value; } }
-            public string emplyT { get { return employeeT; } set { employeeT = value; } }
-            public int crops { get { return cropQuant; } set { cropQuant = value; } }
-            public string Desc { get { return desc; } set { desc = value; } }
-            public string lbFirstN { get { return fName; } set { fName = value; } }
-            public string lbLastN { get { return lName; } set { lName = value; } }
+            //public string emplyT { get { return employeeT; } set { employeeT = value; } }
+            //public int crops { get { return cropQuant; } set { cropQuant = value; } }
+            //public string Desc { get { return desc; } set { desc = value; } }
+            //public string lbFirstN { get { return fName; } set { fName = value; } }
+            //public string lbLastN { get { return lName; } set { lName = value; } }
+            public string name { get { return TName; } set { TName = value; } }
             public string VehOnTask { get { return vOJ; } set { vOJ = value; } }
             public string attach { get { return atch; } set { atch = value; } }
-            public int vehID { get { return vID; } set { vID = value; } }
+            //public int vehID { get { return vID; } set { vID = value; } }
             public string theStart { get { return startTime; } set { startTime = value; } }
                 public string theEnd { get { return endTime; } set { endTime = value; } }
 
