@@ -86,7 +86,7 @@ namespace FarmSystem
         {
             List<Task> Task = da.returnTaskList();
 
-            string name, taskType, employeeN, VehicleN, VehicleA;
+            string name, employeeN, VehicleN, VehicleA;
             int TaskID, EmID, VhID;
             string start, end;
 
