@@ -13,7 +13,10 @@ namespace FarmSystem
     public partial class ManageVehicle : Form
     {
         DataAccess da = new DataAccess();
-
+        string vType;
+        string vAtt;
+        string vReg;
+        int id;
         public ManageVehicle()
         {
             InitializeComponent();
@@ -72,11 +75,11 @@ namespace FarmSystem
         private void dataViewT_Click(object sender, EventArgs e)
         {
             Vehicle.Tractor tr = (Vehicle.Tractor)dataViewT.CurrentRow.DataBoundItem;
-            
+
             txtReg.Text = tr.theID.ToString();
             txtName.Text = tr.name;
             txtAtch.Text = tr.type;
-            
+
         }
 
         private void dataViewC_Click(object sender, EventArgs e)
@@ -95,7 +98,20 @@ namespace FarmSystem
 
         private void btnUpd_Click(object sender, EventArgs e)
         {
+            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
+            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
+                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
+           
+            Vehicle.Tractor trac = (Vehicle.Tractor)dataViewT.CurrentRow.DataBoundItem;
+            vType = txtName.Text;
+            vReg = txtReg.Text;
+            vAtt = txtAtch.Text;
+            id = trac.theID;
+            string query = "UPDATE Vehicles SET VehicleType = '" + vType + "', VehicleAttachments = '" + vAtt + "', VehicleRegistration = '" + vReg + "' WHERE VehicleID = " + id + ";";
 
+            da.ExecuteNonQuery(query, con);
+            da.connectionToDB();
+            dataViewT.Refresh();
         }
     }
 }

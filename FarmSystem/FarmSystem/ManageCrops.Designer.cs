@@ -117,6 +117,7 @@
             this.dataView.Name = "dataView";
             this.dataView.Size = new System.Drawing.Size(528, 379);
             this.dataView.TabIndex = 12;
+            this.dataView.Click += new System.EventHandler(this.dataView_Click);
             // 
             // label3
             // 
