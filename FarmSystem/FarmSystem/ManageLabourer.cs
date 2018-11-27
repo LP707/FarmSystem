@@ -76,9 +76,10 @@ namespace FarmSystem
 
         public void refreshData()
         {
+            dataView.DataSource = null;
             Man = da.returnLabourerList();
             dataView.DataSource = Man;
-            this.Refresh();
+            dataView.Refresh();
         }
 
         private void dataView_MouseClick(object sender, MouseEventArgs e)

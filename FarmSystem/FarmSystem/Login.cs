@@ -39,7 +39,7 @@ namespace FarmSystem
 
             this.Hide();
             da.test(storedUser, storedPass);
-        }
+         }
 
         private void label1_Click(object sender, EventArgs e)
         {

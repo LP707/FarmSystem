@@ -217,31 +217,41 @@ namespace FarmSystem
         {
             string theUser = user;
             string thePass = pass;
-
+            Login lg = new Login();
             connectionToDB();
-
-            var list = new List<Employee.Labourer>();
-            list = Labourers;
-            var Mlist = new List<Employee.Manager>();
-            Mlist = Managers;
-
-            if (list.Any(x => x.Forename == user) && (list.Any(x => x.Pass == pass)))
+           
+            if (theUser == "" || thePass == "")
             {
-                LabourerForm lb = new LabourerForm();
-                lb.Show();
-            }
-            else if (Mlist.Any(x => x.Forename == user) && (Mlist.Any(x => x.Pass == pass)))
-            {
-                ManagerForm mg = new ManagerForm();
-                mg.Show();
+                lg.throwUnknownUser();
             }
             else
             {
-                ManagerForm mg = new ManagerForm();
-                mg.Show();
-                //Login lg = new Login();
-                //lg.throwUnknownUser();
+                foreach (var staff in Labourers.Where(x => x.Forename == theUser))
+                {
+                    if (staff.Pass == thePass)
+                    {
+                        LabourerForm lb = new LabourerForm();
+                        lb.Show();
+                    }
+                    else
+                    {
+                        lg.throwUnknownUser();
+                    }
+                }
+                foreach (var mStaff in Managers.Where(x => x.Forename == theUser))
+                {
+                    if (mStaff.Pass == thePass)
+                    {
+                        ManagerForm mg = new ManagerForm();
+                        mg.Show();
+                    }
+                    else
+                    {
+                        lg.throwUnknownUser();
+                    }
+                }
             }
+            
         }
 
         public List<Employee.Labourer> returnLabourerList()
