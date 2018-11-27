@@ -17,6 +17,14 @@ namespace FarmSystem
             InitializeComponent();
         }
 
+        public void throwUnknownUser()
+        {
+            txtUser.Clear();
+            txtPass.Clear();
+            MessageBox.Show("Invalid Login");
+            this.Show();
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -24,12 +32,12 @@ namespace FarmSystem
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string storedUser = lblUser.Text;
-            string storedPass = lblPassword.Text;
-            this.Hide();
+            string storedUser = txtUser.Text;
+            string storedPass = txtPass.Text;
 
             DataAccess da = DataAccess.instance();
 
+            this.Hide();
             da.test(storedUser, storedPass);
         }
 

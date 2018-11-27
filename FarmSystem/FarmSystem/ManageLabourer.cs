@@ -20,6 +20,9 @@ namespace FarmSystem
         string ln;
         string rl;
         int id;
+
+        List<Employee.Labourer> Man = new List<Employee.Labourer>();
+
         public ManageLabourer()
         {
             InitializeComponent();
@@ -27,7 +30,6 @@ namespace FarmSystem
 
         private void ManageLabourer_Load(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Man = new List<Employee.Labourer>();
             Man = da.returnLabourerList();
             dataView.DataSource = Man;
             dataView.Refresh();
@@ -72,12 +74,17 @@ namespace FarmSystem
 
         }
 
+        public void refreshData()
+        {
+            this.Refresh();
+        }
+
         private void dataView_MouseClick(object sender, MouseEventArgs e)
         {
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             
-            txtFirstN.Text = lb.FName;
-            txtLastN.Text = lb.LName;
+            txtFirstN.Text = lb.Forename;
+            txtLastN.Text = lb.Surname;
             txtSpec.Text = lb.Role;
             
         }
@@ -88,12 +95,11 @@ namespace FarmSystem
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
             rl = txtSpec.Text;
-            id = lb.theID;
+            id = lb.ID;
             string query = "UPDATE Labourers SET FirstName = '"+fn+ "', LastName = '" + ln + "', Task = '" + rl + "' WHERE LabourerID = " + id + ";";
-
-            da.ExecuteNonQuery(query, con);
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataView.Refresh();
+            refreshData();
         }
 
 
@@ -102,11 +108,12 @@ namespace FarmSystem
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
             rl = txtSpec.Text;
-            string query = "INSERT INTO Labourers (LabourerID, FirstName, LastName, Task) VALUES ('"+fn+"', '"+ln+"', '"+rl+"');";
-
-            da.ExecuteNonQuery(query, con);
+            int i = Man.Count + 1;
+            string p = "password1";
+            string query = "INSERT INTO Labourers (LabourerID, FirstName, LastName, Task, Password1) VALUES ('"+i+"', '"+fn+"', '"+ln+"', '"+rl+ "', '" + p + "');";
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataView.Refresh();
+            refreshData();
         }
 
         private void cropsToolStripMenuItem_Click(object sender, EventArgs e)

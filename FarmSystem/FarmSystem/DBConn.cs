@@ -12,7 +12,7 @@ namespace FarmSystem
     class DBConn : DbConection
     {
         private Dictionary<string, string> m_properties;
-        private OleDbConnection connection;
+        public OleDbConnection connection;
         private bool open;
 
         public DBConn(Dictionary<string, string> properties)
@@ -94,7 +94,27 @@ namespace FarmSystem
             return reader;
         }
 
-        public DataSet getDataSet(string sqlStatement)
+        public void ExecuteNonQuery(string sql)
+        {
+            try
+            {
+                OpenConnection();
+                OleDbCommand cmd =
+                    new OleDbCommand(sql);
+                cmd.Connection = (OleDbConnection)connection;
+                cmd.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
+
+            public DataSet getDataSet(string sqlStatement)
         {
 
             DataSet dataSet;

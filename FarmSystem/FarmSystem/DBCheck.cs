@@ -89,6 +89,8 @@ namespace FarmSystem
 
         bool CloseConnection();
 
+        void ExecuteNonQuery(string query);
+
         OleDbDataReader Select(String query);
 
         DataSet getDataSet(string sqlStatement);

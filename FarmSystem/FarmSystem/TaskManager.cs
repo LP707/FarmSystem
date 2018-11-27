@@ -99,7 +99,7 @@ namespace FarmSystem
             end = endDate.Value;
             string query = "INSERT INTO Tasks (TaskID, TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
 
-            da.ExecuteNonQuery(query, con);
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
             dataView.Refresh();
         }

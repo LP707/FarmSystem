@@ -12,52 +12,56 @@ namespace FarmSystem
 {
     class DataAccess
     {
-        //public List<Employee.Manager> Managers { get; set; }
-        //public List<Employee.Labourer> Labourer { get; set; }
-        //public List<Vehicle.Tractor> Tractors { get; set; }
-        //public List<Vehicle.Cmbhrv> Combines { get; set; }
-        //public List<Crops> Crops { get; set; }
-        //public List<Task> Tasks { get; set; }
-        public static List<Employee.Manager> Managers = new List<Employee.Manager>();
-        public static List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
-        public static List<Vehicle.Tractor> Tractors = new List<Vehicle.Tractor>();
-        public static List<Vehicle.Cmbhrv> Combines = new List<Vehicle.Cmbhrv>();
-        public static List<Crops> Crops = new List<Crops>();
-        public static List<Task> Tasks = new List<Task>();
+        DbConection db = DBCheck.instance();
+        List<Employee.Manager> Managers = new List<Employee.Manager>();
+        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        List<Vehicle> Vehicles = new List<Vehicle>();
+        List<Crops> Crops = new List<Crops>();
+        List<Task> Tasks = new List<Task>();
+
+        DbConection conn = DBCheck.instance();
 
         public void returnConString(string theConString)
         {
             //theConString = 
         }
 
+        static private DataAccess m_instance = null;
+
+        private DataAccess() { }
+
+        static public DataAccess instance()
+        {
+            if (null == m_instance)
+            {
+                m_instance = new DataAccess();
+            }
+            return m_instance;
+        }
+
         public void connectionToDB()
         {
-            System.Data.OleDb.OleDbConnection conn = new
-            System.Data.OleDb.OleDbConnection();
-            conn.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
+            conn.OpenConnection();
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Labourers;", conn);
+                OleDbDataReader dr = conn.Select("SELECT LabourerID, FirstName, LastName, Task, Password1 FROM Labourers;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
                     Employee.Labourer Lb = new Employee.Labourer();
                     {
-                        Lb.theID = dr.GetInt32(0);
-                        Lb.FName = dr.GetString(1);
-                        Lb.LName = dr.GetString(2);
+                        Lb.ID = dr.GetInt32(0);
+                        Lb.Forename = dr.GetString(1);
+                        Lb.Surname = dr.GetString(2);
                         //Lb.DOB = dr.GetString(2);
                         //Lb.Phone = dr.GetString(2);
                         Lb.Role = dr.GetString(3);
+                        Lb.Pass = dr.GetString(4);
                     }
                     //adds to the labourer list
                     Labourers.Add(Lb);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -66,23 +70,21 @@ namespace FarmSystem
             try
             {
                 //set query string to be used in Select method
-                conn.Open();
-                OleDbDataReader dr1 = Select("SELECT * FROM Managers;", conn);
+                OleDbDataReader dr1 = conn.Select("SELECT * FROM Managers;");
                
                 while (dr1.Read())
                 {
                     //set attributes of the manager subclass
                     Employee.Manager mg = new Employee.Manager();
-                    mg.theID = dr1.GetInt32(0);
-                    mg.FName = dr1.GetString(1);
-                    mg.LName = dr1.GetString(2);
+                    mg.ID = dr1.GetInt32(0);
+                    mg.Forename = dr1.GetString(1);
+                    mg.Surname = dr1.GetString(2);
                     //adds to the manager list
+                    mg.Pass = dr1.GetString(3);
                     Managers.Add(mg);
                 }
             //close Data Reader
             dr1.Close();
-            conn.Close();
-            //conn.Close();
             }
             catch (Exception ex)
             {
@@ -90,8 +92,7 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Crops;", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Crops;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -106,7 +107,6 @@ namespace FarmSystem
                     Crops.Add(cr);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -114,26 +114,28 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
-                OleDbDataReader dr = Select("SELECT * FROM Tasks;", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Tasks;");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
                     Task ta = new Task();
                     {
                         ta.taskiD = dr.GetInt32(0);
-                        ta.employeeID = dr.GetInt32(1);
-                        ta.taskType = dr.GetString(2);
-                        ta.emplyT = dr.GetString(3);
-                        ta.crops = dr.GetInt32(4);
-                        ta.theStart = dr.GetDateTime(5);
-                        ta.theEnd = dr.GetDateTime(6);
+                        ta.taskType = dr.GetString(1);
+                        ta.employeeID = dr.GetInt32(2);
+                        ta.lbFirstN = dr.GetString(3);
+                        ta.lbLastN = dr.GetString(4);
+                        ta.crops = dr.GetInt32(5);
+                        ta.VehOnTask = dr.GetString(6);
+                        ta.attach = dr.GetString(7);
+                        ta.vehID = dr.GetInt32(8);
+                        ta.theStart = dr.GetDateTime(9);
+                        ta.theEnd = dr.GetDateTime(10);
                     }
                     //adds to the labourer list
                     Tasks.Add(ta);
                 }
                 dr.Close();
-                conn.Close();
             }
             catch (Exception ex)
             {
@@ -141,9 +143,8 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Vehicles WHERE VehicleType = 'Tractor';");
 
                 while (dr.Read())
                 {
@@ -154,12 +155,10 @@ namespace FarmSystem
                     tr.type = dr.GetString(2);
                     tr.reg = dr.GetString(3);
                     //adds to the tractor list
-                    Tractors.Add(tr);
+                    Vehicles.Add(tr);
                 }
                 //close Data Reader
                 dr.Close();
-                conn.Close();
-                //conn.Close();
             }
             catch (Exception ex)
             {
@@ -167,9 +166,8 @@ namespace FarmSystem
             }
             try
             {
-                conn.Open();
                 //set query string to be used in Select method
-                OleDbDataReader dr = Select("SELECT * FROM Vehicles WHERE VehicleType = 'Combine';", conn);
+                OleDbDataReader dr = conn.Select("SELECT * FROM Vehicles WHERE VehicleType = 'Combine';");
 
                 while (dr.Read())
                 {
@@ -180,7 +178,7 @@ namespace FarmSystem
                     cm.type = dr.GetString(2);
                     cm.reg = dr.GetString(3);
                     //adds to the combine list
-                    Combines.Add(cm);
+                    Vehicles.Add(cm);
                 }
                 //close Data Reader
                 dr.Close();
@@ -192,7 +190,7 @@ namespace FarmSystem
             }
             finally
             {
-                conn.Close();
+                conn.CloseConnection();
             }
         }
 
@@ -201,41 +199,23 @@ namespace FarmSystem
 
         }
 
-        public OleDbDataReader Select(string query, OleDbConnection connection)
-        {
-            OleDbDataReader reader = null;
-            try
-            {
-             
-                OleDbCommand command = new OleDbCommand(query);
-                command.Connection = connection;
-                reader = command.ExecuteReader();
-            }
-            catch (Exception e)
-            {
-                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
-            }
-            return reader;
-        }
-
-        public void ExecuteNonQuery(string sql, OleDbConnection conn)
-        {
-            try
-            {
-                conn.Open();
-                OleDbCommand cmd =
-                    new OleDbCommand(sql, conn);
-                cmd.ExecuteNonQuery();
-            }
-            catch (Exception e)
-            {
-                throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
-            }
-            finally
-            {
-                if (conn != null) conn.Close();
-            }
-        }
+        //public void ExecuteNonQuery(string sql)
+        //{
+        //    try
+        //    {
+        //        OleDbCommand cmd =
+        //            new OleDbCommand(sql);
+        //        cmd.ExecuteNonQuery();
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw new DBException("DBException - OleDatabaseConnection::RunQuery()\n" + e.Message);
+        //    }
+        //    finally
+        //    {
+        //        conn.CloseConnection();
+        //    }
+        //}
 
         public void test(string user, string pass)
         {
@@ -244,9 +224,17 @@ namespace FarmSystem
 
             connectionToDB();
 
+            var list = new List<Employee.Labourer>();
+            list = Labourers;
+            var Mlist = new List<Employee.Manager>();
+            Mlist = Managers;
 
-            Employee.Manager foundItem = Managers.FirstOrDefault(i => i.FName == user);
-            if (foundItem != null)
+            if (list.Any(x => x.Forename == user) && (list.Any(x => x.Pass == pass)))
+            {
+                LabourerForm lb = new LabourerForm();
+                lb.Show();
+            }
+            else if (Mlist.Any(x => x.Forename == user) && (Mlist.Any(x => x.Pass == pass)))
             {
                 ManagerForm mg = new ManagerForm();
                 mg.Show();
@@ -255,6 +243,8 @@ namespace FarmSystem
             {
                 ManagerForm mg = new ManagerForm();
                 mg.Show();
+                //Login lg = new Login();
+                //lg.throwUnknownUser();
             }
         }
 
@@ -263,19 +253,14 @@ namespace FarmSystem
             return Labourers;
         }
 
-        public List<Vehicle.Tractor> returnTVehicleList()
+        public List<Vehicle> returnVehicleList()
         {
-            return Tractors;
+            return Vehicles;
         }
 
         public List<Employee.Manager> returnManageList()
         {
             return Managers;
-        }
-
-        public List<Vehicle.Cmbhrv> returnCVehicleList()
-        {
-            return Combines;
         }
 
         public List<Crops> returnCropList()

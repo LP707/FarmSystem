@@ -16,16 +16,16 @@ namespace FarmSystem
         private string dob;
         private string phone;
         private string password;
-        private int ID;
+        private int theID;
 
-        public int theID { get { return ID; } set { ID = value; } }
-        public string FName { get { return fName; } set { fName = value; } }
-        public string LName { get { return lName; } set { lName = value; } }
-        public string DOB { get { return dob; } set { dob = value; } }
-        public string Phone { get { return phone; } set { phone = value; } }
+        public int ID { get { return theID; } set { theID = value; } }
+        public string Forename { get { return fName; } set { fName = value; } }
+        public string Surname { get { return lName; } set { lName = value; } }
+        //public string DOB { get { return dob; } set { dob = value; } }
+        //public string Phone { get { return phone; } set { phone = value; } }
         public string Role { get { return role; } set { role = value; } }
         public string Pass { get { return password; } set { password = value; } }
-        public string DName { get { return fName + LName; } set { displayName = value; } }
+        public string DName { get { return fName + " " + lName; } set { displayName = value; } }
         //public string toString
         public class Manager : Employee
         {

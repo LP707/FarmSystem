@@ -74,9 +74,9 @@ namespace FarmSystem
         private void dataView_MouseClick(object sender, MouseEventArgs e)
         {
             Employee.Manager lb = (Employee.Manager)dataView.CurrentRow.DataBoundItem;
-            txtID.Text = lb.theID.ToString();
-            txtFirstN.Text = lb.FName;
-            txtLastN.Text = lb.LName;
+            txtID.Text = lb.ID.ToString();
+            txtFirstN.Text = lb.Forename;
+            txtLastN.Text = lb.Surname;
         }
 
         private void containersToolStripMenuItem_Click(object sender, EventArgs e)

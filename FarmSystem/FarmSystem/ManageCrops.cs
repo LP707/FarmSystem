@@ -12,7 +12,8 @@ namespace FarmSystem
 {
     public partial class ManageCrops : Form
     {
-        DataAccess da = new DataAccess();
+        DataAccess da = DataAccess.instance();
+        DbConection con = DBCheck.instance();
         string cName;
         int price;
         int qty;
@@ -42,10 +43,10 @@ namespace FarmSystem
 
         private void ManageCrops_Click(object sender, EventArgs e)
         {
-            
+
         }
 
-        
+
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -89,10 +90,6 @@ namespace FarmSystem
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);
@@ -100,17 +97,13 @@ namespace FarmSystem
             id = crop.theID;
             string query = "INSERT INTO Crops (CropName, Price, Quantity) VALUES ('" + cName + "', " + price + ", " + qty + ");";
 
-            da.ExecuteNonQuery(query, con);
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
             dataView.Refresh();
         }
 
         private void btnUpd_Click(object sender, EventArgs e)
         {
-            System.Data.OleDb.OleDbConnection con = new System.Data.OleDb.OleDbConnection();
-            con.ConnectionString = @"Provider=Microsoft.ACE.OLEDB.16.0;" +
-                @"Data source= C:\Users\365541\Source\Repos\FarmSystem\FarmSystem\FarmSystem\bin\Debug\FarmDB.accdb";
-
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);
@@ -118,7 +111,7 @@ namespace FarmSystem
             id = crop.theID;
             string query = "UPDATE Crops SET CropName = '" + cName + "', Price = '" + price + "', Quantity = '" + qty + "' WHERE CropID = " + id + ";";
 
-            da.ExecuteNonQuery(query, con);
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
             dataView.Refresh();
         }
