@@ -65,16 +65,7 @@ namespace FarmSystem
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Labourers = da.returnLabourerList();
-            List<Task> Task = da.returnTaskList();
-            List<Vehicle> Veh = da.returnVehicleList();
-            dataView.DataSource = Task;
-            dataView.Refresh();
-            cmbType.DataSource = ta.returnList();
-            cmbEmployee.DataSource = Labourers;
-            cmbEmployee.DisplayMember = "DName";
-            cmbVeh.DataSource = Veh;
-            cmbVeh.DisplayMember = "DName";
+            RefreshMeth();
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -106,7 +97,6 @@ namespace FarmSystem
 
         public void RefreshMeth()
         {
-            dataView.DataSource = null;
             List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
