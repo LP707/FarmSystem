@@ -47,14 +47,14 @@ namespace FarmSystem
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             ManageLabourer ml = new ManageLabourer();
             ml.Show();
         }
 
         private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
             ManageVehicle ml = new ManageVehicle();
             ml.Show();
         }
@@ -62,7 +62,7 @@ namespace FarmSystem
         private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCrops mc = new ManageCrops();
-            this.Close();
+            this.Hide();
             mc.Show();
         }
 
@@ -82,7 +82,7 @@ namespace FarmSystem
         private void containersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TaskManager ta = new TaskManager();
-            this.Close();
+            this.Hide();
             ta.Show();
         }
 

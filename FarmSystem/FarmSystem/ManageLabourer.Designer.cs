@@ -143,7 +143,7 @@
             this.dataView.Name = "dataView";
             this.dataView.Size = new System.Drawing.Size(833, 452);
             this.dataView.TabIndex = 1;
-            this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
+            //this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
             this.dataView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataView_MouseClick);
             // 
             // btnDel
@@ -246,7 +246,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageLabourer_FormClosing);
             this.Load += new System.EventHandler(this.ManageLabourer_Load);
-            this.Click += new System.EventHandler(this.ManageLabourer_Click);
+            //this.Click += new System.EventHandler(this.ManageLabourer_Click);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
