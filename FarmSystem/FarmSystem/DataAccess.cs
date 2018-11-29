@@ -44,7 +44,7 @@ namespace FarmSystem
             conn.OpenConnection();
             try
             {
-                OleDbDataReader dr = conn.Select("SELECT LabourerID, FirstName, LastName, Task, Password1 FROM Labourers;");
+                OleDbDataReader dr = conn.Select("SELECT EmployeesID, FirstName, LastName, Task, Password1 FROM Employees WHERE Status='Labourer';");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -70,7 +70,7 @@ namespace FarmSystem
             try
             {
                 //set query string to be used in Select method
-                OleDbDataReader dr1 = conn.Select("SELECT * FROM Managers;");
+                OleDbDataReader dr1 = conn.Select("SELECT EmployeesID, FirstName, LastName, Password1 FROM Employees WHERE Status = 'Manager'");
                
                 while (dr1.Read())
                 {
@@ -226,7 +226,7 @@ namespace FarmSystem
             }
             else
             {
-                foreach (var staff in Labourers.Where(x => x.Forename == theUser))
+                foreach (var staff in Labourers.Where(x => x.ID.ToString() == theUser))
                 {
                     if (staff.Pass == thePass)
                     {
@@ -238,7 +238,7 @@ namespace FarmSystem
                         lg.throwUnknownUser();
                     }
                 }
-                foreach (var mStaff in Managers.Where(x => x.Forename == theUser))
+                foreach (var mStaff in Managers.Where(x => x.ID.ToString() == theUser))
                 {
                     if (mStaff.Pass == thePass)
                     {
