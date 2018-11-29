@@ -88,7 +88,7 @@ namespace FarmSystem
             
             txtFirstN.Text = lb.Forename;
             txtLastN.Text = lb.Surname;
-            txtSpec.Text = lb.Role;
+            txtSpec.Text = lb.Pos;
             
         }
 

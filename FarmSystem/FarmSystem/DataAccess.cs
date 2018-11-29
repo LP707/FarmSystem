@@ -44,7 +44,7 @@ namespace FarmSystem
             conn.OpenConnection();
             try
             {
-                OleDbDataReader dr = conn.Select("SELECT EmployeesID, FirstName, LastName, Task, Password1 FROM Employees WHERE Status='Labourer';");
+                OleDbDataReader dr = conn.Select("SELECT * FROM Employees WHERE Status='Labourer';");
                 while (dr.Read())
                 {
                     //set attributes of the labourer subclass
@@ -53,10 +53,10 @@ namespace FarmSystem
                         Lb.ID = dr.GetInt32(0);
                         Lb.Forename = dr.GetString(1);
                         Lb.Surname = dr.GetString(2);
-                        //Lb.DOB = dr.GetString(2);
-                        //Lb.Phone = dr.GetString(2);
-                        Lb.Role = dr.GetString(3);
-                        Lb.Pass = dr.GetString(4);
+                        Lb.DOB = dr.GetString(3);
+                        Lb.Phone = dr.GetString(4);
+                        Lb.Pass = dr.GetString(5);
+                        Lb.Pos = dr.GetString(6);
                     }
                     //adds to the labourer list
                     Labourers.Add(Lb);
@@ -70,17 +70,21 @@ namespace FarmSystem
             try
             {
                 //set query string to be used in Select method
-                OleDbDataReader dr1 = conn.Select("SELECT EmployeesID, FirstName, LastName, Password1 FROM Employees WHERE Status = 'Manager'");
+                OleDbDataReader dr1 = conn.Select("SELECT * FROM Employees WHERE Status = 'Manager'");
                
                 while (dr1.Read())
                 {
                     //set attributes of the manager subclass
                     Employee.Manager mg = new Employee.Manager();
-                    mg.ID = dr1.GetInt32(0);
-                    mg.Forename = dr1.GetString(1);
-                    mg.Surname = dr1.GetString(2);
-                    //adds to the manager list
-                    mg.Pass = dr1.GetString(3);
+                    {
+                        mg.ID = dr1.GetInt32(0);
+                        mg.Forename = dr1.GetString(1);
+                        mg.Surname = dr1.GetString(2);
+                        mg.DOB = dr1.GetString(3);
+                        mg.Phone = dr1.GetString(4);
+                        mg.Pass = dr1.GetString(5);
+                        mg.Pos = dr1.GetString(6);
+                    }
                     Managers.Add(mg);
                 }
             //close Data Reader
