@@ -91,14 +91,13 @@ namespace FarmSystem
             string start, end;
 
             name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
-            TaskID = Task.Count + 1;
             employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
             VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
             VehicleA = this.cmbVehA.GetItemText(this.cmbVehA.SelectedItem);
             start = startDate.Value.ToString("MM/dd/yyyy");
             end = endDate.Value.ToString("MM/dd/yyyy");
-            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " +
-                "('" + TaskID + "','" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
+            string query = "INSERT INTO Tasks (TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " +
+                "('" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
@@ -107,6 +106,7 @@ namespace FarmSystem
 
         public void RefreshMeth()
         {
+            dataView.DataSource = null;
             List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();

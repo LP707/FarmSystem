@@ -27,7 +27,7 @@ namespace FarmSystem
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            this.txtUser.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)

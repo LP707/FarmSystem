@@ -88,6 +88,7 @@
     <Compile Include="ManageVehicle.Designer.cs">
       <DependentUpon>ManageVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="MetaLayer.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Task.cs" />
