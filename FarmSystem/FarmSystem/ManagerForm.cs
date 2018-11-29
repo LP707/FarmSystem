@@ -85,5 +85,10 @@ namespace FarmSystem
             this.Close();
             ta.Show();
         }
+
+        private void btnDel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

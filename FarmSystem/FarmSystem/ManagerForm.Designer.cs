@@ -207,8 +207,9 @@
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 23);
             this.btnDel.TabIndex = 12;
-            this.btnDel.Text = "Delete";
+            this.btnDel.Text = "Update";
             this.btnDel.UseVisualStyleBackColor = true;
+            this.btnDel.Click += new System.EventHandler(this.btnDel_Click);
             // 
             // ManagerForm
             // 
