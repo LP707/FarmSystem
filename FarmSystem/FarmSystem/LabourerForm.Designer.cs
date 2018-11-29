@@ -73,14 +73,14 @@
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem.Text = "Logout";
             this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -96,14 +96,14 @@
             // viewTimetableToolStripMenuItem
             // 
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
-            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
             this.viewTimetableToolStripMenuItem.Click += new System.EventHandler(this.viewTimetableToolStripMenuItem_Click);
             // 
             // viewChecklistToolStripMenuItem
             // 
             this.viewChecklistToolStripMenuItem.Name = "viewChecklistToolStripMenuItem";
-            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.viewChecklistToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.viewChecklistToolStripMenuItem.Text = "View Checklist";
             // 
             // dataView
@@ -128,6 +128,7 @@
             this.MinimizeBox = false;
             this.Name = "LabourerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LabourerForm_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();

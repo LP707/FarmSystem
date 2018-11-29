@@ -123,5 +123,10 @@ namespace FarmSystem
             txtPrice.Text = crop.cropPrice.ToString();
             txtQuant.Text = crop.Quant.ToString();
         }
+
+        private void ManageCrops_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

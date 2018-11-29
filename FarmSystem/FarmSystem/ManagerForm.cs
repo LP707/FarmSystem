@@ -90,5 +90,10 @@ namespace FarmSystem
         {
 
         }
+
+        private void ManagerForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

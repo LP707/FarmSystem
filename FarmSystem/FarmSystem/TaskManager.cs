@@ -152,5 +152,10 @@ namespace FarmSystem
             da.connectionToDB();
             dataView.Refresh();
         }
+
+        private void TaskManager_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

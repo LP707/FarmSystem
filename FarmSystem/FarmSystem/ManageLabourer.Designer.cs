@@ -244,6 +244,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "ManageLabourer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageLabourer_FormClosing);
             this.Load += new System.EventHandler(this.ManageLabourer_Load);
             this.Click += new System.EventHandler(this.ManageLabourer_Click);
             this.menuStrip1.ResumeLayout(false);

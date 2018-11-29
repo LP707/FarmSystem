@@ -10,12 +10,10 @@ using System.Windows.Forms;
 
 namespace FarmSystem
 {
-   
-
     public partial class ManageLabourer : Form
     {
+        MetaLayer ma = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
-        DbConection con = DBCheck.instance();
         string fn;
         string ln;
         string rl;
@@ -68,12 +66,6 @@ namespace FarmSystem
             Application.Exit();
         }
 
-        
-        private void dataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         public void refreshData()
         {
             dataView.DataSource = null;
@@ -99,9 +91,7 @@ namespace FarmSystem
             ln = txtLastN.Text;
             rl = txtSpec.Text;
             id = lb.ID;
-            string query = "UPDATE Labourers SET FirstName = '"+fn+ "', LastName = '" + ln + "', Task = '" + rl + "' WHERE LabourerID = " + id + ";";
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ma.updateLabourer(fn, ln, rl, id);
             refreshData();
         }
 
@@ -113,9 +103,7 @@ namespace FarmSystem
             rl = txtSpec.Text;
             int i = Man.Count + 1;
             string p = "password1";
-            string query = "INSERT INTO Labourers (LabourerID, FirstName, LastName, Task, Password1) VALUES ('"+i+"', '"+fn+"', '"+ln+"', '"+rl+ "', '" + p + "');";
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ma.addLabourer(i, fn, ln, rl, p);
             refreshData();
         }
 
@@ -133,9 +121,9 @@ namespace FarmSystem
             this.Show();
         }
 
-        private void ManageLabourer_Click(object sender, EventArgs e)
+        private void ManageLabourer_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

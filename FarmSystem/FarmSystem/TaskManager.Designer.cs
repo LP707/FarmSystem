@@ -433,6 +433,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TaskManager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TaskManager_FormClosing);
             this.Load += new System.EventHandler(this.TaskManager_Load);
             this.Click += new System.EventHandler(this.TaskManager_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();

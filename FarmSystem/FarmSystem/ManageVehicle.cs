@@ -130,5 +130,10 @@ namespace FarmSystem
             this.Hide();
             tm.Show();
         }
+
+        private void ManageVehicle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
+        }
     }
 }

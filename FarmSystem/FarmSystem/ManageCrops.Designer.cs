@@ -233,6 +233,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "ManageCrops";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ManageCrops_FormClosing);
             this.Load += new System.EventHandler(this.ManageCrops_Load);
             this.Click += new System.EventHandler(this.ManageCrops_Click);
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();

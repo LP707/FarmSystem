@@ -11,11 +11,11 @@ namespace FarmSystem
         {
             private int taskID;
             private string tType;
-            private string employeeT;
-            private string desc;
+            //private string employeeT;
+            //private string desc;
             private string TName, vOJ, atch;
             private int vID;
-            private int cropQuant;
+            //private int cropQuant;
             private string startTime, endTime;
 
             public static List<string> taskTypes = new List<string>();
