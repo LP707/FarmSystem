@@ -14,12 +14,10 @@ namespace FarmSystem
     {
         MetaLayer ma = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
-        string fn;
-        string ln;
-        string rl;
+        string fn, ln, p, dob, phone;
         int id;
 
-        List<Employee.Labourer> Man = new List<Employee.Labourer>();
+        BindingList<Employee.Labourer> Man = new BindingList<Employee.Labourer>();
 
         public ManageLabourer()
         {
@@ -28,9 +26,7 @@ namespace FarmSystem
 
         private void ManageLabourer_Load(object sender, EventArgs e)
         {
-            Man = da.returnLabourerList();
-            dataView.DataSource = Man;
-            dataView.Refresh();
+            refreshData();
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,17 +67,16 @@ namespace FarmSystem
             dataView.DataSource = null;
             Man = da.returnLabourerList();
             dataView.DataSource = Man;
-            dataView.Refresh();
+            dataView.Update();
         }
 
         private void dataView_MouseClick(object sender, MouseEventArgs e)
         {
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
-            
             txtFirstN.Text = lb.Forename;
             txtLastN.Text = lb.Surname;
-            txtSpec.Text = lb.Pos;
-            
+            txtDOB.Text = lb.DOB;
+            txtPhone.Text = lb.Phone;            
         }
 
         private void btnDel_Click(object sender, EventArgs e)
@@ -89,9 +84,10 @@ namespace FarmSystem
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
-            rl = txtSpec.Text;
             id = lb.ID;
-            ma.updateLabourer(fn, ln, rl, id);
+            dob = txtDOB.Text;
+            phone = txtPhone.Text;
+            ma.updateLabourer(fn, ln, id, dob, phone);
             refreshData();
         }
 
@@ -100,10 +96,9 @@ namespace FarmSystem
         {
             fn = txtFirstN.Text;
             ln = txtLastN.Text;
-            rl = txtSpec.Text;
-            int i = Man.Count + 1;
-            string p = "password1";
-            ma.addLabourer(i, fn, ln, rl, p);
+            dob = txtDOB.Text;
+            phone = txtPhone.Text;
+            ma.addLabourer(fn, ln, p, dob, phone);
             refreshData();
         }
 
@@ -112,6 +107,11 @@ namespace FarmSystem
             ManageCrops mc = new ManageCrops();
             this.Hide();
             mc.Show();
+        }
+
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)

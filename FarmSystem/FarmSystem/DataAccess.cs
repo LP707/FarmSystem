@@ -5,7 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Data.OleDb;
+using System.Data;
 using Microsoft.SqlServer.Server;
+using System.ComponentModel;
 
 
 namespace FarmSystem
@@ -14,7 +16,7 @@ namespace FarmSystem
     {
         DbConection db = DBCheck.instance();
         List<Employee.Manager> Managers = new List<Employee.Manager>();
-        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
+        BindingList<Employee.Labourer> Labourers = new BindingList<Employee.Labourer>();
         List<Vehicle> Vehicles = new List<Vehicle>();
         List<Crops> Crops = new List<Crops>();
         List<Task> Tasks = new List<Task>();
@@ -39,8 +41,18 @@ namespace FarmSystem
             return m_instance;
         }
 
+        public void clearLists()
+        {
+            Managers.Clear();
+            Labourers.Clear();
+            Vehicles.Clear();
+            Crops.Clear();
+            Tasks.Clear();
+        }
+
         public void connectionToDB()
         {
+            clearLists();
             conn.OpenConnection();
             try
             {
@@ -258,7 +270,7 @@ namespace FarmSystem
             
         }
 
-        public List<Employee.Labourer> returnLabourerList()
+        public BindingList<Employee.Labourer> returnLabourerList()
         {
             return Labourers;
         }

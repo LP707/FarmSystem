@@ -24,19 +24,21 @@ namespace FarmSystem
             return m_instance;
         }
 
-        public void addLabourer(int i, string fn, string ln, string rl, string p)
+        public void addLabourer(string fn, string ln, string p, string d, string phone)
         {
-            string query = "INSERT INTO Labourers (LabourerID, FirstName, LastName, Task, Password1) VALUES ('" + i + "', '" + fn + "', '" + ln + "', '" + rl + "', '" + p + "');";
+            string status = "Labourer";
+            string query = "INSERT INTO Employees (FirstName, LastName, DOB, PhoneNumber, Status, Password1) VALUES ('" + fn + "', '" + ln + "', '" + d + "', '" + phone + "', '" + status + "', '" + p + "');";
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }
 
-        public void updateLabourer(string fn, string ln, string rl, int id)
+        public void updateLabourer(string fn, string ln, int id, string d, string phone)
         {
-            string query = "UPDATE Labourers SET FirstName = '" + fn + "', LastName = '" + ln + "', Task = '" + rl + "' WHERE LabourerID = " + id + ";";
+            string query = "UPDATE Employees SET FirstName = '" + fn + "', LastName = '" + ln + "', DOB = '" + d + "', PhoneNumber = '" + phone + "' WHERE EmployeeID = " + id + ";";
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }
+
 
 
     }

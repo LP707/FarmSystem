@@ -65,7 +65,7 @@ namespace FarmSystem
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Labourers = da.returnLabourerList();
+            BindingList<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
             dataView.DataSource = Task;
@@ -106,16 +106,15 @@ namespace FarmSystem
 
         public void RefreshMeth()
         {
-            dataView.DataSource = null;
-            dataView.Refresh();
             da.connectionToDB();
+            dataView.DataSource = null;
             dataView.DataSource = da.returnTaskList();
             dataView.Refresh();
         }
 
         private void dataView_Click(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Labourers = da.returnLabourerList();
+            BindingList<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
             dataView.DataSource = Task;
