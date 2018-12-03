@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
+    //makes the class 'Vehicle' and sets and gets the variable names e.g 'theID' -ALMAZ
     public class Vehicle
     {
         private string displayName;
@@ -15,14 +16,12 @@ namespace FarmSystem
         public string type { get; set; }
 
 
-       
+       //sets instances of the class 'Vehicle' i.e 'Tractor' 
         public string DName { get { return name + " " + reg; } set { displayName = value; } }
 
         public class Tractor : Vehicle
         {
 
-            string aTach;
-            string[] aTa = new string[] { "baler", "plough", "trailer", "fertiliser" , "sewing"};
             
         }
 
