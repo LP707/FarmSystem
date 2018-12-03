@@ -43,5 +43,10 @@ namespace FarmSystem
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void LabourerForm_Load(object sender, EventArgs e)
+        {
+           
+        }
     }
 }

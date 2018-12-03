@@ -30,6 +30,7 @@ namespace FarmSystem
             vehicles = da.returnVehicleList();
             dataView.DataSource = vehicles;
             dataView.Refresh();
+            
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
