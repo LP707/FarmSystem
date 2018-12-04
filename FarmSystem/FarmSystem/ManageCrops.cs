@@ -93,8 +93,8 @@ namespace FarmSystem
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);
-            qty = int.Parse(txtQuant.Text);
-            id = crop.theID;
+            qty = int.Parse(txt.Text);
+            id = crop.cropID;
             string query = "INSERT INTO Crops (CropName, Price, Quantity) VALUES ('" + cName + "', " + price + ", " + qty + ");";
 
             con.ExecuteNonQuery(query);
@@ -107,8 +107,8 @@ namespace FarmSystem
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             cName = txtName.Text;
             price = int.Parse(txtPrice.Text);
-            qty = int.Parse(txtQuant.Text);
-            id = crop.theID;
+            qty = int.Parse(txt.Text);
+            id = crop.cropID;
             string query = "UPDATE Crops SET CropName = '" + cName + "', Price = '" + price + "', Quantity = '" + qty + "' WHERE CropID = " + id + ";";
 
             con.ExecuteNonQuery(query);
@@ -121,7 +121,7 @@ namespace FarmSystem
             Crops crop = (Crops)dataView.CurrentRow.DataBoundItem;
             txtName.Text = crop.cropName;
             txtPrice.Text = crop.cropPrice.ToString();
-            txtQuant.Text = crop.Quant.ToString();
+            //txt.Text = crop.Quant.ToString();
         }
 
         private void ManageCrops_FormClosing(object sender, FormClosingEventArgs e)

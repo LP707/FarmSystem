@@ -32,7 +32,7 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtQuant = new System.Windows.Forms.TextBox();
+            this.txt = new System.Windows.Forms.TextBox();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpd = new System.Windows.Forms.Button();
@@ -79,12 +79,12 @@
             this.label1.Text = "Crop Name";
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
-            // txtQuant
+            // txt
             // 
-            this.txtQuant.Location = new System.Drawing.Point(667, 233);
-            this.txtQuant.Name = "txtQuant";
-            this.txtQuant.Size = new System.Drawing.Size(100, 20);
-            this.txtQuant.TabIndex = 16;
+            this.txt.Location = new System.Drawing.Point(667, 233);
+            this.txt.Name = "txt";
+            this.txt.Size = new System.Drawing.Size(100, 20);
+            this.txt.TabIndex = 16;
             // 
             // txtPrice
             // 
@@ -225,7 +225,7 @@
             this.Controls.Add(this.txtName);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtQuant);
+            this.Controls.Add(this.txt);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnUpd);
@@ -250,7 +250,7 @@
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtQuant;
+        private System.Windows.Forms.TextBox txt;
         private System.Windows.Forms.TextBox txtPrice;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpd;

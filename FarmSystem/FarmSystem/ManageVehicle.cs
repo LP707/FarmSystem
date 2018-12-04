@@ -77,7 +77,7 @@ namespace FarmSystem
 
             txtReg.Text = vh.reg;
             txtName.Text = vh.name;
-            txtAtch.Text = vh.type;
+            txtAtch.Text = vh.attach;
 
         }
 
@@ -109,7 +109,7 @@ namespace FarmSystem
             vType = txtName.Text;
             vReg = txtReg.Text;
             vAtt = txtAtch.Text;
-            id = vehi.theID;
+            id = vehi.vehID;
             string query = "UPDATE Vehicles SET VehicleType = '" + vType + "', VehicleAttachments = '" + vAtt + "', VehicleRegistration = '" + vReg + "' WHERE VehicleID = " + id + ";";
 
             con.ExecuteNonQuery(query);

@@ -12,12 +12,13 @@ namespace FarmSystem
 {
     public partial class ManageLabourer : Form
     {
-        MetaLayer ma = MetaLayer.instance();
+        MetaLayer ml = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
-        string fn, ln, p, dob, phone;
-        int id;
+        string firstN, lastN, pass, phone, stat;
+        DateTime dob;
+        int empID;
 
-        BindingList<Employee.Labourer> Man = new BindingList<Employee.Labourer>();
+        BindingList<Employee.Labourer> Lab = new BindingList<Employee.Labourer>();
 
         public ManageLabourer()
         {
@@ -65,8 +66,8 @@ namespace FarmSystem
         public void refreshData()
         {
             dataView.DataSource = null;
-            Man = da.returnLabourerList();
-            dataView.DataSource = Man;
+            Lab = da.returnLabourerList();
+            dataView.DataSource = Lab;
             dataView.Update();
         }
 
@@ -75,30 +76,35 @@ namespace FarmSystem
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
             txtFirstN.Text = lb.Forename;
             txtLastN.Text = lb.Surname;
-            txtDOB.Text = lb.DOB;
-            txtPhone.Text = lb.Phone;            
+            dtpDOB.Value = lb.DOB;
+            txtPhone.Text = lb.Phone;
+            txtPass.Text = lb.Pass;
         }
 
         private void btnDel_Click(object sender, EventArgs e)
         {
             Employee.Labourer lb = (Employee.Labourer)dataView.CurrentRow.DataBoundItem;
-            fn = txtFirstN.Text;
-            ln = txtLastN.Text;
-            id = lb.ID;
-            dob = txtDOB.Text;
+            empID = lb.ID;
+            firstN = txtFirstN.Text;
+            lastN = txtLastN.Text;
+            dob = dtpDOB.Value;
             phone = txtPhone.Text;
-            ma.updateLabourer(fn, ln, id, dob, phone);
+            pass = txtPass.Text;
+            stat = lb.Pos;
+            ml.updateEmployee(firstN, lastN, empID, dob, phone, pass, stat);
             refreshData();
         }
 
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            fn = txtFirstN.Text;
-            ln = txtLastN.Text;
-            dob = txtDOB.Text;
+            firstN = txtFirstN.Text;
+            lastN = txtLastN.Text;
+            dob = dtpDOB.Value;
             phone = txtPhone.Text;
-            ma.addLabourer(fn, ln, p, dob, phone);
+            pass = txtPass.Text;
+            stat = "Labourer";
+            ml.addEmployee(firstN, lastN, dob, phone, pass, stat);
             refreshData();
         }
 
@@ -118,7 +124,7 @@ namespace FarmSystem
         {
             TaskManager tm = new TaskManager();
             this.Hide();
-            this.Show();
+            tm.Show();
         }
 
         private void ManageLabourer_FormClosing(object sender, FormClosingEventArgs e)

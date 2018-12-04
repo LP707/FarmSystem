@@ -13,7 +13,7 @@ namespace FarmSystem
         private string fName;
         private string lName;
         private string position;
-        private string dob;
+        private DateTime dob;
         private string phone;
         private string password;
         private int theID;
@@ -21,7 +21,7 @@ namespace FarmSystem
         public int ID { get { return theID; } set { theID = value; } }
         public string Forename { get { return fName; } set { fName = value; } }
         public string Surname { get { return lName; } set { lName = value; } }
-        public string DOB { get { return dob; } set { dob = value; } }
+        public DateTime DOB { get { return dob; } set { dob = value; } }
         public string Phone { get { return phone; } set { phone = value; } }
         public string Pass { get { return password; } set { password = value; } }
         public string Pos { get { return position; } set { position = value; } }

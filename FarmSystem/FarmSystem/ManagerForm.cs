@@ -12,7 +12,14 @@ namespace FarmSystem
 {
     public partial class ManagerForm : Form
     {
+        MetaLayer ml = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
+
+        BindingList<Employee.Labourer> Man = new BindingList<Employee.Labourer>();
+
+        string firstN, lastN, pass, phone, stat;
+        DateTime dob;
+        int empID;
 
         public ManagerForm()
         {
@@ -73,10 +80,15 @@ namespace FarmSystem
 
         private void dataView_MouseClick(object sender, MouseEventArgs e)
         {
-            Employee.Manager lb = (Employee.Manager)dataView.CurrentRow.DataBoundItem;
-            txtID.Text = lb.ID.ToString();
-            txtFirstN.Text = lb.Forename;
-            txtLastN.Text = lb.Surname;
+            Employee.Manager mg = (Employee.Manager)dataView.CurrentRow.DataBoundItem;
+
+            txtFirstN.Text = mg.Forename;
+            txtLastN.Text = mg.Surname;
+            dtpDOB.Value = mg.DOB;
+            txtPhone.Text = mg.Phone;
+            txtPass.Text = mg.Pass;
+            txtStatus.Text = mg.Pos;
+
         }
 
         private void containersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -88,7 +100,16 @@ namespace FarmSystem
 
         private void btnDel_Click(object sender, EventArgs e)
         {
-
+            Employee.Manager mg = (Employee.Manager)dataView.CurrentRow.DataBoundItem;
+            empID = mg.ID;
+            firstN = txtFirstN.Text;
+            lastN = txtLastN.Text;
+            dob = dtpDOB.Value;
+            phone = txtPhone.Text;
+            pass = txtPass.Text;
+            stat = txtStatus.Text;
+            ml.updateEmployee(firstN, lastN, empID, dob, phone, pass, stat);
+            refreshData();
         }
 
         private void ManagerForm_FormClosing(object sender, FormClosingEventArgs e)
@@ -105,6 +126,24 @@ namespace FarmSystem
         {
             
 
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void refreshData()
+        {
+            dataView.DataSource = null;
+            Man = da.returnLabourerList();
+            dataView.DataSource = Man;
+            dataView.Update();
+        }
+
+        private void ManagerForm_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

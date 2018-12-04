@@ -20,6 +20,12 @@ namespace FarmSystem
         List<Vehicle> Vehicles = new List<Vehicle>();
         List<Crops> Crops = new List<Crops>();
         List<Task> Tasks = new List<Task>();
+        List<Fertilisers> Fertiliser = new List<Fertilisers>();
+        List<Treatments> Treatment = new List<Treatments>();
+        List<Fields> Field = new List<Fields>();
+        List<Storage> Store = new List<Storage>();
+        List<Task> TType = new List<Task>();
+        
 
         DbConection conn = DBCheck.instance();
 
@@ -65,7 +71,7 @@ namespace FarmSystem
                         Lb.ID = dr.GetInt32(0);
                         Lb.Forename = dr.GetString(1);
                         Lb.Surname = dr.GetString(2);
-                        Lb.DOB = dr.GetString(3);
+                        Lb.DOB = dr.GetDateTime(3);
                         Lb.Phone = dr.GetString(4);
                         Lb.Pass = dr.GetString(5);
                         Lb.Pos = dr.GetString(6);
@@ -92,7 +98,7 @@ namespace FarmSystem
                         mg.ID = dr1.GetInt32(0);
                         mg.Forename = dr1.GetString(1);
                         mg.Surname = dr1.GetString(2);
-                        mg.DOB = dr1.GetString(3);
+                        mg.DOB = dr1.GetDateTime(3);
                         mg.Phone = dr1.GetString(4);
                         mg.Pass = dr1.GetString(5);
                         mg.Pos = dr1.GetString(6);
@@ -114,10 +120,13 @@ namespace FarmSystem
                     //set attributes of the labourer subclass
                     Crops cr = new Crops();
                     {
-                        cr.theID = dr.GetInt32(0);
+                        cr.cropID = dr.GetInt32(0);
                         cr.cropName = dr.GetString(1);
-                        cr.cropPrice = dr.GetInt32(2);
-                        cr.Quant = dr.GetInt32(3);
+                        cr.cropTreatPeriod = dr.GetString(2);
+                        cr.growthTime = dr.GetString(3);
+                        cr.harvestMethod = dr.GetString(4);
+                        cr.cropPrice = dr.GetInt32(5);
+                       
                     }
                     //adds to the labourer list
                     Crops.Add(cr);
@@ -136,16 +145,46 @@ namespace FarmSystem
                     //set attributes of the labourer subclass
                     Task ta = new Task();
                     {
-                        ta.taskiD = dr.GetInt32(0);
-                        ta.taskType = dr.GetString(1);
-                        ta.name = dr.GetString(2);
-                        ta.VehOnTask = dr.GetString(3);
-                        ta.attach = dr.GetString(4);
-                        ta.theStart = dr.GetString(5);
-                        ta.theEnd = dr.GetString(6);
+                        ta.taskID = dr.GetInt32(0);
+                        ta.theStart = dr.GetDateTime(1);
+                        ta.theEnd = dr.GetDateTime(2);
+                        ta.fieldID = dr.GetInt32(3);
+                        ta.taskType = dr.GetString(4);
+                        ta.vehID = dr.GetInt32(5);
+                        ta.fertID = dr.GetInt32(6);
+                        ta.treatID = dr.GetInt32(7);
+
+                        //ta.VehOnTask = dr.GetString(3);
+                        //ta.attach = dr.GetString(4);
+
                     }
-                    //adds to the labourer list
                     Tasks.Add(ta);
+                    //adds to the labourer list
+                    
+                }
+                dr.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM Tasks;");
+                while (dr.Read())
+                {
+                    //set attributes of the labourer subclass
+                    Task ta = new Task();
+                    {
+                        ta.taskID = dr.GetInt32(0);
+                        
+
+                        
+
+                    }
+                    Tasks.Add(ta);
+                    //adds to the labourer list
+
                 }
                 dr.Close();
             }
@@ -162,9 +201,9 @@ namespace FarmSystem
                 {
                     //set attributes of the tractor subclass
                     Vehicle.Tractor tr = new Vehicle.Tractor();
-                    tr.theID = dr.GetInt32(0);
+                    tr.vehID = dr.GetInt32(0);
                     tr.name = dr.GetString(1);
-                    tr.type = dr.GetString(2);
+                    tr.attach = dr.GetString(2);
                     tr.reg = dr.GetString(3);
                     //adds to the tractor list
                     Vehicles.Add(tr);
@@ -185,9 +224,9 @@ namespace FarmSystem
                 {
                     //set attributes of the combine subclass
                     Vehicle.Cmbhrv cm = new Vehicle.Cmbhrv();
-                    cm.theID = dr.GetInt32(0);
+                    cm.vehID = dr.GetInt32(0);
                     cm.name = dr.GetString(1);
-                    cm.type = dr.GetString(2);
+                    cm.attach = dr.GetString(2);
                     cm.reg = dr.GetString(3);
                     //adds to the combine list
                     Vehicles.Add(cm);
@@ -195,6 +234,85 @@ namespace FarmSystem
                 //close Data Reader
                 dr.Close();
                 //conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM Fertilisers;");
+
+                while (dr.Read())
+                {
+                    Fertilisers fe = new Fertilisers();
+                    {
+                        fe.fertID = dr.GetInt32(0);
+                        fe.fertName = dr.GetString(1);
+                        fe.quant = dr.GetInt32(2);
+                    }
+                    Fertiliser.Add(fe);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM Treatments;");
+
+                while (dr.Read())
+                {
+                    Treatments te = new Treatments();
+                    {
+                        te.treatID = dr.GetInt32(0);
+                        te.treatName = dr.GetString(1);
+                        te.quant = dr.GetInt32(2);
+                    }
+                    Treatment.Add(te);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM Fields;");
+
+                while (dr.Read())
+                {
+                    Fields fi = new Fields();
+                    {
+                        fi.fieldID = dr.GetInt32(0);
+                        fi.fieldName = dr.GetString(1);
+                        fi.growthStatus = dr.GetString(2);
+                        fi.soilType = dr.GetString(3);
+                        fi.cropID = dr.GetInt32(4);
+                    }
+                    Field.Add(fi);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM Storage;");
+
+                while (dr.Read())
+                {
+                    Storage sto = new Storage();
+                    {
+                        sto.storeID = dr.GetInt32(0);
+                        sto.storeType = dr.GetString(1);
+                        sto.available = dr.GetBoolean(2);
+                        
+                    }
+                    Store.Add(sto);
+                }
             }
             catch (Exception ex)
             {

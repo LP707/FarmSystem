@@ -10,13 +10,13 @@ namespace FarmSystem
     public class Vehicle
     {
         private string displayName;
-        public int theID { get; set; }
-        public string reg { get; set; }
+        public int vehID { get; set; }
         public string name { get; set; }
-        public string type { get; set; }
+        public string attach { get; set; }
+        public string reg { get; set; }
 
 
-       //sets instances of the class 'Vehicle' i.e 'Tractor' 
+        //sets instances of the class 'Vehicle' i.e 'Tractor' 
         public string DName { get { return name + " " + reg; } set { displayName = value; } }
 
         public class Tractor : Vehicle
