@@ -9,8 +9,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmSystem
-    
-    //intialises component-ALMAZ
+
+/* 
+ SID: 1812419
+
+ Date: 04/12/18
+
+ Version: 1
+ */
+
+//intialises component
 {
     public partial class LabourerForm : Form
     {
@@ -19,7 +27,7 @@ namespace FarmSystem
             InitializeComponent();
         }
 
-        //When the login button is pressed this form is show - ALMAZ
+        //When the login button is pressed this form is show 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Login lg = new Login();
@@ -27,7 +35,7 @@ namespace FarmSystem
             lg.Show();
         }
 
-        //Exits the application -ALMAZ
+        //Exits the application
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Application.Exit();
@@ -43,7 +51,7 @@ namespace FarmSystem
 
         }
 
-        //Exits the program- ALMAZ
+        //Exits the program
         private void LabourerForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();

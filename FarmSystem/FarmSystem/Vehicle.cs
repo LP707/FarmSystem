@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    //makes the class 'Vehicle' and sets and gets the variable names e.g 'theID' -ALMAZ
+
+
+    /* 
+     SID: 1812419
+
+     Date: 04/12/18
+
+     Version: 1
+     */
+
+    //makes the class 'Vehicle' and sets and gets the variable names e.g 'theID' 
     public class Vehicle
     {
         private string displayName;

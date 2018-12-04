@@ -61,6 +61,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Audit.cs" />
+    <Compile Include="Containers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Containers.Designer.cs">
+      <DependentUpon>Containers.cs</DependentUpon>
+    </Compile>
     <Compile Include="Crops.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="DBCheck.cs" />
@@ -119,6 +125,9 @@
     </Compile>
     <Compile Include="Treatments.cs" />
     <Compile Include="Vehicle.cs" />
+    <EmbeddedResource Include="Containers.resx">
+      <DependentUpon>Containers.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
