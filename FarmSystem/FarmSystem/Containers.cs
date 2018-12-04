@@ -34,7 +34,7 @@ namespace FarmSystem
         private void button1_Click(object sender, EventArgs e)
         {
             Storage stor = (Storage)dataGridViewCont.CurrentRow.DataBoundItem;
-            cID = textBox4.int.Parse;
+            cID = int.Parse(textBox4.Text);
             cType = textBox5.Text;
             cAval = textBox6.Text;
 
@@ -48,7 +48,7 @@ namespace FarmSystem
         private void Update_Click(object sender, EventArgs e)
         {
             Storage stor = (Storage)dataGridViewCont.CurrentRow.DataBoundItem;
-            cID = textBox4.int.Parse;
+            cID = int.Parse(textBox4.Text);
             cType = textBox5.Text;
             cAval = textBox6.Text;
            
