@@ -29,34 +29,34 @@ namespace FarmSystem
 
         int cID;
         string cType;
-        bool cAval;
+        string cAval;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Storage stor = (Storage)dataView.CurrentRow.DataBoundItem;
-            cID = txtID.Text;
-            cType = txtType.Text;
-            cAval = txtAval.Text;
+            Storage stor = (Storage)dataGridViewCont.CurrentRow.DataBoundItem;
+            cID = textBox4.int.Parse;
+            cType = textBox5.Text;
+            cAval = textBox6.Text;
 
             string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataView.Refresh();
+            dataGridViewCont.Refresh();
         }
 
         private void Update_Click(object sender, EventArgs e)
         {
-            Storage stor = (Storage)dataView.CurrentRow.DataBoundItem;
-            cID = txtID.Text;
-            cType = txtType.Text;
-            cAval = txtAval.Text;
+            Storage stor = (Storage)dataGridViewCont.CurrentRow.DataBoundItem;
+            cID = textBox4.int.Parse;
+            cType = textBox5.Text;
+            cAval = textBox6.Text;
            
             string query = "UPDATE Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataView.Refresh();
+            dataGridViewCont.Refresh();
         }
     }
 

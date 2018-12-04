@@ -43,10 +43,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewCont = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCont)).BeginInit();
             this.SuspendLayout();
             // 
             // textBox4
@@ -97,13 +97,13 @@
             this.label6.TabIndex = 5;
             this.label6.Text = "Availability";
             // 
-            // dataGridView1
+            // dataGridViewCont
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(29, 129);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(240, 251);
-            this.dataGridView1.TabIndex = 6;
+            this.dataGridViewCont.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewCont.Location = new System.Drawing.Point(29, 129);
+            this.dataGridViewCont.Name = "dataGridViewCont";
+            this.dataGridViewCont.Size = new System.Drawing.Size(240, 251);
+            this.dataGridViewCont.TabIndex = 6;
             // 
             // button1
             // 
@@ -130,7 +130,7 @@
             this.ClientSize = new System.Drawing.Size(497, 427);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dataGridViewCont);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -139,7 +139,7 @@
             this.Controls.Add(this.textBox4);
             this.Name = "Containers";
             this.Text = "Containers";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCont)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,7 +159,7 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridViewCont;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Update;
     }
