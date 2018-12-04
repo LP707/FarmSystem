@@ -30,6 +30,7 @@ namespace FarmSystem
             vehicles = da.returnVehicleList();
             dataView.DataSource = vehicles;
             dataView.Refresh();
+            
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -76,7 +77,7 @@ namespace FarmSystem
 
             txtReg.Text = vh.reg;
             txtName.Text = vh.name;
-            txtAtch.Text = vh.type;
+            txtAtch.Text = vh.attach;
 
         }
 
@@ -108,7 +109,7 @@ namespace FarmSystem
             vType = txtName.Text;
             vReg = txtReg.Text;
             vAtt = txtAtch.Text;
-            id = vehi.theID;
+            id = vehi.vehID;
             string query = "UPDATE Vehicles SET VehicleType = '" + vType + "', VehicleAttachments = '" + vAtt + "', VehicleRegistration = '" + vReg + "' WHERE VehicleID = " + id + ";";
 
             con.ExecuteNonQuery(query);

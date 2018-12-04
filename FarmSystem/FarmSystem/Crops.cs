@@ -8,9 +8,14 @@ namespace FarmSystem
 {
     class Crops
     {
-        public int theID { get; set; }
+        public int cropID { get; set; }
         public string cropName { get; set; }
+        public string cropTreatPeriod { get; set; }
+        public string growthTime { get; set; }
+        public string harvestMethod { get; set; }
         public int cropPrice { get; set; }
-        public int Quant { get; set; }
+       
+
+        
     }
 }

@@ -6,28 +6,22 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
+    //makes the class 'Vehicle' and sets and gets the variable names e.g 'theID' -ALMAZ
     public class Vehicle
     {
         private string displayName;
-        //public string WHeels { get; set; }
-        public int theID { get; set; }
-        //private string wHeels;
-        //private string dRiver;
-        //private string aTach;
-        public string reg { get; set; }
+        public int vehID { get; set; }
         public string name { get; set; }
-        public string type { get; set; }
+        public string attach { get; set; }
+        public string reg { get; set; }
 
 
-        //public string driver { get { return dRiver; } }
-        //public string atach { get { return aTach; } }
+        //sets instances of the class 'Vehicle' i.e 'Tractor' 
         public string DName { get { return name + " " + reg; } set { displayName = value; } }
 
         public class Tractor : Vehicle
         {
 
-            string aTach;
-            string[] aTa = new string[] { "baler", "plough", "trailer", "fertiliser" , "sewing"};
             
         }
 

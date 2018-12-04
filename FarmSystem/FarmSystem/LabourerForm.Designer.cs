@@ -128,7 +128,9 @@
             this.MinimizeBox = false;
             this.Name = "LabourerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Labourer";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LabourerForm_FormClosing);
+            this.Load += new System.EventHandler(this.LabourerForm_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();

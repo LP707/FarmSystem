@@ -24,17 +24,17 @@ namespace FarmSystem
             return m_instance;
         }
 
-        public void addLabourer(string fn, string ln, string p, string d, string phone)
+        public void addEmployee(string fn, string ln, DateTime d, string phone, string pas, string status)
         {
-            string status = "Labourer";
-            string query = "INSERT INTO Employees (FirstName, LastName, DOB, PhoneNumber, Status, Password1) VALUES ('" + fn + "', '" + ln + "', '" + d + "', '" + phone + "', '" + status + "', '" + p + "');";
+            //string status = "Labourer";
+            string query = "INSERT INTO Employees (FirstName, LastName, DOB, PhoneNumber, Passwords, Status) VALUES ('" + fn + "', '" + ln + "', '" + d + "', '" + phone + "', '" + pas + "', '" + status + "');";
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }
 
-        public void updateLabourer(string fn, string ln, int id, string d, string phone)
+        public void updateEmployee(string fn, string ln, int id, DateTime d, string phone, string pas, string status)
         {
-            string query = "UPDATE Employees SET FirstName = '" + fn + "', LastName = '" + ln + "', DOB = '" + d + "', PhoneNumber = '" + phone + "' WHERE EmployeeID = " + id + ";";
+            string query = "UPDATE Employees SET FirstName = '" + fn + "', LastName = '" + ln + "', DOB = '" + d + "', PhoneNumber = '" + phone + "', Passwords = '" + pas + "', Status = '" + status + "' WHERE EmployeeID = " + id + ";";
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }

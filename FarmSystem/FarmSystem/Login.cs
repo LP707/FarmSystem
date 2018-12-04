@@ -50,5 +50,20 @@ namespace FarmSystem
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void Login_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Return)
+            {
+                string storedUser = txtUser.Text;
+                string storedPass = txtPass.Text;
+
+                DataAccess da = DataAccess.instance();
+
+                this.Hide();
+                da.test(storedUser, storedPass);
+            }
+
+        }
     }
 }
