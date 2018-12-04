@@ -49,9 +49,11 @@
             this.btnUpd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataViewTask = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTask)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -62,7 +64,7 @@
             this.managmentToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(954, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -141,14 +143,14 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(12, 110);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(673, 379);
+            this.dataView.Size = new System.Drawing.Size(565, 461);
             this.dataView.TabIndex = 2;
             this.dataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataViewT_CellMouseClick);
             this.dataView.Click += new System.EventHandler(this.dataViewT_Click);
             // 
             // txtReg
             // 
-            this.txtReg.Location = new System.Drawing.Point(820, 223);
+            this.txtReg.Location = new System.Drawing.Point(765, 340);
             this.txtReg.Name = "txtReg";
             this.txtReg.Size = new System.Drawing.Size(100, 20);
             this.txtReg.TabIndex = 20;
@@ -156,7 +158,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(741, 230);
+            this.label2.Location = new System.Drawing.Point(686, 347);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 18;
@@ -165,7 +167,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(741, 256);
+            this.label1.Location = new System.Drawing.Point(686, 373);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(73, 13);
             this.label1.TabIndex = 17;
@@ -173,21 +175,21 @@
             // 
             // txtAtch
             // 
-            this.txtAtch.Location = new System.Drawing.Point(820, 275);
+            this.txtAtch.Location = new System.Drawing.Point(765, 392);
             this.txtAtch.Name = "txtAtch";
             this.txtAtch.Size = new System.Drawing.Size(100, 20);
             this.txtAtch.TabIndex = 15;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(820, 249);
+            this.txtName.Location = new System.Drawing.Point(765, 366);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 14;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(722, 437);
+            this.btnAdd.Location = new System.Drawing.Point(604, 515);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 13;
@@ -197,7 +199,7 @@
             // 
             // btnUpd
             // 
-            this.btnUpd.Location = new System.Drawing.Point(721, 466);
+            this.btnUpd.Location = new System.Drawing.Point(603, 544);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(75, 23);
             this.btnUpd.TabIndex = 12;
@@ -208,7 +210,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(741, 282);
+            this.label3.Location = new System.Drawing.Point(686, 399);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(70, 13);
             this.label3.TabIndex = 21;
@@ -223,12 +225,21 @@
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
             // 
+            // dataViewTask
+            // 
+            this.dataViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataViewTask.Location = new System.Drawing.Point(689, 12);
+            this.dataViewTask.Name = "dataViewTask";
+            this.dataViewTask.Size = new System.Drawing.Size(370, 293);
+            this.dataViewTask.TabIndex = 23;
+            // 
             // ManageVehicle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(954, 501);
+            this.ClientSize = new System.Drawing.Size(1075, 583);
+            this.Controls.Add(this.dataViewTask);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtReg);
@@ -251,6 +262,7 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataViewTask)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -278,5 +290,6 @@
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dataViewTask;
     }
 }

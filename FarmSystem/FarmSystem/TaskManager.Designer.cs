@@ -76,7 +76,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(814, 449);
+            this.lblID.Location = new System.Drawing.Point(816, 384);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(58, 13);
             this.lblID.TabIndex = 23;
@@ -85,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(814, 580);
+            this.label3.Location = new System.Drawing.Point(816, 515);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(80, 13);
             this.label3.TabIndex = 21;
@@ -94,7 +94,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(814, 554);
+            this.label2.Location = new System.Drawing.Point(816, 489);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(83, 13);
             this.label2.TabIndex = 20;
@@ -103,7 +103,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(814, 472);
+            this.label1.Location = new System.Drawing.Point(816, 407);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 19;
@@ -111,7 +111,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(934, 385);
+            this.btnAdd.Location = new System.Drawing.Point(936, 320);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 15;
@@ -126,7 +126,7 @@
             this.dgvTask.Location = new System.Drawing.Point(12, 133);
             this.dgvTask.MultiSelect = false;
             this.dgvTask.Name = "dgvTask";
-            this.dgvTask.Size = new System.Drawing.Size(347, 153);
+            this.dgvTask.Size = new System.Drawing.Size(405, 422);
             this.dgvTask.TabIndex = 13;
             this.dgvTask.Click += new System.EventHandler(this.dataView_Click);
             // 
@@ -138,7 +138,7 @@
             this.managementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1054, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -207,7 +207,7 @@
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
-            this.cmbType.Location = new System.Drawing.Point(900, 441);
+            this.cmbType.Location = new System.Drawing.Point(902, 376);
             this.cmbType.Name = "cmbType";
             this.cmbType.Size = new System.Drawing.Size(121, 21);
             this.cmbType.TabIndex = 24;
@@ -216,7 +216,7 @@
             // cmbEmployee
             // 
             this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(900, 468);
+            this.cmbEmployee.Location = new System.Drawing.Point(902, 403);
             this.cmbEmployee.Name = "cmbEmployee";
             this.cmbEmployee.Size = new System.Drawing.Size(121, 21);
             this.cmbEmployee.TabIndex = 25;
@@ -224,7 +224,7 @@
             // cmbVeh
             // 
             this.cmbVeh.FormattingEnabled = true;
-            this.cmbVeh.Location = new System.Drawing.Point(900, 495);
+            this.cmbVeh.Location = new System.Drawing.Point(902, 430);
             this.cmbVeh.Name = "cmbVeh";
             this.cmbVeh.Size = new System.Drawing.Size(121, 21);
             this.cmbVeh.TabIndex = 29;
@@ -232,7 +232,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(814, 499);
+            this.label4.Location = new System.Drawing.Point(816, 434);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 13);
             this.label4.TabIndex = 28;
@@ -247,7 +247,7 @@
             "Trailer",
             "Fertiliser",
             "Sewing"});
-            this.cmbVehA.Location = new System.Drawing.Point(900, 524);
+            this.cmbVehA.Location = new System.Drawing.Point(902, 459);
             this.cmbVehA.Name = "cmbVehA";
             this.cmbVehA.Size = new System.Drawing.Size(121, 21);
             this.cmbVehA.TabIndex = 31;
@@ -255,7 +255,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(814, 528);
+            this.label5.Location = new System.Drawing.Point(816, 463);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(61, 13);
             this.label5.TabIndex = 30;
@@ -263,7 +263,7 @@
             // 
             // btnUpd
             // 
-            this.btnUpd.Location = new System.Drawing.Point(837, 385);
+            this.btnUpd.Location = new System.Drawing.Point(839, 320);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(75, 23);
             this.btnUpd.TabIndex = 32;
@@ -273,28 +273,28 @@
             // 
             // startDate
             // 
-            this.startDate.Location = new System.Drawing.Point(900, 551);
+            this.startDate.Location = new System.Drawing.Point(902, 486);
             this.startDate.Name = "startDate";
             this.startDate.Size = new System.Drawing.Size(121, 20);
             this.startDate.TabIndex = 33;
             // 
             // endDate
             // 
-            this.endDate.Location = new System.Drawing.Point(900, 580);
+            this.endDate.Location = new System.Drawing.Point(902, 515);
             this.endDate.Name = "endDate";
             this.endDate.Size = new System.Drawing.Size(121, 20);
             this.endDate.TabIndex = 34;
             // 
             // endV
             // 
-            this.endV.Location = new System.Drawing.Point(900, 340);
+            this.endV.Location = new System.Drawing.Point(902, 275);
             this.endV.Name = "endV";
             this.endV.Size = new System.Drawing.Size(121, 20);
             this.endV.TabIndex = 46;
             // 
             // startV
             // 
-            this.startV.Location = new System.Drawing.Point(900, 311);
+            this.startV.Location = new System.Drawing.Point(902, 246);
             this.startV.Name = "startV";
             this.startV.Size = new System.Drawing.Size(121, 20);
             this.startV.TabIndex = 45;
@@ -308,7 +308,7 @@
             "Trailer",
             "Fertiliser",
             "Sewing"});
-            this.cmbVVA.Location = new System.Drawing.Point(900, 284);
+            this.cmbVVA.Location = new System.Drawing.Point(902, 219);
             this.cmbVVA.Name = "cmbVVA";
             this.cmbVVA.Size = new System.Drawing.Size(121, 21);
             this.cmbVVA.TabIndex = 44;
@@ -316,7 +316,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(814, 288);
+            this.label6.Location = new System.Drawing.Point(816, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 13);
             this.label6.TabIndex = 43;
@@ -325,7 +325,7 @@
             // cmbVV
             // 
             this.cmbVV.FormattingEnabled = true;
-            this.cmbVV.Location = new System.Drawing.Point(900, 255);
+            this.cmbVV.Location = new System.Drawing.Point(902, 190);
             this.cmbVV.Name = "cmbVV";
             this.cmbVV.Size = new System.Drawing.Size(121, 21);
             this.cmbVV.TabIndex = 42;
@@ -333,7 +333,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(814, 259);
+            this.label7.Location = new System.Drawing.Point(816, 194);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(42, 13);
             this.label7.TabIndex = 41;
@@ -342,7 +342,7 @@
             // cmbVE
             // 
             this.cmbVE.FormattingEnabled = true;
-            this.cmbVE.Location = new System.Drawing.Point(900, 228);
+            this.cmbVE.Location = new System.Drawing.Point(902, 163);
             this.cmbVE.Name = "cmbVE";
             this.cmbVE.Size = new System.Drawing.Size(121, 21);
             this.cmbVE.TabIndex = 40;
@@ -350,7 +350,7 @@
             // cmbVT
             // 
             this.cmbVT.FormattingEnabled = true;
-            this.cmbVT.Location = new System.Drawing.Point(900, 201);
+            this.cmbVT.Location = new System.Drawing.Point(902, 136);
             this.cmbVT.Name = "cmbVT";
             this.cmbVT.Size = new System.Drawing.Size(121, 21);
             this.cmbVT.TabIndex = 39;
@@ -358,7 +358,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(814, 209);
+            this.label8.Location = new System.Drawing.Point(816, 144);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(58, 13);
             this.label8.TabIndex = 38;
@@ -367,7 +367,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(814, 340);
+            this.label9.Location = new System.Drawing.Point(816, 275);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(80, 13);
             this.label9.TabIndex = 37;
@@ -376,7 +376,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(814, 314);
+            this.label10.Location = new System.Drawing.Point(816, 249);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(83, 13);
             this.label10.TabIndex = 36;
@@ -385,7 +385,7 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(814, 232);
+            this.label11.Location = new System.Drawing.Point(816, 167);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(53, 13);
             this.label11.TabIndex = 35;
@@ -403,9 +403,9 @@
             // dgvTest
             // 
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTest.Location = new System.Drawing.Point(395, 133);
+            this.dgvTest.Location = new System.Drawing.Point(479, 133);
             this.dgvTest.Name = "dgvTest";
-            this.dgvTest.Size = new System.Drawing.Size(345, 153);
+            this.dgvTest.Size = new System.Drawing.Size(261, 210);
             this.dgvTest.TabIndex = 48;
             // 
             // TaskManager
@@ -413,7 +413,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1054, 637);
+            this.ClientSize = new System.Drawing.Size(1075, 583);
             this.Controls.Add(this.dgvTest);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.endV);

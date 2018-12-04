@@ -146,13 +146,13 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(12, 116);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(833, 452);
+            this.dataView.Size = new System.Drawing.Size(861, 452);
             this.dataView.TabIndex = 1;
             this.dataView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataView_MouseClick);
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(851, 545);
+            this.btnDel.Location = new System.Drawing.Point(881, 542);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 23);
             this.btnDel.TabIndex = 2;
@@ -162,7 +162,7 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(852, 516);
+            this.btnAdd.Location = new System.Drawing.Point(882, 513);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 3;

@@ -39,7 +39,6 @@
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataView = new System.Windows.Forms.DataGridView();
-            this.btnViewManRoster = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtLastN = new System.Windows.Forms.TextBox();
@@ -68,7 +67,7 @@
             this.managmentToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(879, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -138,27 +137,17 @@
             // dataView
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataView.Location = new System.Drawing.Point(12, 141);
+            this.dataView.Location = new System.Drawing.Point(12, 115);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(604, 297);
+            this.dataView.Size = new System.Drawing.Size(846, 445);
             this.dataView.TabIndex = 10;
             this.dataView.Click += new System.EventHandler(this.dataView_Click);
             this.dataView.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataView_MouseClick);
             // 
-            // btnViewManRoster
-            // 
-            this.btnViewManRoster.Location = new System.Drawing.Point(22, 96);
-            this.btnViewManRoster.Name = "btnViewManRoster";
-            this.btnViewManRoster.Size = new System.Drawing.Size(150, 23);
-            this.btnViewManRoster.TabIndex = 11;
-            this.btnViewManRoster.Text = "View Managment Team";
-            this.btnViewManRoster.UseVisualStyleBackColor = true;
-            this.btnViewManRoster.Click += new System.EventHandler(this.btnViewManRoster_Click);
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(654, 226);
+            this.label2.Location = new System.Drawing.Point(877, 364);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 18;
@@ -167,7 +156,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(655, 200);
+            this.label1.Location = new System.Drawing.Point(878, 338);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 17;
@@ -175,21 +164,21 @@
             // 
             // txtLastN
             // 
-            this.txtLastN.Location = new System.Drawing.Point(722, 223);
+            this.txtLastN.Location = new System.Drawing.Point(945, 361);
             this.txtLastN.Name = "txtLastN";
             this.txtLastN.Size = new System.Drawing.Size(100, 20);
             this.txtLastN.TabIndex = 15;
             // 
             // txtFirstN
             // 
-            this.txtFirstN.Location = new System.Drawing.Point(722, 197);
+            this.txtFirstN.Location = new System.Drawing.Point(945, 335);
             this.txtFirstN.Name = "txtFirstN";
             this.txtFirstN.Size = new System.Drawing.Size(100, 20);
             this.txtFirstN.TabIndex = 14;
             // 
             // btnUpd
             // 
-            this.btnUpd.Location = new System.Drawing.Point(651, 370);
+            this.btnUpd.Location = new System.Drawing.Point(874, 508);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(75, 23);
             this.btnUpd.TabIndex = 13;
@@ -199,7 +188,7 @@
             // 
             // btnDel
             // 
-            this.btnDel.Location = new System.Drawing.Point(650, 399);
+            this.btnDel.Location = new System.Drawing.Point(873, 537);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(75, 23);
             this.btnDel.TabIndex = 12;
@@ -218,14 +207,14 @@
             // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(722, 275);
+            this.txtPhone.Location = new System.Drawing.Point(945, 413);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(100, 20);
             this.txtPhone.TabIndex = 24;
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(722, 301);
+            this.txtPass.Location = new System.Drawing.Point(945, 439);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(100, 20);
             this.txtPass.TabIndex = 25;
@@ -233,7 +222,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(674, 278);
+            this.label3.Location = new System.Drawing.Point(897, 416);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 26;
@@ -242,7 +231,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(681, 252);
+            this.label4.Location = new System.Drawing.Point(904, 390);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(33, 13);
             this.label4.TabIndex = 27;
@@ -251,7 +240,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(659, 304);
+            this.label5.Location = new System.Drawing.Point(882, 442);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(56, 13);
             this.label5.TabIndex = 28;
@@ -259,7 +248,7 @@
             // 
             // txtStatus
             // 
-            this.txtStatus.Location = new System.Drawing.Point(722, 328);
+            this.txtStatus.Location = new System.Drawing.Point(945, 466);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(100, 20);
             this.txtStatus.TabIndex = 29;
@@ -267,7 +256,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(672, 331);
+            this.label6.Location = new System.Drawing.Point(895, 469);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 30;
@@ -276,7 +265,7 @@
             // dtpDOB
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDOB.Location = new System.Drawing.Point(722, 249);
+            this.dtpDOB.Location = new System.Drawing.Point(945, 387);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(102, 20);
             this.dtpDOB.TabIndex = 31;
@@ -286,7 +275,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(879, 450);
+            this.ClientSize = new System.Drawing.Size(1075, 583);
             this.Controls.Add(this.dtpDOB);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtStatus);
@@ -302,7 +291,6 @@
             this.Controls.Add(this.txtFirstN);
             this.Controls.Add(this.btnUpd);
             this.Controls.Add(this.btnDel);
-            this.Controls.Add(this.btnViewManRoster);
             this.Controls.Add(this.dataView);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -332,7 +320,6 @@
         private System.Windows.Forms.ToolStripMenuItem managmentToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem labourersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
-        private System.Windows.Forms.Button btnViewManRoster;
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.Label label2;

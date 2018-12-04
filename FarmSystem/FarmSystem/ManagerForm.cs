@@ -46,10 +46,7 @@ namespace FarmSystem
 
         private void btnViewManRoster_Click(object sender, EventArgs e)
         {
-            List<Employee.Manager> Man = new List<Employee.Manager>();
-            Man = da.returnManageList();
-            dataView.DataSource = Man;
-            dataView.Refresh();
+           
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -124,7 +121,10 @@ namespace FarmSystem
 
         private void ManagerForm_Load(object sender, EventArgs e)
         {
-            
+            List<Employee.Manager> Man = new List<Employee.Manager>();
+            Man = da.returnManageList();
+            dataView.DataSource = Man;
+            dataView.Refresh();
 
         }
 

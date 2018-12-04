@@ -55,7 +55,7 @@
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(667, 181);
+            this.txtName.Location = new System.Drawing.Point(965, 309);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(100, 20);
             this.txtName.TabIndex = 21;
@@ -63,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(590, 214);
+            this.label2.Location = new System.Drawing.Point(888, 342);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 13);
             this.label2.TabIndex = 19;
@@ -72,7 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(590, 188);
+            this.label1.Location = new System.Drawing.Point(888, 316);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(60, 13);
             this.label1.TabIndex = 18;
@@ -81,21 +81,21 @@
             // 
             // txt
             // 
-            this.txt.Location = new System.Drawing.Point(667, 233);
+            this.txt.Location = new System.Drawing.Point(965, 361);
             this.txt.Name = "txt";
             this.txt.Size = new System.Drawing.Size(100, 20);
             this.txt.TabIndex = 16;
             // 
             // txtPrice
             // 
-            this.txtPrice.Location = new System.Drawing.Point(667, 207);
+            this.txtPrice.Location = new System.Drawing.Point(965, 335);
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 20);
             this.txtPrice.TabIndex = 15;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(569, 395);
+            this.btnAdd.Location = new System.Drawing.Point(867, 523);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 23);
             this.btnAdd.TabIndex = 14;
@@ -105,7 +105,7 @@
             // 
             // btnUpd
             // 
-            this.btnUpd.Location = new System.Drawing.Point(568, 424);
+            this.btnUpd.Location = new System.Drawing.Point(866, 552);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(75, 23);
             this.btnUpd.TabIndex = 13;
@@ -118,13 +118,13 @@
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(12, 91);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(528, 379);
+            this.dataView.Size = new System.Drawing.Size(848, 480);
             this.dataView.TabIndex = 12;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(590, 240);
+            this.label3.Location = new System.Drawing.Point(888, 368);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(71, 13);
             this.label3.TabIndex = 22;
@@ -138,7 +138,7 @@
             this.managementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(800, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1075, 24);
             this.menuStrip1.TabIndex = 23;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -218,7 +218,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(800, 482);
+            this.ClientSize = new System.Drawing.Size(1075, 583);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.label3);
