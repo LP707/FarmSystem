@@ -44,6 +44,7 @@
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.cmbVeh = new System.Windows.Forms.ComboBox();
@@ -67,7 +68,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -127,7 +127,7 @@
             this.dgvTask.Location = new System.Drawing.Point(12, 133);
             this.dgvTask.MultiSelect = false;
             this.dgvTask.Name = "dgvTask";
-            this.dgvTask.Size = new System.Drawing.Size(405, 422);
+            this.dgvTask.Size = new System.Drawing.Size(341, 422);
             this.dgvTask.TabIndex = 13;
             this.dgvTask.Click += new System.EventHandler(this.dataView_Click);
             // 
@@ -205,6 +205,13 @@
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
+            // containersToolStripMenuItem
+            // 
+            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Text = "Containers";
+            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // cmbType
             // 
@@ -405,17 +412,10 @@
             // dgvTest
             // 
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTest.Location = new System.Drawing.Point(479, 133);
+            this.dgvTest.Location = new System.Drawing.Point(353, 133);
             this.dgvTest.Name = "dgvTest";
-            this.dgvTest.Size = new System.Drawing.Size(261, 210);
+            this.dgvTest.Size = new System.Drawing.Size(261, 422);
             this.dgvTest.TabIndex = 48;
-            // 
-            // containersToolStripMenuItem
-            // 
-            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.containersToolStripMenuItem.Text = "Containers";
-            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // TaskManager
             // 

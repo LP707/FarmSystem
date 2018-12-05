@@ -18,7 +18,7 @@ namespace FarmSystem
         Employee.Labourer lb = new Employee.Labourer();
         int tID;
         //Vehicle.Tractor tr = new Vehicle.Tractor();
-        
+
         public TaskManager()
         {
             InitializeComponent();
@@ -64,6 +64,11 @@ namespace FarmSystem
             mc.Show();
         }
 
+        private void dataView_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TaskManager_Load(object sender, EventArgs e)
         {
             List<Employee.Labourer> Labourers = da.returnLabourerList();
@@ -78,8 +83,9 @@ namespace FarmSystem
             cmbVeh.DisplayMember = "DName";
             hideColumns();
 
-            dgvTest.DataSource = da.returnSchedule(); 
-            
+            dgvTest.DataSource = da.returnSchedule();
+            //dgvTest.Sort(dgvTest.Columns["empID"], ListSortDirection.Ascending);
+
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -94,6 +100,8 @@ namespace FarmSystem
             dgvTask.Columns["fertID"].Visible = false;
             dgvTask.Columns["treatID"].Visible = false;
             dgvTask.Columns["fieldID"].Visible = false;
+
+
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
@@ -103,14 +111,15 @@ namespace FarmSystem
             string name, employeeN, VehicleN, VehicleA;
             int TaskID;
             DateTime start, end;
-
+            TaskID = Task.Count + 1;
             name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
             employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
             VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
             VehicleA = this.cmbVehA.GetItemText(this.cmbVehA.SelectedItem);
             start = startDate.Value;
             end = endDate.Value;
-            string query = "INSERT INTO Tasks (TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " + "('" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
+            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " +
+            "('" + TaskID + "', '" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
@@ -127,7 +136,7 @@ namespace FarmSystem
 
         private void dataView_Click(object sender, EventArgs e)
         {
-    
+
             List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
@@ -146,8 +155,10 @@ namespace FarmSystem
             cmbVeh.DataSource = Veh;
             cmbVeh.DisplayMember = "ID = 1";
 
+
             tID = ta.taskID;
             chkValues();
+
         }
 
         private void TaskManager_Click(object sender, EventArgs e)
@@ -158,12 +169,21 @@ namespace FarmSystem
 
         public void chkValues()
         {
+            List<Employee.Labourer> lab = da.returnLabourerList();
+            List<Scheduler> sch = da.returnSchedule();
+            int i = 0;
+            int[] empID = new int[lab.Count];
+            //List<int> empID = new List<int>();
+
             //Source: https://stackoverflow.com/questions/10179223/find-a-row-in-datagridview-based-on-column-and-value
             foreach (DataGridViewRow row in dgvTest.Rows)
             {
+
                 if (row.Cells["taskID"].Value.Equals(tID))
                 {
                     row.Visible = true;
+                    empID[i] = ((int)row.Cells["empID"].Value);
+                    i++;
                 }
                 else
                 {
@@ -173,7 +193,45 @@ namespace FarmSystem
                     row.Visible = false;
                     cm.ResumeBinding();
                 }
+
             }
+
+            dgvTest.DataSource = null;
+            dgvTest.DataSource = da.returnLabourerList();
+            dgvTest.Refresh();
+            //Array.Sort(empID);
+            //empID.Sort();
+            i = 0;
+
+            foreach (DataGridViewRow row in dgvTest.Rows)
+            {
+
+                if (row.Cells["ID"].Value.Equals(empID[i]))
+                {
+                    row.Visible = true;
+                    i++;
+                }
+                else if (i == empID.Count())
+                {
+                    break;
+                }
+                else
+                {
+                    CurrencyManager cm = (CurrencyManager)BindingContext[dgvTest.DataSource];
+                    cm.SuspendBinding();
+                    row.Visible = false;
+                    cm.ResumeBinding();
+                }
+
+
+            }
+            dgvTest.Columns[0].Visible = false;
+            dgvTest.Columns[1].Visible = false;
+            dgvTest.Columns[2].Visible = false;
+            dgvTest.Columns[3].Visible = false;
+            dgvTest.Columns[4].Visible = false;
+            dgvTest.Columns[5].Visible = false;
+            dgvTest.Columns[6].Visible = false;
         }
 
 
@@ -186,7 +244,7 @@ namespace FarmSystem
             DateTime start, end;
 
             name = this.cmbVT.GetItemText(this.cmbVT.SelectedItem);
-            //TaskID = Task.Count + 1;
+            TaskID = Task.Count + 1;
             employeeN = this.cmbVE.GetItemText(this.cmbVE.SelectedItem);
             VehicleN = this.cmbVV.GetItemText(this.cmbVV.SelectedItem);
             VehicleA = this.cmbVVA.GetItemText(this.cmbVVA.SelectedItem);
@@ -194,7 +252,8 @@ namespace FarmSystem
             VhID = 2;
             start = startV.Value;
             end = endV.Value;
-            string query = "INSERT INTO Tasks (TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES ('" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+            string query = "UPDATE Tasks (TaskID TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES " +
+            "('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
@@ -206,11 +265,5 @@ namespace FarmSystem
             System.Windows.Forms.Application.Exit();
         }
 
-        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Containers Cn = new Containers();
-            this.Hide();
-            Cn.Show();
-        }
     }
 }
