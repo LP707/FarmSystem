@@ -12,6 +12,7 @@ namespace FarmSystem
 {
     public partial class Login : Form
     {
+        MetaLayer ml = MetaLayer.instance();
         public Login()
         {
             InitializeComponent();
@@ -38,7 +39,7 @@ namespace FarmSystem
             DataAccess da = DataAccess.instance();
 
             this.Hide();
-            da.test(storedUser, storedPass);
+            ml.loginTest(storedUser, storedPass);
          }
 
         private void label1_Click(object sender, EventArgs e)
@@ -61,7 +62,7 @@ namespace FarmSystem
                 DataAccess da = DataAccess.instance();
 
                 this.Hide();
-                da.test(storedUser, storedPass);
+                ml.loginTest(storedUser, storedPass);
             }
 
         }

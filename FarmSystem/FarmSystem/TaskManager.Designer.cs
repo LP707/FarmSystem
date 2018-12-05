@@ -68,7 +68,7 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -128,7 +128,7 @@
             this.dgvTask.Location = new System.Drawing.Point(12, 133);
             this.dgvTask.MultiSelect = false;
             this.dgvTask.Name = "dgvTask";
-            this.dgvTask.Size = new System.Drawing.Size(405, 422);
+            this.dgvTask.Size = new System.Drawing.Size(341, 422);
             this.dgvTask.TabIndex = 13;
             this.dgvTask.Click += new System.EventHandler(this.dataView_Click);
             // 
@@ -414,17 +414,17 @@
             // dgvTest
             // 
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTest.Location = new System.Drawing.Point(479, 133);
+            this.dgvTest.Location = new System.Drawing.Point(353, 133);
             this.dgvTest.Name = "dgvTest";
-            this.dgvTest.Size = new System.Drawing.Size(261, 210);
+            this.dgvTest.Size = new System.Drawing.Size(261, 422);
             this.dgvTest.TabIndex = 48;
             // 
-            // fieldsToolStripMenuItem
+            // containersToolStripMenuItem
             // 
-            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fieldsToolStripMenuItem.Text = "Fields";
-            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
+            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Text = "Containers";
+            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // TaskManager
             // 

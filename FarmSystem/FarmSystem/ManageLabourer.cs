@@ -18,7 +18,7 @@ namespace FarmSystem
         DateTime dob;
         int empID;
 
-        BindingList<Employee.Labourer> Lab = new BindingList<Employee.Labourer>();
+        List<Employee.Labourer> Lab = new List<Employee.Labourer>();
 
         public ManageLabourer()
         {

@@ -13,6 +13,7 @@ namespace FarmSystem
 {
     public partial class ManageVehicle : Form
     {
+        MetaLayer ml = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
         DbConection con = DBCheck.instance();
         string vType;
@@ -95,11 +96,7 @@ namespace FarmSystem
             vReg = txtReg.Text;
             vType = txtName.Text;
             vAtt = txtAtch.Text;
-
-            string query = "INSERT INTO Vehicles  (VehicleRegistration, VehicleType, VehicleAttachments ) VALUES ('" + vReg + "', '" + vType + "', '" + vAtt + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ml.addVeh(vReg, vType, vAtt);
             dataView.Refresh();
         }
 
@@ -110,10 +107,7 @@ namespace FarmSystem
             vReg = txtReg.Text;
             vAtt = txtAtch.Text;
             id = vehi.vehID;
-            string query = "UPDATE Vehicles SET VehicleType = '" + vType + "', VehicleAttachments = '" + vAtt + "', VehicleRegistration = '" + vReg + "' WHERE VehicleID = " + id + ";";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ml.updateVeh(vReg, vType, vAtt, id);
             dataView.Refresh();
         }
 

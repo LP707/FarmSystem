@@ -15,7 +15,7 @@ namespace FarmSystem
         MetaLayer ml = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
 
-        BindingList<Employee.Labourer> Man = new BindingList<Employee.Labourer>();
+        List<Employee.Labourer> Man = new List<Employee.Labourer>();
 
         string firstN, lastN, pass, phone, stat;
         DateTime dob;

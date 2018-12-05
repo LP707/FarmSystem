@@ -16,7 +16,7 @@ namespace FarmSystem
     {
         DbConection db = DBCheck.instance();
         List<Employee.Manager> Managers = new List<Employee.Manager>();
-        BindingList<Employee.Labourer> Labourers = new BindingList<Employee.Labourer>();
+        List<Employee.Labourer> Labourers = new List<Employee.Labourer>();
         List<Vehicle> Vehicles = new List<Vehicle>();
         List<Crops> Crops = new List<Crops>();
         List<Task> Tasks = new List<Task>();
@@ -367,48 +367,7 @@ namespace FarmSystem
         //    }
         //}
 
-        public void test(string user, string pass)
-        {
-            string theUser = user;
-            string thePass = pass;
-            Login lg = new Login();
-            connectionToDB();
-
-            if (theUser == "" || thePass == "")
-            {
-                lg.throwUnknownUser();
-            }
-            else
-            {
-                foreach (var staff in Labourers.Where(x => x.ID.ToString() == theUser))
-                {
-                    if (staff.Pass == thePass)
-                    {
-                        LabourerForm lb = new LabourerForm();
-                        lb.Show();
-                    }
-                    else
-                    {
-                        lg.throwUnknownUser();
-                    }
-                }
-                foreach (var mStaff in Managers.Where(x => x.ID.ToString() == theUser))
-                {
-                    if (mStaff.Pass == thePass)
-                    {
-                        ManagerForm mg = new ManagerForm();
-                        mg.Show();
-                    }
-                    else
-                    {
-                        lg.throwUnknownUser();
-                    }
-                }
-            }
-
-        }
-
-        public BindingList<Employee.Labourer> returnLabourerList()
+        public List<Employee.Labourer> returnLabourerList()
         {
             return Labourers;
         }
