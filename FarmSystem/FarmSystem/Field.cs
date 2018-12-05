@@ -9,15 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmSystem
-    int fieldID;
-    string fieldName;
-string growthStatus;
-string soilType;
-int cropID;
 {
-    
     public partial class Field : Form
     {
+        MetaLayer ml = MetaLayer.instance();
+        DataAccess da = DataAccess.instance();
+        DbConection db = DBCheck.instance();
+
+        int fieldID;
+        string fieldName;
+        string growthStatus;
+        string soilType;
+        int cropID;
+
         public Field()
         {
             InitializeComponent();
@@ -25,18 +29,18 @@ int cropID;
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fields fiel = (Fields)dataGridViewFiel.CurrentRow.DataBoundItem;
+            Fields fiel = (Fields)dataGridViewField.CurrentRow.DataBoundItem;
             fieldID = int.Parse(textBoxfieldID.Text);
             fieldName = textBox4fieldName.Text;
             growthStatus = textBox3growthstat.Text;
             soilType = textBox1soiltype.Text;
-            cropID = textBox2cropid.Text;
+            cropID = int.Parse(textBox2cropid.Text);
 
-            string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
+            //string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
 
-            con.ExecuteNonQuery(query);
+            //db.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataGridViewCont.Refresh();
+            dataGridViewField.Refresh();
         }
     }
 }

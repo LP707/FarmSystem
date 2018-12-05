@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewFiel = new System.Windows.Forms.DataGridView();
+            this.dataGridViewField = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1soiltype = new System.Windows.Forms.TextBox();
@@ -36,16 +36,16 @@
             this.textBox3growthstat = new System.Windows.Forms.TextBox();
             this.textBox4fieldName = new System.Windows.Forms.TextBox();
             this.textBoxfieldID = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewField)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridViewFiel
+            // dataGridViewField
             // 
-            this.dataGridViewFiel.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewFiel.Location = new System.Drawing.Point(25, 47);
-            this.dataGridViewFiel.Name = "dataGridViewFiel";
-            this.dataGridViewFiel.Size = new System.Drawing.Size(308, 339);
-            this.dataGridViewFiel.TabIndex = 0;
+            this.dataGridViewField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewField.Location = new System.Drawing.Point(25, 47);
+            this.dataGridViewField.Name = "dataGridViewField";
+            this.dataGridViewField.Size = new System.Drawing.Size(308, 339);
+            this.dataGridViewField.TabIndex = 0;
             // 
             // button1
             // 
@@ -113,10 +113,10 @@
             this.Controls.Add(this.textBox1soiltype);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridViewFiel);
+            this.Controls.Add(this.dataGridViewField);
             this.Name = "Field";
             this.Text = "Field";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewField)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -124,7 +124,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewFiel;
+        private System.Windows.Forms.DataGridView dataGridViewField;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1soiltype;

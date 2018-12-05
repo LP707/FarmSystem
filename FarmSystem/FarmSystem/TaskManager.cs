@@ -66,7 +66,7 @@ namespace FarmSystem
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
-            BindingList<Employee.Labourer> Labourers = da.returnLabourerList();
+            List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
             dgvTask.DataSource = Task;
@@ -128,7 +128,7 @@ namespace FarmSystem
         private void dataView_Click(object sender, EventArgs e)
         {
     
-            BindingList<Employee.Labourer> Labourers = da.returnLabourerList();
+            List<Employee.Labourer> Labourers = da.returnLabourerList();
             List<Task> Task = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
             List<Scheduler> Sch = da.returnSchedule();

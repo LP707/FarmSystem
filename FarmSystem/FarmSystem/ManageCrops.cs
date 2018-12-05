@@ -12,6 +12,7 @@ namespace FarmSystem
 {
     public partial class ManageCrops : Form
     {
+        MetaLayer ml = MetaLayer.instance();
         DataAccess da = DataAccess.instance();
         DbConection con = DBCheck.instance();
         string cName;
@@ -95,10 +96,7 @@ namespace FarmSystem
             price = int.Parse(txtPrice.Text);
             qty = int.Parse(txt.Text);
             id = crop.cropID;
-            string query = "INSERT INTO Crops (CropName, Price, Quantity) VALUES ('" + cName + "', " + price + ", " + qty + ");";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ml.addCrop(cName, price, qty);
             dataView.Refresh();
         }
 
@@ -109,10 +107,7 @@ namespace FarmSystem
             price = int.Parse(txtPrice.Text);
             qty = int.Parse(txt.Text);
             id = crop.cropID;
-            string query = "UPDATE Crops SET CropName = '" + cName + "', Price = '" + price + "', Quantity = '" + qty + "' WHERE CropID = " + id + ";";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            ml.updateCrop(cName, price, qty, id);
             dataView.Refresh();
         }
 
