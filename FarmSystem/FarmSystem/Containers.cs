@@ -27,6 +27,9 @@ namespace FarmSystem
             InitializeComponent();
         }
 
+        MetaLayer ml = MetaLayer.instance();
+        DbConection con =  DBCheck.instance();
+        DataAccess da = DataAccess.instance(); 
         int cID;
         string cType;
         string cAval;
@@ -58,7 +61,19 @@ namespace FarmSystem
             da.connectionToDB();
             dataGridViewCont.Refresh();
         }
+
+        private void Containers_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        //Exits the application
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
+
 
 
 

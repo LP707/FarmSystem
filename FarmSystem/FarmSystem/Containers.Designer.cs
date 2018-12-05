@@ -139,6 +139,7 @@
             this.Controls.Add(this.textBox4);
             this.Name = "Containers";
             this.Text = "Containers";
+            this.Load += new System.EventHandler(this.Containers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCont)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
