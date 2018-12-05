@@ -64,10 +64,14 @@ namespace FarmSystem
             mc.Show();
         }
 
-        private void dataView_Click(object sender, EventArgs e)
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            Containers cn = new Containers();
+            this.Hide();
+            cn.Show();
         }
+
+
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
@@ -142,6 +146,8 @@ namespace FarmSystem
             List<Vehicle> Veh = da.returnVehicleList();
             List<Scheduler> Sch = da.returnSchedule();
 
+
+
             Task ta = (Task)dgvTask.CurrentRow.DataBoundItem;
 
             dgvTask.DataSource = Task;
@@ -171,60 +177,23 @@ namespace FarmSystem
         {
             List<Employee.Labourer> lab = da.returnLabourerList();
             List<Scheduler> sch = da.returnSchedule();
+            List<Task> ta = da.returnTaskList();
+            List<Employee.Labourer> em = new List<Employee.Labourer>();
+
             int i = 0;
-            int[] empID = new int[lab.Count];
-            //List<int> empID = new List<int>();
 
-            //Source: https://stackoverflow.com/questions/10179223/find-a-row-in-datagridview-based-on-column-and-value
-            foreach (DataGridViewRow row in dgvTest.Rows)
+
+            foreach (var e in sch.Where(e => lab.Select(c => c.ID).Contains(e.empID)))
             {
-
-                if (row.Cells["taskID"].Value.Equals(tID))
+                if (e.taskID == tID)
                 {
-                    row.Visible = true;
-                    empID[i] = ((int)row.Cells["empID"].Value);
-                    i++;
+                    i = lab.FindIndex(a => a.ID == e.empID);
+                    em.Add(lab[i]);
                 }
-                else
-                {
-                    //Source: https://stackoverflow.com/questions/18942017/unable-to-set-row-visible-false-of-a-datagridview
-                    CurrencyManager cm = (CurrencyManager)BindingContext[dgvTest.DataSource];
-                    cm.SuspendBinding();
-                    row.Visible = false;
-                    cm.ResumeBinding();
-                }
-
             }
 
-            dgvTest.DataSource = null;
-            dgvTest.DataSource = da.returnLabourerList();
-            dgvTest.Refresh();
-            //Array.Sort(empID);
-            //empID.Sort();
-            i = 0;
+            dgvTest.DataSource = em;
 
-            foreach (DataGridViewRow row in dgvTest.Rows)
-            {
-
-                if (row.Cells["ID"].Value.Equals(empID[i]))
-                {
-                    row.Visible = true;
-                    i++;
-                }
-                else if (i == empID.Count())
-                {
-                    break;
-                }
-                else
-                {
-                    CurrencyManager cm = (CurrencyManager)BindingContext[dgvTest.DataSource];
-                    cm.SuspendBinding();
-                    row.Visible = false;
-                    cm.ResumeBinding();
-                }
-
-
-            }
             dgvTest.Columns[0].Visible = false;
             dgvTest.Columns[1].Visible = false;
             dgvTest.Columns[2].Visible = false;
@@ -265,11 +234,6 @@ namespace FarmSystem
             System.Windows.Forms.Application.Exit();
         }
 
-        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Containers Cn = new Containers();
-            this.Hide();
-            Cn.Show();
-        }
+        
     }
 }

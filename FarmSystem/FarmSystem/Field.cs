@@ -31,7 +31,7 @@ namespace FarmSystem
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fields fiel = (Fields)dataGridViewField.CurrentRow.DataBoundItem;
+            Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
             fieldID = int.Parse(textBoxfieldID.Text);
             fieldName = textBox4fieldName.Text;
             growthStatus = textBox3growthstat.Text;
@@ -40,9 +40,14 @@ namespace FarmSystem
 
             string query = "INSERT INTO Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
 
-            db.ExecuteNonQuery(query);
+           
             da.connectionToDB();
-            dataGridViewfiel.Refresh();
+            dgvField.Refresh();
+        }
+
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

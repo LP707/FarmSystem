@@ -68,7 +68,6 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -174,8 +173,7 @@
             this.vehiclesToolStripMenuItem,
             this.cropsToolStripMenuItem,
             this.homeToolStripMenuItem,
-            this.containersToolStripMenuItem,
-            this.fieldsToolStripMenuItem});
+            this.containersToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
@@ -418,13 +416,6 @@
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.Size = new System.Drawing.Size(261, 422);
             this.dgvTest.TabIndex = 48;
-            // 
-            // containersToolStripMenuItem
-            // 
-            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.containersToolStripMenuItem.Text = "Containers";
-            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // TaskManager
             // 

@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
-
-namespace FarmSystem
+﻿namespace FarmSystem
 {
     partial class Field
     {
@@ -31,7 +28,7 @@ namespace FarmSystem
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridViewField = new System.Windows.Forms.DataGridView();
+            this.dgvField = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1soiltype = new System.Windows.Forms.TextBox();
@@ -39,16 +36,25 @@ namespace FarmSystem
             this.textBox3growthstat = new System.Windows.Forms.TextBox();
             this.textBox4fieldName = new System.Windows.Forms.TextBox();
             this.textBoxfieldID = new System.Windows.Forms.TextBox();
-          //  ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labourersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvField)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // dataGridViewField
+            // dgvField
             // 
-            this.dataGridViewField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewField.Location = new System.Drawing.Point(25, 47);
-            this.dataGridViewField.Name = "dataGridViewField";
-            this.dataGridViewField.Size = new System.Drawing.Size(308, 339);
-            this.dataGridViewField.TabIndex = 0;
+            this.dgvField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvField.Location = new System.Drawing.Point(25, 47);
+            this.dgvField.Name = "dgvField";
+            this.dgvField.Size = new System.Drawing.Size(308, 339);
+            this.dgvField.TabIndex = 0;
             // 
             // button1
             // 
@@ -176,23 +182,22 @@ namespace FarmSystem
             this.Controls.Add(this.textBox1soiltype);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridViewFiel);
+            this.Controls.Add(this.dgvField);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Field";
             this.Text = "Field";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvField)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
-        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            throw new NotImplementedException();
-        }
-
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridViewField;
+        private System.Windows.Forms.DataGridView dgvField;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1soiltype;
@@ -208,6 +213,5 @@ namespace FarmSystem
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
-        private Control dataGridViewFiel;
     }
 }
