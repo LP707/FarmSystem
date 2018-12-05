@@ -1,4 +1,6 @@
-﻿namespace FarmSystem
+﻿using System;
+
+namespace FarmSystem
 {
 
     /* 
@@ -46,7 +48,16 @@
             this.dataGridViewCont = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.Update = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.labourersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManasgerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCont)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox4
@@ -125,6 +136,70 @@
             this.Update.UseVisualStyleBackColor = true;
             this.Update.Click += new System.EventHandler(this.Update_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(497, 24);
+            this.menuStrip1.TabIndex = 9;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labourersToolStripMenuItem,
+            this.vehiclesToolStripMenuItem,
+            this.taskManasgerToolStripMenuItem,
+            this.homeToolStripMenuItem,
+            this.containersToolStripMenuItem,
+            this.fieldsToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 20);
+            this.toolStripMenuItem1.Text = "Management";
+            // 
+            // labourersToolStripMenuItem
+            // 
+            this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labourersToolStripMenuItem.Text = "Labourers";
+            this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
+            // 
+            // vehiclesToolStripMenuItem
+            // 
+            this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vehiclesToolStripMenuItem.Text = "Vehicles";
+            this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
+            // 
+            // taskManasgerToolStripMenuItem
+            // 
+            this.taskManasgerToolStripMenuItem.Name = "taskManasgerToolStripMenuItem";
+            this.taskManasgerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManasgerToolStripMenuItem.Text = "Task Manager";
+            this.taskManasgerToolStripMenuItem.Click += new System.EventHandler(this.taskManasgerToolStripMenuItem_Click);
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
+            // containersToolStripMenuItem
+            // 
+            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Text = "Containers";
+            // 
+            // fieldsToolStripMenuItem
+            // 
+            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
+            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fieldsToolStripMenuItem.Text = "Fields";
+            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
+            // 
             // Containers
             // 
             this.ClientSize = new System.Drawing.Size(497, 427);
@@ -137,13 +212,22 @@
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Containers";
             this.Text = "Containers";
             this.Load += new System.EventHandler(this.Containers_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewCont)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void taskManasgerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -163,5 +247,13 @@
         private System.Windows.Forms.DataGridView dataGridViewCont;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button Update;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem labourersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taskManasgerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
     }
 }

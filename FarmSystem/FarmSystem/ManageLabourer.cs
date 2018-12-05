@@ -115,6 +115,11 @@ namespace FarmSystem
             Cn.Show();
         }
 
+        private void managementToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCrops mc = new ManageCrops();

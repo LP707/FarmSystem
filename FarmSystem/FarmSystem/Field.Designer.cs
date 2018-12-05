@@ -32,11 +32,20 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1soiltype = new System.Windows.Forms.TextBox();
-            this.textBox2cropid = new System.Windows.Forms.TextBox();
+            this.textBox2cropID = new System.Windows.Forms.TextBox();
             this.textBox3growthstat = new System.Windows.Forms.TextBox();
             this.textBox4fieldName = new System.Windows.Forms.TextBox();
             this.textBoxfieldID = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.managementToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.labourersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dataGridViewFiel
@@ -73,12 +82,12 @@
             this.textBox1soiltype.Size = new System.Drawing.Size(100, 20);
             this.textBox1soiltype.TabIndex = 3;
             // 
-            // textBox2cropid
+            // textBox2cropID
             // 
-            this.textBox2cropid.Location = new System.Drawing.Point(405, 344);
-            this.textBox2cropid.Name = "textBox2cropid";
-            this.textBox2cropid.Size = new System.Drawing.Size(100, 20);
-            this.textBox2cropid.TabIndex = 4;
+            this.textBox2cropID.Location = new System.Drawing.Point(405, 344);
+            this.textBox2cropID.Name = "textBox2cropID";
+            this.textBox2cropID.Size = new System.Drawing.Size(100, 20);
+            this.textBox2cropID.TabIndex = 4;
             // 
             // textBox3growthstat
             // 
@@ -101,6 +110,66 @@
             this.textBoxfieldID.Size = new System.Drawing.Size(100, 20);
             this.textBoxfieldID.TabIndex = 7;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.managementToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(545, 24);
+            this.menuStrip1.TabIndex = 8;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // managementToolStripMenuItem
+            // 
+            this.managementToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.labourersToolStripMenuItem,
+            this.vehiclesToolStripMenuItem,
+            this.taskManagerToolStripMenuItem,
+            this.homeToolStripMenuItem,
+            this.containersToolStripMenuItem,
+            this.fieldsToolStripMenuItem});
+            this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
+            this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
+            this.managementToolStripMenuItem.Text = "Management";
+            // 
+            // labourersToolStripMenuItem
+            // 
+            this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labourersToolStripMenuItem.Text = "Labourers";
+            this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
+            // 
+            // vehiclesToolStripMenuItem
+            // 
+            this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vehiclesToolStripMenuItem.Text = "Vehicles";
+            // 
+            // taskManagerToolStripMenuItem
+            // 
+            this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManagerToolStripMenuItem.Text = "Task Manager";
+            // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Text = "Home";
+            // 
+            // containersToolStripMenuItem
+            // 
+            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Text = "Containers";
+            // 
+            // fieldsToolStripMenuItem
+            // 
+            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
+            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fieldsToolStripMenuItem.Text = "Fields";
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -109,14 +178,18 @@
             this.Controls.Add(this.textBoxfieldID);
             this.Controls.Add(this.textBox4fieldName);
             this.Controls.Add(this.textBox3growthstat);
-            this.Controls.Add(this.textBox2cropid);
+            this.Controls.Add(this.textBox2cropID);
             this.Controls.Add(this.textBox1soiltype);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewFiel);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "Field";
             this.Text = "Field";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,9 +201,17 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox1soiltype;
-        private System.Windows.Forms.TextBox textBox2cropid;
+        private System.Windows.Forms.TextBox textBox2cropID;
         private System.Windows.Forms.TextBox textBox3growthstat;
         private System.Windows.Forms.TextBox textBox4fieldName;
         private System.Windows.Forms.TextBox textBoxfieldID;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem managementToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem labourersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem vehiclesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
     }
 }

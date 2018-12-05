@@ -132,6 +132,13 @@ namespace FarmSystem
 
         }
 
+        private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fields fl = new Fields();
+            this.Hide();
+            fl.Show();
+        }
+
         private void ManagerForm_Load(object sender, EventArgs e)
         {
             List<Employee.Manager> Man = new List<Employee.Manager>();

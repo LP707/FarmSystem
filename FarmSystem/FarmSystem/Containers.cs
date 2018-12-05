@@ -82,7 +82,45 @@ namespace FarmSystem
         {
             Application.Exit();
         }
+
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageLabourer ml = new ManageLabourer();
+            this.Hide();
+            ml.Show();
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageVehicle mf = new ManageVehicle();
+            this.Hide();
+            mf.Show();
+        }
+
+        private void taskmanagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager tm = new TaskManager();
+            this.Hide();
+            tm.Show();
+
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManagerForm mf = new ManagerForm();
+            this.Hide();
+            mf.Show();
+        }
+
+        private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Field fl = new Field();
+            this.Hide();
+            fl.Show();
+        }
     }
+
+
 
 
 

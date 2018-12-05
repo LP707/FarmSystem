@@ -143,5 +143,12 @@ namespace FarmSystem
             this.Hide();
             Cn.Show();
         }
+
+        private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Fields fl = new Fields();
+            this.Hide();
+            fl.Show();
+        }
     }
 }
