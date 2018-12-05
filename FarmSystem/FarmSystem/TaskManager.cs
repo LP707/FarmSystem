@@ -205,5 +205,12 @@ namespace FarmSystem
         {
             System.Windows.Forms.Application.Exit();
         }
+
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Containers Cn = new Containers();
+            this.Hide();
+            Cn.Show();
+        }
     }
 }

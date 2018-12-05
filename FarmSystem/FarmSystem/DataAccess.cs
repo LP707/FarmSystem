@@ -25,6 +25,7 @@ namespace FarmSystem
         List<Fields> Field = new List<Fields>();
         List<Storage> Store = new List<Storage>();
         List<Scheduler> Schedule = new List<Scheduler>();
+        
 
 
         DbConection conn = DBCheck.instance();
@@ -442,6 +443,11 @@ namespace FarmSystem
             Crops.Add(TheCrop);
         }
 
+        public List<Storage> returnStorage()
+        {
+            return Store;
+
+        }
     }
 
         

@@ -119,6 +119,19 @@ namespace FarmSystem
 
         }
 
+        private void managmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void containersToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Containers Cn = new Containers();
+            this.Hide();
+            Cn.Show();
+
+        }
+
         private void ManagerForm_Load(object sender, EventArgs e)
         {
             List<Employee.Manager> Man = new List<Employee.Manager>();

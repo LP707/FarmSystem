@@ -108,6 +108,13 @@ namespace FarmSystem
             refreshData();
         }
 
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Containers Cn = new Containers();
+            this.Hide();
+            Cn.Show();
+        }
+
         private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCrops mc = new ManageCrops();

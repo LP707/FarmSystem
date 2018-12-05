@@ -53,6 +53,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
+            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -101,7 +102,8 @@
             this.vehiclesToolStripMenuItem,
             this.cropsToolStripMenuItem,
             this.taskManagerToolStripMenuItem,
-            this.homeToolStripMenuItem});
+            this.homeToolStripMenuItem,
+            this.containersToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
@@ -109,35 +111,35 @@
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vehiclesToolStripMenuItem
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // cropsToolStripMenuItem
             // 
             this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
-            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.cropsToolStripMenuItem.Text = "Crops";
             this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
             // 
             // taskManagerToolStripMenuItem
             // 
             this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
@@ -261,6 +263,13 @@
             this.dtpDOB.Size = new System.Drawing.Size(100, 20);
             this.dtpDOB.TabIndex = 18;
             // 
+            // containersToolStripMenuItem
+            // 
+            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Text = "Containers";
+            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
+            // 
             // ManageLabourer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -324,5 +333,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDOB;
+        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
     }
 }

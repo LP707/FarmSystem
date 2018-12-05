@@ -33,6 +33,12 @@ namespace FarmSystem
         int cID;
         string cType;
         string cAval;
+        List<Storage> Cont;
+
+        private void Containers_Load(object sender, EventArgs e)
+        {
+            refreshData();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -62,9 +68,13 @@ namespace FarmSystem
             dataGridViewCont.Refresh();
         }
 
-        private void Containers_Load(object sender, EventArgs e)
+       
+        public void refreshData()
         {
-
+            dataGridViewCont.DataSource = null;
+            Cont = da.returnStorage();
+            dataGridViewCont.DataSource = Cont;
+            dataGridViewCont.Update();
         }
 
         //Exits the application
