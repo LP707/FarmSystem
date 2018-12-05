@@ -1,4 +1,7 @@
-﻿namespace FarmSystem
+﻿using System;
+using System.Windows.Forms;
+
+namespace FarmSystem
 {
     partial class Field
     {
@@ -36,7 +39,7 @@
             this.textBox3growthstat = new System.Windows.Forms.TextBox();
             this.textBox4fieldName = new System.Windows.Forms.TextBox();
             this.textBoxfieldID = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).BeginInit();
+          //  ((System.ComponentModel.ISupportInitialize)(this.dataGridViewFiel)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridViewField
@@ -182,6 +185,11 @@
 
         }
 
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridViewField;
@@ -200,5 +208,6 @@
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
+        private Control dataGridViewFiel;
     }
 }

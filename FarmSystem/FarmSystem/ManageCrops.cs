@@ -70,9 +70,9 @@ namespace FarmSystem
 
         private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ManageVehicle ml = new ManageVehicle();
+            ManageVehicle mv = new ManageVehicle();
             this.Hide();
-            ml.Show();
+            mv.Show();
         }
 
         private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)

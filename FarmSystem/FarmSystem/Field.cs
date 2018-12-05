@@ -9,15 +9,17 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmSystem
-    int fieldID;
-    string fieldName;
-string growthStatus;
-string soilType;
-int cropID;
+
 {
-    
+   
     public partial class Field : Form
     {
+        int fieldID;
+        string fieldName;
+        string growthStatus;
+        string soilType;
+        int cropID;
+
         public Field()
         {
             InitializeComponent();
@@ -25,13 +27,8 @@ int cropID;
         MetaLayer ml = MetaLayer.instance();
         DbConection con = DBCheck.instance();
         DataAccess da = DataAccess.instance();
-
-        int fieldID;
-        string fieldName;
-        string growthStatus;
-        string soilType;
-        int cropID;
         List<Field> fiel;
+
         private void button1_Click(object sender, EventArgs e)
         {
             Fields fiel = (Fields)dataGridViewField.CurrentRow.DataBoundItem;
@@ -39,13 +36,13 @@ int cropID;
             fieldName = textBox4fieldName.Text;
             growthStatus = textBox3growthstat.Text;
             soilType = textBox1soiltype.Text;
-            cropID = textBox2cropid.Text;
+            cropID = int.Parse(textBox2cropID.Text);
 
-            //string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
+            string query = "INSERT INTO Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
 
-            //db.ExecuteNonQuery(query);
+            db.ExecuteNonQuery(query);
             da.connectionToDB();
-            dataGridViewCont.Refresh();
+            dataGridViewfiel.Refresh();
         }
     }
 }
