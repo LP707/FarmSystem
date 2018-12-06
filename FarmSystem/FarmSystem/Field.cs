@@ -37,6 +37,12 @@ namespace FarmSystem
         DataAccess da = DataAccess.instance();
         List<Field> fiel;
 
+
+        private void Fields_Load(object sender, EventArgs e)
+        {
+            refreshData();
+        }
+
         private void button1_Click(object sender, EventArgs e)
         {
             Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
@@ -48,14 +54,41 @@ namespace FarmSystem
 
             string query = "INSERT INTO Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
 
-           
+            con.ExecuteNonQuery(query);
             da.connectionToDB();
             dgvField.Refresh();
         }
 
-        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e)
         {
 
+            Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
+            fieldID = int.Parse(textBoxfieldID.Text);
+            fieldName = textBox4fieldName.Text;
+            growthStatus = textBox3growthstat.Text;
+            soilType = textBox1soiltype.Text;
+            cropID = int.Parse(textBox2cropID.Text);
+
+            string query = "UPDATE Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+            dgvField.Refresh();
+        }
+
+        public void refreshData()
+        {
+            dgvField.DataSource = null;
+           // fiel = da.returnFields();
+            dgvField.DataSource = fiel;
+            dgvField.Update();
+        }
+
+        private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageLabourer ml = new ManageLabourer();
+            this.Hide();
+            ml.Show();
         }
 
         private void Field_Load(object sender, EventArgs e)
@@ -80,6 +113,34 @@ namespace FarmSystem
             Login lg = new Login();
             this.Hide();
             lg.Show();
+        }
+
+        private void vehiclesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageVehicle mv = new ManageVehicle();
+            this.Hide();
+            mv.Show();
+        }
+
+        private void taskManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TaskManager tm = new TaskManager();
+            this.Hide();
+            tm.Show();
+        }
+
+        private void containersToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Containers Cn = new Containers();
+            this.Hide();
+            Cn.Show();
+        }
+
+        private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCrops mc = new ManageCrops();
+            this.Hide();
+            mc.Show();
         }
     }
 }

@@ -43,7 +43,6 @@
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvField)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -82,6 +82,7 @@
             this.button2.TabIndex = 2;
             this.button2.Text = "Update";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // textBox1soiltype
             // 
@@ -137,7 +138,7 @@
             this.taskManagerToolStripMenuItem,
             this.homeToolStripMenuItem,
             this.containersToolStripMenuItem,
-            this.fieldsToolStripMenuItem});
+            this.cropsToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
@@ -154,12 +155,14 @@
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
             this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
+            this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // taskManagerToolStripMenuItem
             // 
             this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
             this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
+            this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
@@ -173,12 +176,7 @@
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
             this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.containersToolStripMenuItem.Text = "Containers";
-            // 
-            // fieldsToolStripMenuItem
-            // 
-            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fieldsToolStripMenuItem.Text = "Fields";
+            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -248,6 +246,13 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // cropsToolStripMenuItem
+            // 
+            this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropsToolStripMenuItem.Text = "Crops";
+            this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -296,7 +301,6 @@
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -305,5 +309,6 @@
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
     }
 }

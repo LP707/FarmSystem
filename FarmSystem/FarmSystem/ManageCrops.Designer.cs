@@ -1,4 +1,7 @@
-﻿namespace FarmSystem
+﻿using System;
+using System.Windows.Forms;
+
+namespace FarmSystem
 {
     partial class ManageCrops
     {
@@ -48,8 +51,8 @@
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -122,6 +125,7 @@
             this.dataView.Name = "dataView";
             this.dataView.Size = new System.Drawing.Size(848, 480);
             this.dataView.TabIndex = 12;
+            this.dataView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataView_CellContentClick);
             // 
             // label3
             // 
@@ -183,37 +187,44 @@
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vehiclesToolStripMenuItem
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // taskManagerToolStripMenuItem
             // 
             this.taskManagerToolStripMenuItem.Name = "taskManagerToolStripMenuItem";
-            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.taskManagerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
             this.containersToolStripMenuItem.Text = "Containers";
             this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
+            // 
+            // fieldsToolStripMenuItem
+            // 
+            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
+            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.fieldsToolStripMenuItem.Text = "Fields";
+            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -223,13 +234,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(411, 57);
             this.pictureBox1.TabIndex = 24;
             this.pictureBox1.TabStop = false;
-            // 
-            // fieldsToolStripMenuItem
-            // 
-            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fieldsToolStripMenuItem.Text = "Fields";
-            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
             // ManageCrops
             // 
@@ -262,6 +266,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void dataView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion

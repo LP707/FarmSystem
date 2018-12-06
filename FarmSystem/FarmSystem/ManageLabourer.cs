@@ -120,6 +120,13 @@ namespace FarmSystem
 
         }
 
+        private void fieldsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Field fl = new Field();
+            this.Hide();
+            fl.Show();
+        }
+
         private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageCrops mc = new ManageCrops();

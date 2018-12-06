@@ -126,6 +126,13 @@ namespace FarmSystem
             this.Hide();
             lg.Show();
         }
+
+        private void cropsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManageCrops mc = new ManageCrops();
+            this.Hide();
+            mc.Show();
+        }
     }
 
 

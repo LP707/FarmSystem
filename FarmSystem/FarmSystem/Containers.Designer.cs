@@ -56,6 +56,7 @@ namespace FarmSystem
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,21 +66,21 @@ namespace FarmSystem
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(366, 194);
+            this.textBox4.Location = new System.Drawing.Point(469, 250);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(100, 20);
             this.textBox4.TabIndex = 0;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(366, 229);
+            this.textBox5.Location = new System.Drawing.Point(469, 285);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(100, 20);
             this.textBox5.TabIndex = 1;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(366, 264);
+            this.textBox6.Location = new System.Drawing.Point(469, 320);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(100, 20);
             this.textBox6.TabIndex = 2;
@@ -87,7 +88,7 @@ namespace FarmSystem
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(303, 197);
+            this.label4.Location = new System.Drawing.Point(406, 253);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(18, 13);
             this.label4.TabIndex = 3;
@@ -96,7 +97,7 @@ namespace FarmSystem
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(290, 229);
+            this.label5.Location = new System.Drawing.Point(393, 285);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 4;
@@ -105,7 +106,7 @@ namespace FarmSystem
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(285, 270);
+            this.label6.Location = new System.Drawing.Point(388, 326);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 13);
             this.label6.TabIndex = 5;
@@ -116,12 +117,12 @@ namespace FarmSystem
             this.dataGridViewCont.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewCont.Location = new System.Drawing.Point(29, 129);
             this.dataGridViewCont.Name = "dataGridViewCont";
-            this.dataGridViewCont.Size = new System.Drawing.Size(240, 251);
+            this.dataGridViewCont.Size = new System.Drawing.Size(345, 251);
             this.dataGridViewCont.TabIndex = 6;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(391, 339);
+            this.button1.Location = new System.Drawing.Point(494, 395);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -131,7 +132,7 @@ namespace FarmSystem
             // 
             // Update
             // 
-            this.Update.Location = new System.Drawing.Point(391, 377);
+            this.Update.Location = new System.Drawing.Point(494, 433);
             this.Update.Name = "Update";
             this.Update.Size = new System.Drawing.Size(75, 23);
             this.Update.TabIndex = 8;
@@ -146,7 +147,7 @@ namespace FarmSystem
             this.logoutToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(497, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(612, 24);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -158,7 +159,8 @@ namespace FarmSystem
             this.taskManasgerToolStripMenuItem,
             this.homeToolStripMenuItem,
             this.containersToolStripMenuItem,
-            this.fieldsToolStripMenuItem});
+            this.fieldsToolStripMenuItem,
+            this.cropsToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 20);
             this.toolStripMenuItem1.Text = "Management";
@@ -204,6 +206,13 @@ namespace FarmSystem
             this.fieldsToolStripMenuItem.Text = "Fields";
             this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
+            // cropsToolStripMenuItem
+            // 
+            this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropsToolStripMenuItem.Text = "Crops";
+            this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
+            // 
             // logoutToolStripMenuItem
             // 
             this.logoutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -216,20 +225,20 @@ namespace FarmSystem
             // logoutToolStripMenuItem1
             // 
             this.logoutToolStripMenuItem1.Name = "logoutToolStripMenuItem1";
-            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
             this.logoutToolStripMenuItem1.Text = "Logout";
             this.logoutToolStripMenuItem1.Click += new System.EventHandler(this.logoutToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Containers
             // 
-            this.ClientSize = new System.Drawing.Size(497, 427);
+            this.ClientSize = new System.Drawing.Size(612, 499);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewCont);
@@ -285,5 +294,6 @@ namespace FarmSystem
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
     }
 }
