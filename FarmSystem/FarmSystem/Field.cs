@@ -11,7 +11,15 @@ using System.Windows.Forms;
 namespace FarmSystem
 
 {
-   
+
+    /* 
+     SID: 1812419
+
+     Date: 04/12/18
+
+     Version: 1
+     */
+
     public partial class Field : Form
     {
         int fieldID;
@@ -48,6 +56,30 @@ namespace FarmSystem
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Field_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void homeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ManagerForm mf = new ManagerForm();
+            this.Hide();
+            mf.Show();
+        }
+
+        private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Login lg = new Login();
+            this.Hide();
+            lg.Show();
         }
     }
 }

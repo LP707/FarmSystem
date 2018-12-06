@@ -77,11 +77,7 @@ namespace FarmSystem
             dataGridViewCont.Update();
         }
 
-        //Exits the application
-        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
+        
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -117,6 +113,18 @@ namespace FarmSystem
             Field fl = new Field();
             this.Hide();
             fl.Show();
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void logoutToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Login lg = new Login();
+            this.Hide();
+            lg.Show();
         }
     }
 

@@ -44,6 +44,14 @@
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvField)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -53,12 +61,12 @@
             this.dgvField.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvField.Location = new System.Drawing.Point(25, 47);
             this.dgvField.Name = "dgvField";
-            this.dgvField.Size = new System.Drawing.Size(308, 339);
+            this.dgvField.Size = new System.Drawing.Size(391, 339);
             this.dgvField.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(418, 392);
+            this.button1.Location = new System.Drawing.Point(539, 413);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 1;
@@ -68,7 +76,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(418, 432);
+            this.button2.Location = new System.Drawing.Point(539, 453);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 23);
             this.button2.TabIndex = 2;
@@ -77,35 +85,35 @@
             // 
             // textBox1soiltype
             // 
-            this.textBox1soiltype.Location = new System.Drawing.Point(405, 318);
+            this.textBox1soiltype.Location = new System.Drawing.Point(526, 339);
             this.textBox1soiltype.Name = "textBox1soiltype";
             this.textBox1soiltype.Size = new System.Drawing.Size(100, 20);
             this.textBox1soiltype.TabIndex = 3;
             // 
             // textBox2cropID
             // 
-            this.textBox2cropID.Location = new System.Drawing.Point(405, 344);
+            this.textBox2cropID.Location = new System.Drawing.Point(526, 365);
             this.textBox2cropID.Name = "textBox2cropID";
             this.textBox2cropID.Size = new System.Drawing.Size(100, 20);
             this.textBox2cropID.TabIndex = 4;
             // 
             // textBox3growthstat
             // 
-            this.textBox3growthstat.Location = new System.Drawing.Point(405, 292);
+            this.textBox3growthstat.Location = new System.Drawing.Point(526, 313);
             this.textBox3growthstat.Name = "textBox3growthstat";
             this.textBox3growthstat.Size = new System.Drawing.Size(100, 20);
             this.textBox3growthstat.TabIndex = 5;
             // 
             // textBox4fieldName
             // 
-            this.textBox4fieldName.Location = new System.Drawing.Point(405, 266);
+            this.textBox4fieldName.Location = new System.Drawing.Point(526, 287);
             this.textBox4fieldName.Name = "textBox4fieldName";
             this.textBox4fieldName.Size = new System.Drawing.Size(100, 20);
             this.textBox4fieldName.TabIndex = 6;
             // 
             // textBoxfieldID
             // 
-            this.textBoxfieldID.Location = new System.Drawing.Point(405, 240);
+            this.textBoxfieldID.Location = new System.Drawing.Point(526, 261);
             this.textBoxfieldID.Name = "textBoxfieldID";
             this.textBoxfieldID.Size = new System.Drawing.Size(100, 20);
             this.textBoxfieldID.TabIndex = 7;
@@ -113,10 +121,11 @@
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.managementToolStripMenuItem});
+            this.managementToolStripMenuItem,
+            this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(545, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(693, 24);
             this.menuStrip1.TabIndex = 8;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -157,6 +166,7 @@
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
             this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // containersToolStripMenuItem
             // 
@@ -170,11 +180,84 @@
             this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.fieldsToolStripMenuItem.Text = "Fields";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(477, 264);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(43, 13);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Field ID";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(460, 290);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(60, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Field Name";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(446, 316);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 11;
+            this.label3.Text = "Growth Status";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(469, 342);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 13);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Soil Type";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(477, 365);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(43, 13);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Crop ID";
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.logoutToolStripMenuItem,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
+            // 
+            // logoutToolStripMenuItem
+            // 
+            this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.logoutToolStripMenuItem.Text = "Logout";
+            this.logoutToolStripMenuItem.Click += new System.EventHandler(this.logoutToolStripMenuItem_Click);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(545, 488);
+            this.ClientSize = new System.Drawing.Size(693, 509);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.textBoxfieldID);
             this.Controls.Add(this.textBox4fieldName);
             this.Controls.Add(this.textBox3growthstat);
@@ -187,6 +270,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Field";
             this.Text = "Field";
+            this.Load += new System.EventHandler(this.Field_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvField)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -213,5 +297,13 @@
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
     }
 }
