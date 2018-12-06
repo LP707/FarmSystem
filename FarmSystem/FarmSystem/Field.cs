@@ -35,7 +35,7 @@ namespace FarmSystem
         MetaLayer ml = MetaLayer.instance();
         DbConection con = DBCheck.instance();
         DataAccess da = DataAccess.instance();
-        List<Field> fiel;
+        //List<Field> fiel;
 
 
         private void Fields_Load(object sender, EventArgs e)
@@ -78,8 +78,9 @@ namespace FarmSystem
 
         public void refreshData()
         {
+            List<Field> fiel = new List<Field>();
             dgvField.DataSource = null;
-           // fiel = da.returnFields();
+            fiel = da.returnFields();
             dgvField.DataSource = fiel;
             dgvField.Update();
         }
