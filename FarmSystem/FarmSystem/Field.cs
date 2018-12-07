@@ -54,10 +54,7 @@ namespace FarmSystem
             soilType = textBox1soiltype.Text;
             cropID = int.Parse(textBox2cropID.Text);
 
-            string query = "INSERT INTO Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            
             dgvField.Refresh();
         }
 
@@ -71,10 +68,7 @@ namespace FarmSystem
             soilType = textBox1soiltype.Text;
             cropID = int.Parse(textBox2cropID.Text);
 
-            string query = "UPDATE Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+            
             dgvField.Refresh();
         }
 
@@ -143,6 +137,13 @@ namespace FarmSystem
             ManageCrops mc = new ManageCrops();
             this.Hide();
             mc.Show();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            this.Hide();
+            rp.Show();
         }
     }
 }

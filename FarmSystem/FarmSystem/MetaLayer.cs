@@ -111,6 +111,44 @@ namespace FarmSystem
             da.connectionToDB();
         }
 
+        public void addField(int fieldID, string fieldName, string growthStatus, string soilType, int cropID)
+        {
+            //Query to add a new field to the database
+            string query = "INSERT INTO Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void updateField(int fieldID, string fieldName, string growthStatus, string soilType, int cropID)
+        {
+            //Query to update an existing record in the database
+            string query = "UPDATE Fields  (FieldID, FieldName, GrowthStatus, SoilType, crop_ID ) VALUES ('" + fieldID + "', '" + fieldName + "', '" + growthStatus + "', '" + soilType + "','" + cropID + "');";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+
+        //Query to add new container to database 
+        public void addCont(int cID, string cType, bool cAval)
+        { 
+        string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
+
+        con.ExecuteNonQuery(query);
+        da.connectionToDB();
+        }
+
+        //Query to update container in database
+
+        public void updateCont(int cID, string cType, bool cAval)
+        {
+            string query = "UPDATE Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
         //public void addTask(int ID, string )
 
         //Login method, tests user input against the list of records to find a match and return the relevant form, or throw an exception if no result is found.

@@ -40,6 +40,7 @@
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -54,7 +55,7 @@
             this.txtPass = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.dtpDOB = new System.Windows.Forms.DateTimePicker();
-            this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -105,7 +106,8 @@
             this.taskManagerToolStripMenuItem,
             this.homeToolStripMenuItem,
             this.containersToolStripMenuItem,
-            this.fieldsToolStripMenuItem});
+            this.fieldsToolStripMenuItem,
+            this.reportsToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
             this.managementToolStripMenuItem.Size = new System.Drawing.Size(90, 20);
             this.managementToolStripMenuItem.Text = "Management";
@@ -151,6 +153,13 @@
             this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.containersToolStripMenuItem.Text = "Containers";
             this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
+            // 
+            // fieldsToolStripMenuItem
+            // 
+            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
+            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.fieldsToolStripMenuItem.Text = "Fields";
+            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
             // dataView
             // 
@@ -272,12 +281,12 @@
             this.dtpDOB.Size = new System.Drawing.Size(100, 20);
             this.dtpDOB.TabIndex = 18;
             // 
-            // fieldsToolStripMenuItem
+            // reportsToolStripMenuItem
             // 
-            this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.fieldsToolStripMenuItem.Text = "Fields";
-            this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // ManageLabourer
             // 
@@ -344,5 +353,6 @@
         private System.Windows.Forms.DateTimePicker dtpDOB;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
     }
 }

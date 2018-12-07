@@ -354,5 +354,12 @@ namespace FarmSystem
 
             ml.addVeh(tID, vID);
         }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            this.Hide();
+            rp.Show();
+        }
     }
 }

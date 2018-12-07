@@ -47,10 +47,7 @@ namespace FarmSystem
             cType = textBox5.Text;
             cAval = textBox6.Text;
 
-            string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+           
             dataGridViewCont.Refresh();
         }
 
@@ -61,10 +58,7 @@ namespace FarmSystem
             cType = textBox5.Text;
             cAval = textBox6.Text;
            
-            string query = "UPDATE Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
+           
             dataGridViewCont.Refresh();
         }
 
@@ -132,6 +126,13 @@ namespace FarmSystem
             ManageCrops mc = new ManageCrops();
             this.Hide();
             mc.Show();
+        }
+
+        private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Report rp = new Report();
+            this.Hide();
+            rp.Show();
         }
     }
 
