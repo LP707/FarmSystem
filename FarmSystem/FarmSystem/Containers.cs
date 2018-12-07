@@ -134,6 +134,11 @@ namespace FarmSystem
             this.Hide();
             rp.Show();
         }
+
+        private void dataGridViewCont_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 
 

@@ -453,5 +453,9 @@ namespace FarmSystem
         }
     }
 
+    public List<Fertiliser> returnFertiliser()
+    {
+        return Fert;
+    }
         
     }

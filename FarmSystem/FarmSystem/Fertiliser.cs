@@ -10,6 +10,17 @@ using System.Windows.Forms;
 
 namespace FarmSystem
 {
+
+    /* 
+     SID: 1812419
+
+     Date: 04/12/18
+
+     Version: 1
+     */
+
+
+
     public partial class Fertiliser : Form
     {
         public Fertiliser()
@@ -20,7 +31,7 @@ namespace FarmSystem
 
         string fertName;
         int quantity;
-        List<Storage> Cont;
+        List<Fertiliser> Fert;
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -43,5 +54,16 @@ namespace FarmSystem
             dgvFert.Refresh();
 
         }
+
+
+
+        public void refreshData()
+        {
+            dgvFert.DataSource = null;
+            Fert = da.returnFert();
+            dgvFert.DataSource = Fert;
+            dgvFert.Update();
+        }
+
     }
 }
