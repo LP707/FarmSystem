@@ -27,7 +27,7 @@ namespace FarmSystem
 
 
         //sets instances of the class 'Vehicle' i.e 'Tractor' 
-        public string DName { get { return name + " " + reg; } set { displayName = value; } }
+        public string DName { get { return name + " " + reg + " " + attach; } set { displayName = value; } }
 
         public class Tractor : Vehicle
         {

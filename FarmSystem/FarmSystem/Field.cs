@@ -41,6 +41,8 @@ namespace FarmSystem
         private void Fields_Load(object sender, EventArgs e)
         {
             refreshData();
+
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -78,9 +80,7 @@ namespace FarmSystem
 
         public void refreshData()
         {
-            List<Field> fiel = new List<Field>();
-            dgvField.DataSource = null;
-            fiel = da.returnFields();
+            List<Fields> fiel = da.returnField();
             dgvField.DataSource = fiel;
             dgvField.Update();
         }
@@ -94,7 +94,8 @@ namespace FarmSystem
 
         private void Field_Load(object sender, EventArgs e)
         {
-
+            List<Fields> fiel = da.returnField();
+            dgvField.DataSource = fiel;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)

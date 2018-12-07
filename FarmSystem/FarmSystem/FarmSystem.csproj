@@ -129,6 +129,7 @@
     <Compile Include="TaskManager.Designer.cs">
       <DependentUpon>TaskManager.cs</DependentUpon>
     </Compile>
+    <Compile Include="TaskVehicles.cs" />
     <Compile Include="Treatments.cs" />
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="Containers.resx">

@@ -29,23 +29,14 @@ namespace FarmSystem
             public int fertID { get; set; }
             public int treatID { get; set; }
 
-        //public int employeeID { get { return taskID; } set { taskID = value; } }
-        //public int taskDateTime { get { return tType; } set { tType = value; } }
-        //public string emplyT { get { return employeeT; } set { employeeT = value; } }
-        //public int crops { get { return cropQuant; } set { cropQuant = value; } }
-        //public string Desc { get { return desc; } set { desc = value; } }
-        //public string lbFirstN { get { return fName; } set { fName = value; } }
-        //public string lbLastN { get { return lName; } set { lName = value; } }
-        //public string taskStartDate { get { return TName; } set { TName = value; } }
-        //public string VehOnTask { get { return vOJ; } set { vOJ = value; } }
-        //public string attach { get { return atch; } set { atch = value; } }
 
+        
 
 
         public void popList()
         {
             taskTypes.Add("Harvesting");
-            taskTypes.Add("Sewing");
+            taskTypes.Add("Sowing");
             taskTypes.Add("Treating");
             taskTypes.Add("Ploughing");
         }
@@ -58,11 +49,11 @@ namespace FarmSystem
 
         public void returnEmployee()
             {
-            List<Employee.Labourer> newLab = new List<Employee.Labourer>();
-            Employee.Labourer lb = new Employee.Labourer();
-            DataAccess da = DataAccess.instance();
+                List<Employee.Labourer> newLab = new List<Employee.Labourer>();
+                Employee.Labourer lb = new Employee.Labourer();
+                DataAccess da = DataAccess.instance();
 
-        }
+            }
 
             public class Sewing : Task
             {

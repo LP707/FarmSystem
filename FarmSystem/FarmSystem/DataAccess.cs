@@ -25,6 +25,7 @@ namespace FarmSystem
         List<Fields> Field = new List<Fields>();
         List<Storage> Store = new List<Storage>();
         List<Scheduler> Schedule = new List<Scheduler>();
+        List<TaskVehicles> taskVehicles = new List<TaskVehicles>();
 
 
 
@@ -151,12 +152,8 @@ namespace FarmSystem
                         ta.theEnd = dr.GetDateTime(2);
                         ta.fieldID = dr.GetInt32(3);
                         ta.taskType = dr.GetString(4);
-                        ta.vehID = dr.GetInt32(5);
-                        ta.fertID = dr.GetInt32(6);
-                        ta.treatID = dr.GetInt32(7);
-
-                        //ta.VehOnTask = dr.GetString(3);
-                        //ta.attach = dr.GetString(4);
+                        ta.fertID = dr.GetInt32(5);
+                        ta.treatID = dr.GetInt32(6);
 
                     }
                     Tasks.Add(ta);
@@ -338,6 +335,44 @@ namespace FarmSystem
             {
                 throw ex;
             }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM TaskVehicles;");
+
+                while (dr.Read())
+                {
+                    TaskVehicles tv = new TaskVehicles();
+                    {
+                        tv.vehTaskID = dr.GetInt32(0);
+                        tv.taskVehID = dr.GetInt32(1);
+
+                    }
+                    taskVehicles.Add(tv);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            try
+            {
+                OleDbDataReader dr = conn.Select("SELECT * FROM TaskVehicles;");
+
+                while (dr.Read())
+                {
+                    TaskVehicles tv = new TaskVehicles();
+                    {
+                        tv.vehTaskID = dr.GetInt32(0);
+                        tv.taskVehID = dr.GetInt32(1);
+
+                    }
+                    taskVehicles.Add(tv);
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
             finally
             {
                 conn.CloseConnection();
@@ -370,6 +405,10 @@ namespace FarmSystem
         public List<Employee.Labourer> returnLabourerList()
         {
             return Labourers;
+        }
+        public List<TaskVehicles> returnTaskVehicles()
+        {
+            return taskVehicles;
         }
 
         public List<Vehicle> returnVehicleList()

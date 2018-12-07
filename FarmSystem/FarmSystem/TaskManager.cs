@@ -14,10 +14,16 @@ namespace FarmSystem
     {
         DbConection con = DBCheck.instance();
         DataAccess da = DataAccess.instance();
+        MetaLayer ml = MetaLayer.instance();
         Task tsk = new Task();
         Employee.Labourer lb = new Employee.Labourer();
+        List<Employee.Labourer> em = new List<Employee.Labourer>();
+        List<Employee.Labourer> aEmp = new List<Employee.Labourer>();
+        List<Vehicle> aVeh = new List<Vehicle>();
+        
         int tID;
-        //Vehicle.Tractor tr = new Vehicle.Tractor();
+        
+        
 
         public TaskManager()
         {
@@ -75,20 +81,20 @@ namespace FarmSystem
 
         private void TaskManager_Load(object sender, EventArgs e)
         {
-            List<Employee.Labourer> Labourers = da.returnLabourerList();
-            List<Task> Task = da.returnTaskList();
+            List<Employee.Labourer> lab = da.returnLabourerList();
+            List<Task> taskList = da.returnTaskList();
             List<Vehicle> Veh = da.returnVehicleList();
-            dgvTask.DataSource = Task;
+            List<Fields> fl = da.returnField();
+
+            dgvTask.DataSource = taskList;
             dgvTask.Refresh();
             cmbType.DataSource = tsk.returnList();
-            cmbEmployee.DataSource = Labourers;
+            cmbField.DataSource = fl;
+            cmbEmployee.DataSource = lab;
             cmbEmployee.DisplayMember = "DName";
             cmbVeh.DataSource = Veh;
             cmbVeh.DisplayMember = "DName";
             hideColumns();
-
-            dgvTest.DataSource = da.returnSchedule();
-            //dgvTest.Sort(dgvTest.Columns["empID"], ListSortDirection.Ascending);
 
         }
 
@@ -97,6 +103,7 @@ namespace FarmSystem
 
         }
 
+        //Hides columns which aren't useful for the user.
         public void hideColumns()
         {
             dgvTask.Columns["taskID"].Visible = false;
@@ -105,27 +112,47 @@ namespace FarmSystem
             dgvTask.Columns["treatID"].Visible = false;
             dgvTask.Columns["fieldID"].Visible = false;
 
-
+            //Hides columns if the data grid has a data source.
+            if (dgvEmp.DataSource != null)
+            {
+                dgvEmp.Columns[0].Visible = false;
+                dgvEmp.Columns[1].Visible = false;
+                dgvEmp.Columns[2].Visible = false;
+                dgvEmp.Columns[3].Visible = false;
+                dgvEmp.Columns[4].Visible = false;
+                dgvEmp.Columns[5].Visible = false;
+                dgvEmp.Columns[6].Visible = false;
+                dgvEmp.Columns[7].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
+            if (dgvVeh.DataSource != null)
+            {
+                dgvVeh.Columns[0].Visible = false;
+                dgvVeh.Columns[1].Visible = false;
+                dgvVeh.Columns[2].Visible = false;
+                dgvVeh.Columns[3].Visible = false;
+                dgvVeh.Columns[4].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            }
         }
+        
+        
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             List<Task> Task = da.returnTaskList();
 
-            string name, employeeN, VehicleN, VehicleA;
-            int TaskID;
+            string name, employeeN, vehicleN;
+            int taskID;
             DateTime start, end;
-            TaskID = Task.Count + 1;
+            taskID = Task.Count + 1;
             name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
             employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
-            VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
-            VehicleA = this.cmbVehA.GetItemText(this.cmbVehA.SelectedItem);
+            vehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
+            
             start = startDate.Value;
             end = endDate.Value;
-            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, Attachment, startDate, endDate) VALUES " +
-            "('" + TaskID + "', '" + name + "','" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + start + "', '" + end + "');";
-
-            con.ExecuteNonQuery(query);
+            
+            //ml.addTask(taskID, name, employeeN, vehicleN, start, end);
+            //con.ExecuteNonQuery(query);
             da.connectionToDB();
             RefreshMeth();
         }
@@ -141,29 +168,29 @@ namespace FarmSystem
         private void dataView_Click(object sender, EventArgs e)
         {
 
-            List<Employee.Labourer> Labourers = da.returnLabourerList();
-            List<Task> Task = da.returnTaskList();
-            List<Vehicle> Veh = da.returnVehicleList();
-            List<Scheduler> Sch = da.returnSchedule();
-
-
-
+            //List<Employee.Labourer> lab = da.returnLabourerList();
+            //List<Task> task = da.returnTaskList();
+            //List<Vehicle> veh = da.returnVehicleList();
+            //List<Scheduler> sch = da.returnSchedule();
             Task ta = (Task)dgvTask.CurrentRow.DataBoundItem;
+            List<string> taskType = ta.returnList();
 
-            dgvTask.DataSource = Task;
-            dgvTask.Refresh();
-            dgvTest.DataSource = Sch;
-            dgvTest.Refresh();
-            cmbType.DataSource = ta.returnList();
-            cmbType.DisplayMember = " ";
-            cmbEmployee.DataSource = Labourers;
-            cmbEmployee.DisplayMember = "ID = 1";
-            cmbVeh.DataSource = Veh;
-            cmbVeh.DisplayMember = "ID = 1";
-
+            //dgvTask.DataSource = task;
+            //dgvTask.Refresh();
 
             tID = ta.taskID;
-            chkValues();
+            dgvEmp.DataSource = findEmployees();
+            dgvEmp.Refresh();
+
+            cmbType.SelectedIndex = taskType.FindIndex(a => a == ta.taskType);
+
+            dgvVeh.DataSource = findVehicles();
+
+            dgvVeh.Refresh();
+            //cmbVeh.SelectedIndex = findVehicle();
+            //cmbVeh.DataSource = Veh;
+
+            hideColumns();
 
         }
 
@@ -172,35 +199,75 @@ namespace FarmSystem
 
         }
 
+        //Compares the values of the taskvehicles list and vehicles list and creates a new list of the vehicles assigned to the selected task.
+        public List<Vehicle> findVehicles()
+        {
+            List<Vehicle> veh = da.returnVehicleList();
+            List<TaskVehicles> tv = da.returnTaskVehicles();
+            List<Task> ta = da.returnTaskList();
+            List<Vehicle> vh = new List<Vehicle>();
 
-        public void chkValues()
+            int i = 0;
+
+            //Compares the IDs of vehicle and taskvehicles lists and eliminates the values missing in both lists.
+            foreach (var e in tv.Where(e => veh.Select(c => c.vehID).Contains(e.taskVehID)))
+            {
+                //Adds the matching values in to a new list if the schedule list task ID matches the selected task ID.
+                if (e.vehTaskID == tID)
+                {
+                    i = veh.FindIndex(a => a.vehID == e.taskVehID);
+                    vh.Add(veh[i]);
+                }
+
+            }
+
+            //Compares the IDs of vehicle and assigned vehicle lists to find values that are not matching - adds them to another list.
+            foreach (var e in veh.Where(e => !tv.Select(c => c.taskVehID).Contains(e.vehID)))
+            {
+
+                i = veh.FindIndex(a => a.vehID == e.vehID);
+                aVeh.Add(veh[i]);
+            }
+
+
+            cmbVeh.DataSource = aVeh;
+
+            return vh;
+
+
+        }
+
+        //Compares the values of the schedule list and labourer list and creates a new list of the labourers assigned to the selected task.
+        public List<Employee.Labourer> findEmployees()
         {
             List<Employee.Labourer> lab = da.returnLabourerList();
             List<Scheduler> sch = da.returnSchedule();
             List<Task> ta = da.returnTaskList();
-            List<Employee.Labourer> em = new List<Employee.Labourer>();
+            
 
             int i = 0;
 
-
+            //Compares the IDs of labourer and schedule lists and eliminates the values missing in both lists.
             foreach (var e in sch.Where(e => lab.Select(c => c.ID).Contains(e.empID)))
             {
+                //Adds the matching values in to a new list if the schedule list task ID matches the selected task ID.
                 if (e.taskID == tID)
                 {
                     i = lab.FindIndex(a => a.ID == e.empID);
                     em.Add(lab[i]);
                 }
+                
             }
 
-            dgvTest.DataSource = em;
+            //Compares the IDs of labourer and assigned employee lists to find values that are not matching - adds them to another list.
+            foreach (var e in lab.Where(e => !em.Select(c => c.ID).Contains(e.ID)))
+            {
+                i = lab.FindIndex(a => a.ID == e.ID);
+                aEmp.Add(lab[i]);
+            }
 
-            dgvTest.Columns[0].Visible = false;
-            dgvTest.Columns[1].Visible = false;
-            dgvTest.Columns[2].Visible = false;
-            dgvTest.Columns[3].Visible = false;
-            dgvTest.Columns[4].Visible = false;
-            dgvTest.Columns[5].Visible = false;
-            dgvTest.Columns[6].Visible = false;
+            cmbEmployee.DataSource = aEmp;
+            return em;
         }
 
 
@@ -208,25 +275,22 @@ namespace FarmSystem
         {
             List<Task> Task = da.returnTaskList();
 
-            string name, taskType, employeeN, VehicleN, VehicleA;
-            int TaskID, EmID, VhID;
+            string name, employeeN, VehicleN;
+            int TaskID;
             DateTime start, end;
-
-            name = this.cmbVT.GetItemText(this.cmbVT.SelectedItem);
             TaskID = Task.Count + 1;
-            employeeN = this.cmbVE.GetItemText(this.cmbVE.SelectedItem);
-            VehicleN = this.cmbVV.GetItemText(this.cmbVV.SelectedItem);
-            VehicleA = this.cmbVVA.GetItemText(this.cmbVVA.SelectedItem);
-            EmID = 2;
-            VhID = 2;
-            start = startV.Value;
-            end = endV.Value;
-            string query = "UPDATE Tasks (TaskID TaskName, LabourerID, Name, VehicleName, Attachment, VhID, startDate, endDate) VALUES " +
-            "('" + TaskID + "', '" + name + "', '" + EmID + "''" + employeeN + "','" + VehicleN + "', '" + VehicleA + "', '" + VhID + "', '" + start + "', '" + end + "';";
+            name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
+            employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
+            VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
+            
+            start = startDate.Value;
+            end = endDate.Value;
+            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, startDate, endDate) VALUES " +
+            "('" + TaskID + "', '" + name + "','" + employeeN + "','" + VehicleN + "', '" + start + "', '" + end + "');";
 
             con.ExecuteNonQuery(query);
             da.connectionToDB();
-            dgvTask.Refresh();
+            RefreshMeth();
         }
 
         private void TaskManager_FormClosing(object sender, FormClosingEventArgs e)
@@ -234,6 +298,21 @@ namespace FarmSystem
             System.Windows.Forms.Application.Exit();
         }
 
-        
+        private void dgvTest_Click(object sender, EventArgs e)
+        {
+            //Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
+            
+            //cmbEmployee.SelectedIndex = aEmp.FindIndex(a => a.DName == emp.DName);
+        }
+
+        private void btnRemEmp_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnRemVeh_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
