@@ -77,6 +77,40 @@ namespace FarmSystem
             da.connectionToDB();
         }
 
+        public void addEmp(int tskID, int empID)
+        {
+            string query = "INSERT INTO Scheduler (task_ID, employee_ID) VALUES (" + tskID + ", " + empID + ");";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        //Removes the employee and task assignment from the scheduler table.
+        public void removeEmp(int tskID, int empID)
+        {
+            string query = "DELETE FROM Scheduler WHERE task_ID = " + tskID + " AND employee_ID = " + empID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void addVeh(int tskID, int vehID)
+        {
+            string query = "INSERT INTO TaskVehicles (task_ID, vehicle_ID) VALUES (" + tskID + ", " + vehID + ");";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        //Removes the employee and task assignment from the scheduler table.
+        public void removeVeh(int tskID, int vehID)
+        {
+            string query = "DELETE FROM TaskVehicles WHERE task_ID = " + tskID + " AND vehicle_ID = " + vehID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
         //public void addTask(int ID, string )
 
         //Login method, tests user input against the list of records to find a match and return the relevant form, or throw an exception if no result is found.

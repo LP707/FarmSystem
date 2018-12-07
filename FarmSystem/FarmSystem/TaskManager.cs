@@ -96,6 +96,8 @@ namespace FarmSystem
             cmbVeh.DisplayMember = "DName";
             hideColumns();
 
+
+
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
@@ -300,19 +302,57 @@ namespace FarmSystem
 
         private void dgvTest_Click(object sender, EventArgs e)
         {
-            //Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
             
-            //cmbEmployee.SelectedIndex = aEmp.FindIndex(a => a.DName == emp.DName);
         }
 
         private void btnRemEmp_Click(object sender, EventArgs e)
         {
+            Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
             
+            int eID = emp.ID;
+
+            ml.removeEmp(tID, eID);
+
+            //dgvEmp.DataSource = da.returnLabourerList();
         }
 
         private void btnRemVeh_Click(object sender, EventArgs e)
         {
+            Vehicle veh = (Vehicle)dgvVeh.CurrentRow.DataBoundItem;
 
+            int vID = veh.vehID;
+
+            ml.removeVeh(tID, vID);
+        }
+
+        //Resets the combo boxes and date/time picker values.
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            cmbType.SelectedIndex = -1;
+            cmbField.SelectedIndex = -1;
+            startDate.Value = DateTime.Today;
+            endDate.Value = DateTime.Today;
+            cmbEmployee.SelectedIndex = -1;
+            cmbVeh.SelectedIndex = -1;
+        }
+
+        private void btnAddEmp_Click(object sender, EventArgs e)
+        {
+            Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
+            
+
+            int eID = em.FindIndex(a => a.ID == emp.ID);
+
+            ml.addEmp(tID, eID);
+        }
+
+        private void btnAddVeh_Click(object sender, EventArgs e)
+        {
+            Vehicle veh = (Vehicle)dgvVeh.CurrentRow.DataBoundItem;
+
+            int vID = veh.vehID;
+
+            ml.addVeh(tID, vID);
         }
     }
 }

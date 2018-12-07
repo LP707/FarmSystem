@@ -57,6 +57,14 @@
             this.dgvVeh = new System.Windows.Forms.DataGridView();
             this.btnRemEmp = new System.Windows.Forms.Button();
             this.btnRemVeh = new System.Windows.Forms.Button();
+            this.btnAddTask = new System.Windows.Forms.Button();
+            this.btnUpdTask = new System.Windows.Forms.Button();
+            this.btnClear = new System.Windows.Forms.Button();
+            this.btnAddEmp = new System.Windows.Forms.Button();
+            this.btnAddVeh = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,7 +102,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(382, 408);
+            this.label1.Location = new System.Drawing.Point(376, 408);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(56, 13);
             this.label1.TabIndex = 19;
@@ -104,7 +112,7 @@
             // 
             this.dgvTask.BackgroundColor = System.Drawing.SystemColors.ControlDark;
             this.dgvTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTask.Location = new System.Drawing.Point(12, 133);
+            this.dgvTask.Location = new System.Drawing.Point(12, 139);
             this.dgvTask.MultiSelect = false;
             this.dgvTask.Name = "dgvTask";
             this.dgvTask.Size = new System.Drawing.Size(345, 249);
@@ -205,9 +213,9 @@
             // cmbEmployee
             // 
             this.cmbEmployee.FormattingEnabled = true;
-            this.cmbEmployee.Location = new System.Drawing.Point(443, 406);
+            this.cmbEmployee.Location = new System.Drawing.Point(438, 406);
             this.cmbEmployee.Name = "cmbEmployee";
-            this.cmbEmployee.Size = new System.Drawing.Size(121, 21);
+            this.cmbEmployee.Size = new System.Drawing.Size(161, 21);
             this.cmbEmployee.TabIndex = 25;
             // 
             // cmbVeh
@@ -244,7 +252,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 50);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(405, 77);
             this.pictureBox1.TabIndex = 47;
@@ -253,7 +261,7 @@
             // dgvEmp
             // 
             this.dgvEmp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEmp.Location = new System.Drawing.Point(360, 133);
+            this.dgvEmp.Location = new System.Drawing.Point(360, 139);
             this.dgvEmp.Name = "dgvEmp";
             this.dgvEmp.Size = new System.Drawing.Size(261, 249);
             this.dgvEmp.TabIndex = 48;
@@ -279,14 +287,14 @@
             // dgvVeh
             // 
             this.dgvVeh.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvVeh.Location = new System.Drawing.Point(624, 133);
+            this.dgvVeh.Location = new System.Drawing.Point(624, 139);
             this.dgvVeh.Name = "dgvVeh";
             this.dgvVeh.Size = new System.Drawing.Size(240, 249);
             this.dgvVeh.TabIndex = 51;
             // 
             // btnRemEmp
             // 
-            this.btnRemEmp.Location = new System.Drawing.Point(419, 454);
+            this.btnRemEmp.Location = new System.Drawing.Point(418, 523);
             this.btnRemEmp.Name = "btnRemEmp";
             this.btnRemEmp.Size = new System.Drawing.Size(117, 23);
             this.btnRemEmp.TabIndex = 52;
@@ -296,7 +304,7 @@
             // 
             // btnRemVeh
             // 
-            this.btnRemVeh.Location = new System.Drawing.Point(695, 454);
+            this.btnRemVeh.Location = new System.Drawing.Point(696, 523);
             this.btnRemVeh.Name = "btnRemVeh";
             this.btnRemVeh.Size = new System.Drawing.Size(117, 23);
             this.btnRemVeh.TabIndex = 53;
@@ -304,12 +312,95 @@
             this.btnRemVeh.UseVisualStyleBackColor = true;
             this.btnRemVeh.Click += new System.EventHandler(this.btnRemVeh_Click);
             // 
+            // btnAddTask
+            // 
+            this.btnAddTask.Location = new System.Drawing.Point(45, 523);
+            this.btnAddTask.Name = "btnAddTask";
+            this.btnAddTask.Size = new System.Drawing.Size(82, 23);
+            this.btnAddTask.TabIndex = 54;
+            this.btnAddTask.Text = "Add Task";
+            this.btnAddTask.UseVisualStyleBackColor = true;
+            // 
+            // btnUpdTask
+            // 
+            this.btnUpdTask.Location = new System.Drawing.Point(172, 523);
+            this.btnUpdTask.Name = "btnUpdTask";
+            this.btnUpdTask.Size = new System.Drawing.Size(82, 23);
+            this.btnUpdTask.TabIndex = 55;
+            this.btnUpdTask.Text = "Update Task";
+            this.btnUpdTask.UseVisualStyleBackColor = true;
+            // 
+            // btnClear
+            // 
+            this.btnClear.Location = new System.Drawing.Point(882, 523);
+            this.btnClear.Name = "btnClear";
+            this.btnClear.Size = new System.Drawing.Size(75, 23);
+            this.btnClear.TabIndex = 56;
+            this.btnClear.Text = "Clear Input";
+            this.btnClear.UseVisualStyleBackColor = true;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            // 
+            // btnAddEmp
+            // 
+            this.btnAddEmp.Location = new System.Drawing.Point(418, 464);
+            this.btnAddEmp.Name = "btnAddEmp";
+            this.btnAddEmp.Size = new System.Drawing.Size(117, 23);
+            this.btnAddEmp.TabIndex = 57;
+            this.btnAddEmp.Text = "Add Employee";
+            this.btnAddEmp.UseVisualStyleBackColor = true;
+            this.btnAddEmp.Click += new System.EventHandler(this.btnAddEmp_Click);
+            // 
+            // btnAddVeh
+            // 
+            this.btnAddVeh.Location = new System.Drawing.Point(696, 463);
+            this.btnAddVeh.Name = "btnAddVeh";
+            this.btnAddVeh.Size = new System.Drawing.Size(117, 23);
+            this.btnAddVeh.TabIndex = 58;
+            this.btnAddVeh.Text = "Add Vehicle";
+            this.btnAddVeh.UseVisualStyleBackColor = true;
+            this.btnAddVeh.Click += new System.EventHandler(this.btnAddVeh_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(438, 120);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(107, 13);
+            this.label6.TabIndex = 59;
+            this.label6.Text = "Assigned Employees:";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(693, 120);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(96, 13);
+            this.label7.TabIndex = 60;
+            this.label7.Text = "Assigned Vehicles:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(153, 120);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(39, 13);
+            this.label8.TabIndex = 61;
+            this.label8.Text = "Tasks:";
+            // 
             // TaskManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(969, 558);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.btnAddVeh);
+            this.Controls.Add(this.btnAddEmp);
+            this.Controls.Add(this.btnClear);
+            this.Controls.Add(this.btnUpdTask);
+            this.Controls.Add(this.btnAddTask);
             this.Controls.Add(this.btnRemVeh);
             this.Controls.Add(this.btnRemEmp);
             this.Controls.Add(this.dgvVeh);
@@ -377,5 +468,13 @@
         private System.Windows.Forms.DataGridView dgvVeh;
         private System.Windows.Forms.Button btnRemEmp;
         private System.Windows.Forms.Button btnRemVeh;
+        private System.Windows.Forms.Button btnAddTask;
+        private System.Windows.Forms.Button btnUpdTask;
+        private System.Windows.Forms.Button btnClear;
+        private System.Windows.Forms.Button btnAddEmp;
+        private System.Windows.Forms.Button btnAddVeh;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
     }
 }
