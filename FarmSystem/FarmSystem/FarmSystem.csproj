@@ -72,6 +72,12 @@
     <Compile Include="DBCheck.cs" />
     <Compile Include="DBConn.cs" />
     <Compile Include="DBException.cs" />
+    <Compile Include="Fertiliser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fertiliser.Designer.cs">
+      <DependentUpon>Fertiliser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Fertilisers.cs" />
     <Compile Include="Field.cs">
       <SubType>Form</SubType>
@@ -140,6 +146,9 @@
     <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="Containers.resx">
       <DependentUpon>Containers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fertiliser.resx">
+      <DependentUpon>Fertiliser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Field.resx">
       <DependentUpon>Field.cs</DependentUpon>

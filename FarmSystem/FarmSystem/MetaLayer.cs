@@ -149,6 +149,25 @@ namespace FarmSystem
             da.connectionToDB();
         }
 
+        //Query to add fertiliser to database
+        public void addFert(string fertName, int quantity)
+        {
+            string query = "INSERT INTO Fertilisers (FertiliserName, Quantity) VALUES ('" + fertName + "', '" + quantity + "');";
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+
+        }
+
+        //Query to update fertiliser in database 
+        public void updateFert(string fertName, int quantity)
+        {
+            string query = "UPDATE Fertilisers (FertiliserName, Quantity) VALUES ('" + fertName + "', '" + quantity + "');";
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+
+        }
+
+
         //public void addTask(int ID, string )
 
         //Login method, tests user input against the list of records to find a match and return the relevant form, or throw an exception if no result is found.
