@@ -73,6 +73,8 @@ namespace FarmSystem
             this.Hide();
             lg.Show();
         }
+
+      
     }
 
 }
