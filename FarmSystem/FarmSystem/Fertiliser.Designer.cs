@@ -112,6 +112,7 @@
             this.Controls.Add(this.dgvFert);
             this.Name = "Fertiliser";
             this.Text = "Fertiliser";
+            this.Load += new System.EventHandler(this.Fertiliser_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvFert)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -65,5 +65,9 @@ namespace FarmSystem
             dgvFert.Update();
         }
 
+        private void Fertiliser_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

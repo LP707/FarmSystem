@@ -13,9 +13,9 @@ namespace FarmSystem
         public string fieldName { get; set; }
         public string growthStatus { get; set; }
         public string soilType { get; set; }
-        public int cropID { get; set; }
+        public string cropName { get; set; }
 
 
-        public string DName { get { return fieldName + " " + soilType; } set { displayName = value; } }
+        public string DName { get { return fieldName + " " + cropName; } set { displayName = value; } }
     }
 }
