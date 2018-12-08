@@ -145,5 +145,11 @@ namespace FarmSystem
             this.Hide();
             rp.Show();
         }
+
+        private void cmbCrop_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cmbCrop.DataSource = fieldlist;
+            int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].ID;
+        }
     }
 }

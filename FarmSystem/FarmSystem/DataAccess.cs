@@ -287,7 +287,7 @@ namespace FarmSystem
                         fi.fieldName = dr.GetString(1);
                         fi.growthStatus = dr.GetString(2);
                         fi.soilType = dr.GetString(3);
-                        fi.cropName = dr.GetString(4);
+                        fi.cropID = dr.GetInt32(4);
                     }
                     Field.Add(fi);
                 }
@@ -453,7 +453,7 @@ namespace FarmSystem
         }
     }
 
-    public List<Fertiliser> returnFertiliser()
+    public List<Fertiliser> returnFert()
     {
         return Fert;
     }

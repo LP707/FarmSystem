@@ -1,4 +1,6 @@
-﻿namespace FarmSystem
+﻿using System;
+
+namespace FarmSystem
 {
     partial class Field
     {
@@ -49,6 +51,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbCrop = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvField)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -226,11 +230,31 @@
             this.label4.TabIndex = 12;
             this.label4.Text = "Soil Type";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(460, 268);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(29, 13);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Crop";
+            // 
+            // cmbCrop
+            // 
+            this.cmbCrop.FormattingEnabled = true;
+            this.cmbCrop.Location = new System.Drawing.Point(526, 259);
+            this.cmbCrop.Name = "cmbCrop";
+            this.cmbCrop.Size = new System.Drawing.Size(121, 21);
+            this.cmbCrop.TabIndex = 15;
+            this.cmbCrop.SelectedIndexChanged += new System.EventHandler(this.cmbCrop_SelectedIndexChanged);
+            // 
             // Field
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(693, 509);
+            this.Controls.Add(this.cmbCrop);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -251,6 +275,11 @@
             this.ResumeLayout(false);
             this.PerformLayout();
 
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
         }
 
         #endregion
@@ -276,5 +305,7 @@
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox cmbCrop;
     }
 }

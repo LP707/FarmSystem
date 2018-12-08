@@ -17,6 +17,17 @@ namespace FarmSystem
             InitializeComponent();
         }
 
+
+
+        
+        
+
+
+
+    
+
+
+
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ManageLabourer ml = new ManageLabourer();
@@ -74,7 +85,10 @@ namespace FarmSystem
             lg.Show();
         }
 
-      
+        private void Report_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
