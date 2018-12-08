@@ -48,11 +48,11 @@ namespace FarmSystem
         private void button1_Click(object sender, EventArgs e)
         {
             Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
-            fieldID = int.Parse(textBoxfieldID.Text);
+            
             fieldName = textBox4fieldName.Text;
             growthStatus = textBox3growthstat.Text;
             soilType = textBox1soiltype.Text;
-            cropID = int.Parse(textBox2cropID.Text);
+            
 
             
             dgvField.Refresh();
@@ -62,11 +62,11 @@ namespace FarmSystem
         {
 
             Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
-            fieldID = int.Parse(textBoxfieldID.Text);
+           
             fieldName = textBox4fieldName.Text;
             growthStatus = textBox3growthstat.Text;
             soilType = textBox1soiltype.Text;
-            cropID = int.Parse(textBox2cropID.Text);
+            
 
             
             dgvField.Refresh();
