@@ -411,9 +411,7 @@ namespace FarmSystem
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Report rp = new Report();
-            this.Hide();
-            rp.Show();
+
         }
 
         //When the button is clicked, the tasks table will be updated with the entered information.

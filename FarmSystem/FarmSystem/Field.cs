@@ -42,18 +42,18 @@ namespace FarmSystem
         {
             //refreshData();
             List<Fields> fieldlist = da.returnField();
-            cmbCrop.DataSource = fieldlist;
-            int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].cropID;
+            //cmbCrop.DataSource = fieldlist;
+            //int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].cropID;
 
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
+            //Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
             
-            fieldName = textBox4fieldName.Text;
-            growthStatus = textBox3growthstat.Text;
-            soilType = textBox1soiltype.Text;
+            //fieldName = textBox4fieldName.Text;
+            //growthStatus = textBox3growthstat.Text;
+            //soilType = textBox1soiltype.Text;
             
 
             
@@ -65,9 +65,9 @@ namespace FarmSystem
 
             Fields fiel = (Fields)dgvField.CurrentRow.DataBoundItem;
            
-            fieldName = textBox4fieldName.Text;
-            growthStatus = textBox3growthstat.Text;
-            soilType = textBox1soiltype.Text;
+            //fieldName = textBox4fieldName.Text;
+            //growthStatus = textBox3growthstat.Text;
+            //soilType = textBox1soiltype.Text;
             
 
             
@@ -143,9 +143,7 @@ namespace FarmSystem
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Report rp = new Report();
-            this.Hide();
-            rp.Show();
+
         }
 
         private void cmbCrop_SelectedIndexChanged(object sender, EventArgs e)

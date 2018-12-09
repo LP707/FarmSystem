@@ -12,10 +12,16 @@ namespace FarmSystem
 {
     public partial class Login : Form
     {
+        static string activeUser;
         MetaLayer ml = MetaLayer.instance();
         public Login()
         {
             InitializeComponent();
+        }
+
+        public string returnUser()
+        {
+            return activeUser;
         }
 
         public void throwUnknownUser()
@@ -35,7 +41,7 @@ namespace FarmSystem
         {
             string storedUser = txtUser.Text;
             string storedPass = txtPass.Text;
-
+            activeUser = storedUser;
             DataAccess da = DataAccess.instance();
 
             this.Hide();

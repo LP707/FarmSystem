@@ -9,19 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace FarmSystem
-
-/* 
- SID: 1812419
-
- Date: 04/12/18
-
- Version: 1
- */
-
-//intialises component
 {
     public partial class LabourerForm : Form
     {
+        MetaLayer ml = MetaLayer.instance();
         public LabourerForm()
         {
             InitializeComponent();
@@ -48,7 +39,10 @@ namespace FarmSystem
 
         private void viewTimetableToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            List<Task> EmpTasks = new List<Task>();
+            EmpTasks = ml.getTimetable();
+            dgvTimetable.DataSource = EmpTasks;
+            dgvTimetable.Refresh();
         }
 
         //Exits the program

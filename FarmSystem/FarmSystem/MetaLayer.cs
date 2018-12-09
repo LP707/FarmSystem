@@ -211,10 +211,23 @@ namespace FarmSystem
 
         }
 
-        
+        public List<Task> getTimetable()
+        {
+            Login lg = new Login();
+            string user = lg.returnUser();
+            List<Task> EmpTask = new List<Task>();
+            List<Task> tasks = da.returnTaskList();
+            List<Scheduler> sch = da.returnSchedule();
 
-
-
+            foreach (var e in sch.Where(e => user.Contains(e.empID.ToString())))
+            {
+                foreach (var r in tasks.Where(r => r.taskID.Equals(e.taskID)))
+                {
+                    EmpTask.Add(r);
+                }
+            }
+            return EmpTask;
+        }
 
         //public void addTask(int ID, string )
 

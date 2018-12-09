@@ -57,7 +57,6 @@ namespace FarmSystem
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.logoutToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -67,64 +66,64 @@ namespace FarmSystem
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(469, 250);
+            this.textBox4.Location = new System.Drawing.Point(1272, 478);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
+            this.textBox4.Size = new System.Drawing.Size(100, 22);
             this.textBox4.TabIndex = 0;
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(469, 285);
+            this.textBox5.Location = new System.Drawing.Point(1272, 513);
             this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
+            this.textBox5.Size = new System.Drawing.Size(100, 22);
             this.textBox5.TabIndex = 1;
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(469, 320);
+            this.textBox6.Location = new System.Drawing.Point(1272, 548);
             this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
+            this.textBox6.Size = new System.Drawing.Size(100, 22);
             this.textBox6.TabIndex = 2;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(406, 253);
+            this.label4.Location = new System.Drawing.Point(1209, 481);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(18, 13);
+            this.label4.Size = new System.Drawing.Size(21, 17);
             this.label4.TabIndex = 3;
             this.label4.Text = "ID";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(393, 285);
+            this.label5.Location = new System.Drawing.Point(1196, 513);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(31, 13);
+            this.label5.Size = new System.Drawing.Size(40, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "Type";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(388, 326);
+            this.label6.Location = new System.Drawing.Point(1191, 554);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(56, 13);
+            this.label6.Size = new System.Drawing.Size(74, 17);
             this.label6.TabIndex = 5;
             this.label6.Text = "Availability";
             // 
             // dataGridViewCont
             // 
             this.dataGridViewCont.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewCont.Location = new System.Drawing.Point(29, 129);
+            this.dataGridViewCont.Location = new System.Drawing.Point(12, 129);
             this.dataGridViewCont.Name = "dataGridViewCont";
-            this.dataGridViewCont.Size = new System.Drawing.Size(345, 251);
+            this.dataGridViewCont.Size = new System.Drawing.Size(1162, 577);
             this.dataGridViewCont.TabIndex = 6;
             this.dataGridViewCont.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewCont_CellContentClick);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(494, 395);
+            this.button1.Location = new System.Drawing.Point(1297, 623);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 7;
@@ -134,7 +133,7 @@ namespace FarmSystem
             // 
             // Update
             // 
-            this.Update.Location = new System.Drawing.Point(494, 433);
+            this.Update.Location = new System.Drawing.Point(1297, 661);
             this.Update.Name = "Update";
             this.Update.Size = new System.Drawing.Size(75, 23);
             this.Update.TabIndex = 8;
@@ -144,12 +143,13 @@ namespace FarmSystem
             // 
             // menuStrip1
             // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.logoutToolStripMenuItem});
+            this.logoutToolStripMenuItem,
+            this.toolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(612, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1433, 28);
             this.menuStrip1.TabIndex = 9;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -159,69 +159,61 @@ namespace FarmSystem
             this.labourersToolStripMenuItem,
             this.vehiclesToolStripMenuItem,
             this.taskManasgerToolStripMenuItem,
-            this.homeToolStripMenuItem,
             this.containersToolStripMenuItem,
             this.fieldsToolStripMenuItem,
             this.cropsToolStripMenuItem,
-            this.reportsToolStripMenuItem});
+            this.homeToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(90, 20);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(109, 24);
             this.toolStripMenuItem1.Text = "Management";
             // 
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vehiclesToolStripMenuItem
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // taskManasgerToolStripMenuItem
             // 
             this.taskManasgerToolStripMenuItem.Name = "taskManasgerToolStripMenuItem";
-            this.taskManasgerToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.taskManasgerToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.taskManasgerToolStripMenuItem.Text = "Task Manager";
             this.taskManasgerToolStripMenuItem.Click += new System.EventHandler(this.taskManasgerToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.containersToolStripMenuItem.Text = "Containers";
             // 
             // fieldsToolStripMenuItem
             // 
             this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
-            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.fieldsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.fieldsToolStripMenuItem.Text = "Fields";
             this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
             // cropsToolStripMenuItem
             // 
             this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
-            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.cropsToolStripMenuItem.Text = "Crops";
             this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
-            // 
-            // reportsToolStripMenuItem
-            // 
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(147, 22);
-            this.reportsToolStripMenuItem.Text = "Reports";
-            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // logoutToolStripMenuItem
             // 
@@ -229,26 +221,26 @@ namespace FarmSystem
             this.logoutToolStripMenuItem1,
             this.exitToolStripMenuItem});
             this.logoutToolStripMenuItem.Name = "logoutToolStripMenuItem";
-            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.logoutToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
             this.logoutToolStripMenuItem.Text = "File";
             // 
             // logoutToolStripMenuItem1
             // 
             this.logoutToolStripMenuItem1.Name = "logoutToolStripMenuItem1";
-            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(112, 22);
+            this.logoutToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
             this.logoutToolStripMenuItem1.Text = "Logout";
             this.logoutToolStripMenuItem1.Click += new System.EventHandler(this.logoutToolStripMenuItem1_Click);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(112, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // Containers
             // 
-            this.ClientSize = new System.Drawing.Size(612, 499);
+            this.ClientSize = new System.Drawing.Size(1433, 718);
             this.Controls.Add(this.Update);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridViewCont);
@@ -305,6 +297,5 @@ namespace FarmSystem
         private System.Windows.Forms.ToolStripMenuItem logoutToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
     }
 }
