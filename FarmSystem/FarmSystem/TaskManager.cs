@@ -1,4 +1,12 @@
-﻿using System;
+﻿/* 
+     SID: 1719547
+
+     Description: Allows the user to create new tasks and add vehicles, employees and items which may be used with the specfic task type.
+
+     Version: 1
+
+*/
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,15 +28,15 @@ namespace FarmSystem
         List<Employee.Labourer> em = new List<Employee.Labourer>();
         List<Employee.Labourer> aEmp = new List<Employee.Labourer>();
         List<Vehicle> aVeh = new List<Vehicle>();
-        
+
         int tID;
-        
-        
 
         public TaskManager()
         {
             InitializeComponent();
         }
+
+
 
         private void logoutToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -89,20 +97,64 @@ namespace FarmSystem
             dgvTask.DataSource = taskList;
             dgvTask.Refresh();
             cmbType.DataSource = tsk.returnList();
-            cmbField.DataSource = fl;
+            cmbMP.DataSource = fl;
+            cmbMP.DisplayMember = "DName";
             cmbEmployee.DataSource = lab;
             cmbEmployee.DisplayMember = "DName";
             cmbVeh.DataSource = Veh;
             cmbVeh.DisplayMember = "DName";
+            startDate.Format = DateTimePickerFormat.Custom;
+            startDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            endDate.Format = DateTimePickerFormat.Custom;
+            endDate.CustomFormat = "dd/MM/yyyy HH:mm:ss";
+            cmbField.Visible = false;
+            cmbField.DataSource = fl;
+            cmbField.DisplayMember = "fieldName";
+            clearInput();
             hideColumns();
-
-
-
         }
 
         private void cmbType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<Storage> sto = da.returnStorage();
+            List<Fertilisers> fer = da.returnFertiliser();
+            List<Treatments> tre = da.returnTreatments();
+            List<Fields> fie = da.returnField();
 
+            //Sets the information to display depending on the task type.
+            if (cmbType.SelectedValue == "Storing")
+            {
+                lblType.Text = "Storage:";
+                lblType.Location = new Point(81, 438);
+                cmbMP.DataSource = sto;
+                cmbMP.DisplayMember = "StoreName";
+                cmbField.Visible = true;
+
+            }
+            else if (cmbType.SelectedValue == "Treating")
+            {
+                lblType.Text = "Treatment:";
+                lblType.Location = new Point(76, 438);
+                cmbMP.DataSource = tre;
+                cmbMP.DisplayMember = "TreatmentName";
+                cmbField.Visible = true;
+            }
+            else if (cmbType.SelectedValue == "Fertilising")
+            {
+                lblType.Text = "Fertiliser:";
+                lblType.Location = new Point(81, 438);
+                cmbMP.DataSource = fer;
+                cmbMP.DisplayMember = "FertiliserName";
+                cmbField.Visible = true;
+            }
+            else 
+            {
+                lblType.Text = "Field:";
+                lblType.Location = new Point(96, 438);
+                cmbMP.DataSource = fie;
+                cmbMP.DisplayMember = "DName";
+                cmbField.Visible = false;
+            }
         }
 
         //Hides columns which aren't useful for the user.
@@ -138,62 +190,73 @@ namespace FarmSystem
         
         
 
-        private void btnAdd_Click(object sender, EventArgs e)
-        {
-            List<Task> Task = da.returnTaskList();
-
-            string name, employeeN, vehicleN;
-            int taskID;
-            DateTime start, end;
-            taskID = Task.Count + 1;
-            name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
-            employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
-            vehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
-            
-            start = startDate.Value;
-            end = endDate.Value;
-            
-            //ml.addTask(taskID, name, employeeN, vehicleN, start, end);
-            //con.ExecuteNonQuery(query);
-            da.connectionToDB();
-            RefreshMeth();
-        }
-
+        //Used to refresh the data within the data grids.
         public void RefreshMeth()
         {
-            da.connectionToDB();
+
             dgvTask.DataSource = null;
             dgvTask.DataSource = da.returnTaskList();
             dgvTask.Refresh();
+
+            dgvEmp.DataSource = null;
+            dgvEmp.DataSource = findEmployees();
+            dgvEmp.Refresh();
+
+            dgvVeh.DataSource = null;
+            dgvVeh.DataSource = findVehicles();
+            dgvVeh.Refresh();
+
+            hideColumns();
         }
 
         private void dataView_Click(object sender, EventArgs e)
         {
-
-            //List<Employee.Labourer> lab = da.returnLabourerList();
-            //List<Task> task = da.returnTaskList();
-            //List<Vehicle> veh = da.returnVehicleList();
-            //List<Scheduler> sch = da.returnSchedule();
+            List<Fields> fl = da.returnField();
+            List<Storage> sto = da.returnStorage();
+            List<Treatments> tr = da.returnTreatments();
+            List<Fertilisers> fr = da.returnFertiliser();
             Task ta = (Task)dgvTask.CurrentRow.DataBoundItem;
             List<string> taskType = ta.returnList();
 
-            //dgvTask.DataSource = task;
-            //dgvTask.Refresh();
-
             tID = ta.taskID;
             dgvEmp.DataSource = findEmployees();
-            dgvEmp.Refresh();
+            cmbType.SelectedIndex = taskType.FindIndex(x => x == ta.taskType);
 
-            cmbType.SelectedIndex = taskType.FindIndex(a => a == ta.taskType);
+            //Sets the combo box to an appropriate value when a task is selected
+            if (cmbMP.DataSource == fl)
+            {
+                cmbMP.SelectedIndex = fl.FindIndex(x => x.fieldID == ta.fieldID);
+            }
+            else if (cmbMP.DataSource == tr)
+            {
+                cmbMP.SelectedIndex = tr.FindIndex(x => x.treatID == ta.treatID);
+            }
+            else if (cmbMP.DataSource == fr)
+            {
+                cmbMP.SelectedIndex = fr.FindIndex(x => x.fertID == ta.fertID);
+            }
+
 
             dgvVeh.DataSource = findVehicles();
+            txtQty.Text = ta.quantity.ToString();
+            txtReason.Text = ta.reason;
+            
+            //Sets check box depending on the selected tasks status value.
+            if (ta.status == "Complete")
+            {
+                chkStat.Checked = true;
+            }
+            else
+            {
+                chkStat.Checked = false;
+            }
 
-            dgvVeh.Refresh();
-            //cmbVeh.SelectedIndex = findVehicle();
-            //cmbVeh.DataSource = Veh;
+            startDate.Value = ta.theStart;
+            endDate.Value = ta.theEnd;
+            btnUpdTask.Enabled = true;
+            cmbField.SelectedIndex = fl.FindIndex(a => a.fieldID == ta.fieldID);
 
             hideColumns();
-
         }
 
         private void TaskManager_Click(object sender, EventArgs e)
@@ -208,6 +271,9 @@ namespace FarmSystem
             List<TaskVehicles> tv = da.returnTaskVehicles();
             List<Task> ta = da.returnTaskList();
             List<Vehicle> vh = new List<Vehicle>();
+
+            dgvVeh.DataSource = null;
+            vh.Clear();
 
             int i = 0;
 
@@ -231,20 +297,21 @@ namespace FarmSystem
                 aVeh.Add(veh[i]);
             }
 
-
             cmbVeh.DataSource = aVeh;
 
             return vh;
-
-
         }
 
         //Compares the values of the schedule list and labourer list and creates a new list of the labourers assigned to the selected task.
         public List<Employee.Labourer> findEmployees()
         {
+            
             List<Employee.Labourer> lab = da.returnLabourerList();
             List<Scheduler> sch = da.returnSchedule();
             List<Task> ta = da.returnTaskList();
+
+            dgvEmp.DataSource = null;
+            em.Clear();
             
 
             int i = 0;
@@ -273,27 +340,7 @@ namespace FarmSystem
         }
 
 
-        private void btnUpd_Click(object sender, EventArgs e)
-        {
-            List<Task> Task = da.returnTaskList();
-
-            string name, employeeN, VehicleN;
-            int TaskID;
-            DateTime start, end;
-            TaskID = Task.Count + 1;
-            name = this.cmbType.GetItemText(this.cmbType.SelectedItem);
-            employeeN = this.cmbEmployee.GetItemText(this.cmbEmployee.SelectedItem);
-            VehicleN = this.cmbVeh.GetItemText(this.cmbVeh.SelectedItem);
-            
-            start = startDate.Value;
-            end = endDate.Value;
-            string query = "INSERT INTO Tasks (TaskID, TaskType, Name, VehicleName, startDate, endDate) VALUES " +
-            "('" + TaskID + "', '" + name + "','" + employeeN + "','" + VehicleN + "', '" + start + "', '" + end + "');";
-
-            con.ExecuteNonQuery(query);
-            da.connectionToDB();
-            RefreshMeth();
-        }
+      
 
         private void TaskManager_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -307,52 +354,59 @@ namespace FarmSystem
 
         private void btnRemEmp_Click(object sender, EventArgs e)
         {
-            Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
-            
+            Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;            
             int eID = emp.ID;
-
             ml.removeEmp(tID, eID);
-
-            //dgvEmp.DataSource = da.returnLabourerList();
+            RefreshMeth();
         }
 
         private void btnRemVeh_Click(object sender, EventArgs e)
         {
             Vehicle veh = (Vehicle)dgvVeh.CurrentRow.DataBoundItem;
-
             int vID = veh.vehID;
-
             ml.removeVeh(tID, vID);
+            RefreshMeth();
         }
 
-        //Resets the combo boxes and date/time picker values.
-        private void btnClear_Click(object sender, EventArgs e)
+
+        //Resets the combo boxes, date/time picker values and dgv selections.
+        public void clearInput()
         {
+            dgvTask.ClearSelection();
+            dgvEmp.ClearSelection();
+            dgvVeh.ClearSelection();
             cmbType.SelectedIndex = -1;
-            cmbField.SelectedIndex = -1;
+            cmbMP.SelectedIndex = -1;
             startDate.Value = DateTime.Today;
             endDate.Value = DateTime.Today;
             cmbEmployee.SelectedIndex = -1;
             cmbVeh.SelectedIndex = -1;
+            txtQty.Clear();
+            txtReason.Clear();
+            chkStat.Checked = false;
+            btnUpdTask.Enabled = false;
+            btnRemVeh.Enabled = false;
+            btnRemEmp.Enabled = false;
+        }
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            clearInput();
         }
 
         private void btnAddEmp_Click(object sender, EventArgs e)
         {
-            Employee emp = (Employee)dgvEmp.CurrentRow.DataBoundItem;
-            
 
-            int eID = em.FindIndex(a => a.ID == emp.ID);
-
+            int eID = aEmp[cmbEmployee.SelectedIndex].ID;
             ml.addEmp(tID, eID);
+            RefreshMeth();
+            
         }
 
         private void btnAddVeh_Click(object sender, EventArgs e)
         {
-            Vehicle veh = (Vehicle)dgvVeh.CurrentRow.DataBoundItem;
-
-            int vID = veh.vehID;
-
+            int vID = aVeh[cmbVeh.SelectedIndex].vehID;
             ml.addVeh(tID, vID);
+            RefreshMeth();
         }
 
         private void reportsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -360,6 +414,196 @@ namespace FarmSystem
             Report rp = new Report();
             this.Hide();
             rp.Show();
+        }
+
+        //When the button is clicked, the tasks table will be updated with the entered information.
+        private void btnUpdTask_Click(object sender, EventArgs e)
+        {
+            Task ta = (Task)dgvTask.CurrentRow.DataBoundItem;
+            List<Task> task = da.returnTaskList();
+            List<Storage> sto = da.returnStorage();
+            List<Fertilisers> fer = da.returnFertiliser();
+            List<Treatments> tre = da.returnTreatments();
+            List<Fields> fie = da.returnField();
+            List<CropStorage> crSto = da.returnCropStorage();
+
+            string type;
+            int fID = 0;
+            int stoID = 0;
+            int quant = int.Parse(txtQty.Text);
+            int newQty = 0;
+            int ferID = ta.fertID;
+            int treID = ta.treatID;
+            int croID = 0;
+            string details = txtReason.Text;
+            string status;
+
+            DateTime start, end;
+
+            type = this.cmbType.GetItemText(this.cmbType.SelectedItem);
+
+            fID = fie[cmbField.SelectedIndex].fieldID;
+            start = startDate.Value;
+            end = endDate.Value;
+
+            //Sets the status to complete if the check box is checked.
+            if (chkStat.Checked)
+            {
+                status = "Complete";
+                //Only updates the fertiliser, treatment and storage quantities if the task is complete.
+                if (cmbMP.DataSource == sto)
+                {
+                    stoID = sto[cmbMP.SelectedIndex].storeID;
+                    foreach (var s in crSto.Where(s => stoID == s.sID))
+                    {
+                        croID = s.cID;
+                        newQty = s.qtyStored + quant;
+                    }
+
+                    ml.updStorageTask(stoID, croID, newQty);
+                }
+                else if (cmbMP.DataSource == fer)
+                {
+                    ferID = fer[cmbMP.SelectedIndex].fertID;
+                    newQty = fer[cmbMP.SelectedIndex].quant - quant;
+                    ml.updFertTask(ferID, newQty);
+                }
+                else if (cmbMP.DataSource == tre)
+                {
+                    treID = tre[cmbMP.SelectedIndex].treatID;
+                    newQty = tre[cmbMP.SelectedIndex].quant - quant;
+                    ml.updTreatTask(treID, newQty);
+                }
+            }
+            else
+            {
+                status = "Incomplete";
+            }
+
+            ml.updTask(tID, start, end, fID, type, ferID, treID, quant, details, status);
+
+            clearInput();
+            RefreshMeth();
+        }
+
+        private void btnAddTask_Click(object sender, EventArgs e)
+        {
+            
+            List<Task> task = da.returnTaskList();
+            List<Storage> sto = da.returnStorage();
+            List<Fertilisers> fer = da.returnFertiliser();
+            List<Treatments> tre = da.returnTreatments();
+            List<Fields> fie = da.returnField();
+            List<CropStorage> crSto = da.returnCropStorage();
+
+            string type;
+            int taskID;
+            int fID = 0;
+            int stoID = 0;
+            int quant = int.Parse(txtQty.Text);
+            int newQty = 0;
+            int ferID = 0;
+            int treID = 0;
+            int croID = 0;
+            //int qty = ta.quantity;
+            string details = txtReason.Text;
+            string status = "Incomplete";
+
+            DateTime start, end;
+
+            //Finds the highes taskID number and adds 1 to it.
+            taskID = task.Max(i => i.taskID) + 1;
+            type = this.cmbType.GetItemText(this.cmbType.SelectedItem);
+            
+            start = startDate.Value;
+            end = endDate.Value;
+
+            //Adds the appropriate IDs depending on the task type and combo box selection.
+            if (cmbMP.DataSource == sto)
+            {
+                fID = fie[cmbField.SelectedIndex].fieldID;
+                stoID = sto[cmbMP.SelectedIndex].storeID;
+                foreach (var s in crSto.Where(s => stoID == s.sID))
+                {
+                    croID = s.cID;
+                }
+            }
+            else if (cmbMP.DataSource == fer)
+            {
+                fID = fie[cmbField.SelectedIndex].fieldID;
+                ferID = fer[cmbMP.SelectedIndex].fertID;
+                newQty = fer[cmbMP.SelectedIndex].quant - quant;
+                if (newQty <= 0)
+                {
+                    MessageBox.Show("Not enough Fertiliser", "Error");
+                    return;
+                }
+            }
+            else if (cmbMP.DataSource == tre)
+            {
+                fID = fie[cmbField.SelectedIndex].fieldID;
+                treID = tre[cmbMP.SelectedIndex].treatID;
+                newQty = tre[cmbMP.SelectedIndex].quant - quant;
+                if (newQty <= 0)
+                {
+                    MessageBox.Show("Not enough Treatment", "Error");
+                    return;
+                }
+            }
+            else
+            {
+                fID = fie[cmbMP.SelectedIndex].fieldID;
+            }
+
+            ml.addTask(taskID, start, end, fID,  type,  ferID,  treID,  quant,  details,  status);
+
+            clearInput();
+            RefreshMeth();
+        }
+
+        private void cmbTskDisp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            List<Task> task = da.returnTaskList();
+            List<Task> dispTsk = new List<Task>();
+
+            dispTsk.Clear();
+
+            if (cmbTskDisp.SelectedIndex == 0) 
+            {
+                dgvTask.DataSource = task;
+            }
+            else if (cmbTskDisp.SelectedIndex == 1)
+            {
+                foreach (var x  in task.Where(x => x.status == "Complete"))
+                {
+                    dispTsk.Add(x);
+                }
+                dgvTask.DataSource = dispTsk;
+            }
+            else
+            {
+                foreach (var x in task.Where(x => x.status == "Incomplete"))
+                {
+                    dispTsk.Add(x);
+                }
+                dgvTask.DataSource = dispTsk;
+            }
+            
+        }
+
+        private void dgvEmp_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnRemEmp.Enabled = true;
+        }
+
+        private void dgvVeh_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnRemVeh.Enabled = true;
+        }
+
+        private void cmbFS_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

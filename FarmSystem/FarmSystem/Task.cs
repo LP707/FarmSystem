@@ -1,4 +1,13 @@
-﻿using System;
+﻿
+/* 
+     SID: 1719547
+
+     Description: Used as storage method for the tasks list.
+
+     Version: 1
+
+*/
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,7 +37,9 @@ namespace FarmSystem
             public int vehID { get { return vID; } set { vID = value; } }
             public int fertID { get; set; }
             public int treatID { get; set; }
-
+            public int quantity { get; set; }
+            public string reason { get; set; }
+            public string status { get; set; }
 
         
 
@@ -39,6 +50,8 @@ namespace FarmSystem
             taskTypes.Add("Sowing");
             taskTypes.Add("Treating");
             taskTypes.Add("Ploughing");
+            taskTypes.Add("Storing");
+            taskTypes.Add("Fertilising");
         }
 
         public List<string> returnList()

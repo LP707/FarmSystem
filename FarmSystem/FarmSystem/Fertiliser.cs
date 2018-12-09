@@ -28,10 +28,11 @@ namespace FarmSystem
             InitializeComponent();
         }
 
+        DataAccess da = DataAccess.instance();
 
         string fertName;
         int quantity;
-        List<Fertiliser> Fert;
+        
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -59,8 +60,10 @@ namespace FarmSystem
 
         public void refreshData()
         {
+            List<Fertilisers> Fert = da.returnFertiliser();
+
             dgvFert.DataSource = null;
-            Fert = da.returnFert();
+            Fert = da.returnFertiliser();
             dgvFert.DataSource = Fert;
             dgvFert.Update();
         }

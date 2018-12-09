@@ -68,6 +68,7 @@
       <DependentUpon>Containers.cs</DependentUpon>
     </Compile>
     <Compile Include="Crops.cs" />
+    <Compile Include="CropStorage.cs" />
     <Compile Include="DataAccess.cs" />
     <Compile Include="DBCheck.cs" />
     <Compile Include="DBConn.cs" />

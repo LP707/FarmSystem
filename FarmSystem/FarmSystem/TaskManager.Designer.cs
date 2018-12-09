@@ -44,6 +44,7 @@
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cmbType = new System.Windows.Forms.ComboBox();
             this.cmbEmployee = new System.Windows.Forms.ComboBox();
             this.cmbVeh = new System.Windows.Forms.ComboBox();
@@ -52,8 +53,8 @@
             this.endDate = new System.Windows.Forms.DateTimePicker();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dgvEmp = new System.Windows.Forms.DataGridView();
-            this.cmbField = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.cmbMP = new System.Windows.Forms.ComboBox();
+            this.lblType = new System.Windows.Forms.Label();
             this.dgvVeh = new System.Windows.Forms.DataGridView();
             this.btnRemEmp = new System.Windows.Forms.Button();
             this.btnRemVeh = new System.Windows.Forms.Button();
@@ -65,7 +66,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.reportsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtQty = new System.Windows.Forms.TextBox();
+            this.lblQty = new System.Windows.Forms.Label();
+            this.chkStat = new System.Windows.Forms.CheckBox();
+            this.txtReason = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cmbTskDisp = new System.Windows.Forms.ComboBox();
+            this.cmbField = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTask)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -128,7 +135,7 @@
             this.managementToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(969, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(877, 24);
             this.menuStrip1.TabIndex = 12;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -171,49 +178,57 @@
             // labourersToolStripMenuItem
             // 
             this.labourersToolStripMenuItem.Name = "labourersToolStripMenuItem";
-            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.labourersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.labourersToolStripMenuItem.Text = "Labourers";
             this.labourersToolStripMenuItem.Click += new System.EventHandler(this.labourersToolStripMenuItem_Click);
             // 
             // vehiclesToolStripMenuItem
             // 
             this.vehiclesToolStripMenuItem.Name = "vehiclesToolStripMenuItem";
-            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.vehiclesToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.vehiclesToolStripMenuItem.Text = "Vehicles";
             this.vehiclesToolStripMenuItem.Click += new System.EventHandler(this.vehiclesToolStripMenuItem_Click);
             // 
             // cropsToolStripMenuItem
             // 
             this.cropsToolStripMenuItem.Name = "cropsToolStripMenuItem";
-            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.cropsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.cropsToolStripMenuItem.Text = "Crops";
             this.cropsToolStripMenuItem.Click += new System.EventHandler(this.cropsToolStripMenuItem_Click);
             // 
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // containersToolStripMenuItem
             // 
             this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.containersToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
             this.containersToolStripMenuItem.Text = "Containers";
             this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
+            // 
+            // reportsToolStripMenuItem
+            // 
+            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
+            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(131, 22);
+            this.reportsToolStripMenuItem.Text = "Reports";
+            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
             // 
             // cmbType
             // 
             this.cmbType.FormattingEnabled = true;
             this.cmbType.Location = new System.Drawing.Point(133, 406);
             this.cmbType.Name = "cmbType";
-            this.cmbType.Size = new System.Drawing.Size(121, 21);
+            this.cmbType.Size = new System.Drawing.Size(153, 21);
             this.cmbType.TabIndex = 24;
             this.cmbType.SelectedIndexChanged += new System.EventHandler(this.cmbType_SelectedIndexChanged);
             // 
             // cmbEmployee
             // 
+            this.cmbEmployee.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbEmployee.FormattingEnabled = true;
             this.cmbEmployee.Location = new System.Drawing.Point(438, 406);
             this.cmbEmployee.Name = "cmbEmployee";
@@ -222,6 +237,7 @@
             // 
             // cmbVeh
             // 
+            this.cmbVeh.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbVeh.FormattingEnabled = true;
             this.cmbVeh.Location = new System.Drawing.Point(684, 406);
             this.cmbVeh.Name = "cmbVeh";
@@ -241,20 +257,20 @@
             // 
             this.startDate.Location = new System.Drawing.Point(133, 461);
             this.startDate.Name = "startDate";
-            this.startDate.Size = new System.Drawing.Size(121, 20);
+            this.startDate.Size = new System.Drawing.Size(153, 20);
             this.startDate.TabIndex = 33;
             // 
             // endDate
             // 
             this.endDate.Location = new System.Drawing.Point(133, 490);
             this.endDate.Name = "endDate";
-            this.endDate.Size = new System.Drawing.Size(121, 20);
+            this.endDate.Size = new System.Drawing.Size(153, 20);
             this.endDate.TabIndex = 34;
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(12, 38);
+            this.pictureBox1.Location = new System.Drawing.Point(12, 30);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(405, 77);
             this.pictureBox1.TabIndex = 47;
@@ -267,24 +283,26 @@
             this.dgvEmp.Name = "dgvEmp";
             this.dgvEmp.Size = new System.Drawing.Size(261, 249);
             this.dgvEmp.TabIndex = 48;
+            this.dgvEmp.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmp_CellClick);
             this.dgvEmp.Click += new System.EventHandler(this.dgvTest_Click);
             // 
-            // cmbField
+            // cmbMP
             // 
-            this.cmbField.FormattingEnabled = true;
-            this.cmbField.Location = new System.Drawing.Point(133, 434);
-            this.cmbField.Name = "cmbField";
-            this.cmbField.Size = new System.Drawing.Size(121, 21);
-            this.cmbField.TabIndex = 49;
+            this.cmbMP.FormattingEnabled = true;
+            this.cmbMP.Location = new System.Drawing.Point(133, 434);
+            this.cmbMP.Name = "cmbMP";
+            this.cmbMP.Size = new System.Drawing.Size(153, 21);
+            this.cmbMP.TabIndex = 49;
+            this.cmbMP.SelectedIndexChanged += new System.EventHandler(this.cmbFS_SelectedIndexChanged);
             // 
-            // label5
+            // lblType
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 438);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(32, 13);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Field:";
+            this.lblType.AutoSize = true;
+            this.lblType.Location = new System.Drawing.Point(96, 438);
+            this.lblType.Name = "lblType";
+            this.lblType.Size = new System.Drawing.Size(32, 13);
+            this.lblType.TabIndex = 50;
+            this.lblType.Text = "Field:";
             // 
             // dgvVeh
             // 
@@ -293,10 +311,12 @@
             this.dgvVeh.Name = "dgvVeh";
             this.dgvVeh.Size = new System.Drawing.Size(240, 249);
             this.dgvVeh.TabIndex = 51;
+            this.dgvVeh.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvVeh_CellClick);
             // 
             // btnRemEmp
             // 
-            this.btnRemEmp.Location = new System.Drawing.Point(418, 523);
+            this.btnRemEmp.Enabled = false;
+            this.btnRemEmp.Location = new System.Drawing.Point(438, 492);
             this.btnRemEmp.Name = "btnRemEmp";
             this.btnRemEmp.Size = new System.Drawing.Size(117, 23);
             this.btnRemEmp.TabIndex = 52;
@@ -306,7 +326,8 @@
             // 
             // btnRemVeh
             // 
-            this.btnRemVeh.Location = new System.Drawing.Point(696, 523);
+            this.btnRemVeh.Enabled = false;
+            this.btnRemVeh.Location = new System.Drawing.Point(696, 492);
             this.btnRemVeh.Name = "btnRemVeh";
             this.btnRemVeh.Size = new System.Drawing.Size(117, 23);
             this.btnRemVeh.TabIndex = 53;
@@ -316,25 +337,28 @@
             // 
             // btnAddTask
             // 
-            this.btnAddTask.Location = new System.Drawing.Point(45, 523);
+            this.btnAddTask.Location = new System.Drawing.Point(45, 616);
             this.btnAddTask.Name = "btnAddTask";
             this.btnAddTask.Size = new System.Drawing.Size(82, 23);
             this.btnAddTask.TabIndex = 54;
             this.btnAddTask.Text = "Add Task";
             this.btnAddTask.UseVisualStyleBackColor = true;
+            this.btnAddTask.Click += new System.EventHandler(this.btnAddTask_Click);
             // 
             // btnUpdTask
             // 
-            this.btnUpdTask.Location = new System.Drawing.Point(172, 523);
+            this.btnUpdTask.Enabled = false;
+            this.btnUpdTask.Location = new System.Drawing.Point(172, 616);
             this.btnUpdTask.Name = "btnUpdTask";
             this.btnUpdTask.Size = new System.Drawing.Size(82, 23);
             this.btnUpdTask.TabIndex = 55;
             this.btnUpdTask.Text = "Update Task";
             this.btnUpdTask.UseVisualStyleBackColor = true;
+            this.btnUpdTask.Click += new System.EventHandler(this.btnUpdTask_Click);
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(882, 523);
+            this.btnClear.Location = new System.Drawing.Point(789, 616);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
             this.btnClear.TabIndex = 56;
@@ -344,7 +368,7 @@
             // 
             // btnAddEmp
             // 
-            this.btnAddEmp.Location = new System.Drawing.Point(418, 464);
+            this.btnAddEmp.Location = new System.Drawing.Point(438, 438);
             this.btnAddEmp.Name = "btnAddEmp";
             this.btnAddEmp.Size = new System.Drawing.Size(117, 23);
             this.btnAddEmp.TabIndex = 57;
@@ -354,7 +378,7 @@
             // 
             // btnAddVeh
             // 
-            this.btnAddVeh.Location = new System.Drawing.Point(696, 463);
+            this.btnAddVeh.Location = new System.Drawing.Point(696, 438);
             this.btnAddVeh.Name = "btnAddVeh";
             this.btnAddVeh.Size = new System.Drawing.Size(117, 23);
             this.btnAddVeh.TabIndex = 58;
@@ -383,25 +407,91 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(153, 120);
+            this.label8.Location = new System.Drawing.Point(158, 120);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(39, 13);
             this.label8.TabIndex = 61;
             this.label8.Text = "Tasks:";
             // 
-            // reportsToolStripMenuItem
+            // txtQty
             // 
-            this.reportsToolStripMenuItem.Name = "reportsToolStripMenuItem";
-            this.reportsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.reportsToolStripMenuItem.Text = "Reports";
-            this.reportsToolStripMenuItem.Click += new System.EventHandler(this.reportsToolStripMenuItem_Click);
+            this.txtQty.Location = new System.Drawing.Point(133, 516);
+            this.txtQty.Name = "txtQty";
+            this.txtQty.Size = new System.Drawing.Size(153, 20);
+            this.txtQty.TabIndex = 62;
+            // 
+            // lblQty
+            // 
+            this.lblQty.AutoSize = true;
+            this.lblQty.Location = new System.Drawing.Point(79, 518);
+            this.lblQty.Name = "lblQty";
+            this.lblQty.Size = new System.Drawing.Size(49, 13);
+            this.lblQty.TabIndex = 63;
+            this.lblQty.Text = "Quantity:";
+            // 
+            // chkStat
+            // 
+            this.chkStat.AutoSize = true;
+            this.chkStat.Location = new System.Drawing.Point(151, 584);
+            this.chkStat.Name = "chkStat";
+            this.chkStat.Size = new System.Drawing.Size(103, 17);
+            this.chkStat.TabIndex = 64;
+            this.chkStat.Text = "Task Completed";
+            this.chkStat.UseVisualStyleBackColor = true;
+            // 
+            // txtReason
+            // 
+            this.txtReason.Location = new System.Drawing.Point(133, 542);
+            this.txtReason.Multiline = true;
+            this.txtReason.Name = "txtReason";
+            this.txtReason.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtReason.Size = new System.Drawing.Size(153, 36);
+            this.txtReason.TabIndex = 65;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(81, 545);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 66;
+            this.label5.Text = "Reason:";
+            // 
+            // cmbTskDisp
+            // 
+            this.cmbTskDisp.FormattingEnabled = true;
+            this.cmbTskDisp.Items.AddRange(new object[] {
+            "All",
+            "Completed",
+            "Incomplete"});
+            this.cmbTskDisp.Location = new System.Drawing.Point(12, 112);
+            this.cmbTskDisp.Name = "cmbTskDisp";
+            this.cmbTskDisp.Size = new System.Drawing.Size(121, 21);
+            this.cmbTskDisp.TabIndex = 67;
+            this.cmbTskDisp.Text = "All";
+            this.cmbTskDisp.SelectedIndexChanged += new System.EventHandler(this.cmbTskDisp_SelectedIndexChanged);
+            // 
+            // cmbField
+            // 
+            this.cmbField.FormattingEnabled = true;
+            this.cmbField.Location = new System.Drawing.Point(292, 434);
+            this.cmbField.Name = "cmbField";
+            this.cmbField.Size = new System.Drawing.Size(65, 21);
+            this.cmbField.TabIndex = 68;
             // 
             // TaskManager
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(969, 558);
+            this.ClientSize = new System.Drawing.Size(877, 666);
+            this.Controls.Add(this.cmbField);
+            this.Controls.Add(this.cmbTskDisp);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.txtReason);
+            this.Controls.Add(this.chkStat);
+            this.Controls.Add(this.lblQty);
+            this.Controls.Add(this.txtQty);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -413,8 +503,8 @@
             this.Controls.Add(this.btnRemVeh);
             this.Controls.Add(this.btnRemEmp);
             this.Controls.Add(this.dgvVeh);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.cmbField);
+            this.Controls.Add(this.lblType);
+            this.Controls.Add(this.cmbMP);
             this.Controls.Add(this.dgvEmp);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.endDate);
@@ -472,8 +562,8 @@
         private System.Windows.Forms.DataGridView dgvEmp;
         private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
-        private System.Windows.Forms.ComboBox cmbField;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbMP;
+        private System.Windows.Forms.Label lblType;
         private System.Windows.Forms.DataGridView dgvVeh;
         private System.Windows.Forms.Button btnRemEmp;
         private System.Windows.Forms.Button btnRemVeh;
@@ -486,5 +576,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ToolStripMenuItem reportsToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtQty;
+        private System.Windows.Forms.Label lblQty;
+        private System.Windows.Forms.CheckBox chkStat;
+        private System.Windows.Forms.TextBox txtReason;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cmbTskDisp;
+        private System.Windows.Forms.ComboBox cmbField;
     }
 }

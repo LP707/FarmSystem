@@ -26,6 +26,7 @@ namespace FarmSystem
         List<Storage> Store = new List<Storage>();
         List<Scheduler> Schedule = new List<Scheduler>();
         List<TaskVehicles> taskVehicles = new List<TaskVehicles>();
+        List<CropStorage> CropStored = new List<CropStorage>();
 
 
 
@@ -56,6 +57,13 @@ namespace FarmSystem
             Vehicles.Clear();
             Crops.Clear();
             Tasks.Clear();
+            Fertiliser.Clear();
+            Treatment.Clear();
+            Store.Clear();
+            Schedule.Clear();
+            taskVehicles.Clear();
+            CropStored.Clear();
+            Field.Clear();
         }
 
         public void connectionToDB()
@@ -154,30 +162,9 @@ namespace FarmSystem
                         ta.taskType = dr.GetString(4);
                         ta.fertID = dr.GetInt32(5);
                         ta.treatID = dr.GetInt32(6);
-
-                    }
-                    Tasks.Add(ta);
-                    //adds to the labourer list
-
-                }
-                dr.Close();
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-            try
-            {
-                OleDbDataReader dr = conn.Select("SELECT * FROM Tasks;");
-                while (dr.Read())
-                {
-                    //set attributes of the labourer subclass
-                    Task ta = new Task();
-                    {
-                        ta.taskID = dr.GetInt32(0);
-
-
-
+                        ta.quantity = dr.GetInt32(7);
+                        ta.reason = dr.GetString(8);
+                        ta.status = dr.GetString(9);
 
                     }
                     Tasks.Add(ta);
@@ -356,17 +343,17 @@ namespace FarmSystem
             }
             try
             {
-                OleDbDataReader dr = conn.Select("SELECT * FROM TaskVehicles;");
+                OleDbDataReader dr = conn.Select("SELECT * FROM CropsInStorage;");
 
                 while (dr.Read())
                 {
-                    TaskVehicles tv = new TaskVehicles();
+                    CropStorage cs = new CropStorage();
                     {
-                        tv.vehTaskID = dr.GetInt32(0);
-                        tv.taskVehID = dr.GetInt32(1);
-
+                        cs.sID = dr.GetInt32(0);
+                        cs.cID = dr.GetInt32(1);
+                        cs.qtyStored = dr.GetInt32(2);
                     }
-                    taskVehicles.Add(tv);
+                    CropStored.Add(cs);
                 }
             }
             catch (Exception ex)
@@ -444,18 +431,27 @@ namespace FarmSystem
         public List<Storage> returnStorage()
         {
             return Store;
-
         }
 
         public List<Fields> returnField()
         {
-         return Field;
+            return Field;
+        }
+
+        public List<Fertilisers> returnFertiliser()
+        {
+            return Fertiliser;
+        }
+
+        public List<CropStorage> returnCropStorage()
+        {
+            return CropStored;
+        }
+
+        public List<Treatments> returnTreatments()
+        {
+            return Treatment;
         }
     }
-
-    public List<Fertiliser> returnFert()
-    {
-        return Fert;
-    }
-        
-    }
+}
+    

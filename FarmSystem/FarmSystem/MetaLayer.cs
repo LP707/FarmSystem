@@ -102,11 +102,55 @@ namespace FarmSystem
             da.connectionToDB();
         }
 
-        //Removes the employee and task assignment from the scheduler table.
+        
         public void removeVeh(int tskID, int vehID)
         {
             string query = "DELETE FROM TaskVehicles WHERE task_ID = " + tskID + " AND vehicle_ID = " + vehID + ";";
 
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void addTask(int tskID, DateTime sDate, DateTime eDate, int fieID , string tskType, int ferID, int treID, int qty, string details, string status)
+        {
+
+            string query = "INSERT INTO Tasks (TaskID, TaskStartTime, TaskEndTime, field_ID, TaskType, fertiliser_ID, treatment_ID, Quantity, Reason, Status ) VALUES " +
+            "('" + tskID + "', '" + sDate + "','" + eDate + "','" + fieID + "', '" + tskType + "', '" + ferID + "', '" + treID + "', '" + qty + "', '" + details + "', '" + status + "');";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void updTask(int tskID, DateTime sDate, DateTime eDate, int fieID, string tskType, int ferID, int treID, int qty, string details, string status)
+        {
+
+            string query = "UPDATE Tasks SET TaskStarttime = '" + sDate + "', TaskEndTime = '" + eDate + "', field_ID = " + fieID + ", TaskType = '" + tskType + "', fertiliser_ID = " + ferID + ", treatment_ID = " + treID + ", Quantity = " + qty + ", Reason = '" + details + "', Status = '" + status + "' WHERE TaskID = " + tskID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void updFertTask(int fID, int qty)
+        {
+
+            string query = "UPDATE Fertilisers SET Quantity = " + qty + " WHERE FertiliserID = " + fID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+
+        public void updTreatTask(int tID, int qty)
+        {
+
+            string query = "UPDATE Treatments SET Quantity = " + qty + " WHERE TreatmentID = " + tID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
+        public void updStorageTask(int sID, int cID, int qty)
+        {
+            string query = "UPDATE CropsInStorage SET QuantityStored = " + qty + " WHERE Storage_ID = " + sID + " AND Crop_ID = " + cID + ";";
+                            
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }
@@ -133,10 +177,10 @@ namespace FarmSystem
         //Query to add new container to database 
         public void addCont(int cID, string cType, bool cAval)
         { 
-        string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
+            string query = "INSERT INTO Storage  (StorageID, StorageType, StorageAvailability ) VALUES ('" + cID + "', '" + cType + "', '" + cAval + "');";
 
-        con.ExecuteNonQuery(query);
-        da.connectionToDB();
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
         }
 
         //Query to update container in database
@@ -159,13 +203,17 @@ namespace FarmSystem
         }
 
         //Query to update fertiliser in database 
-        public void updateFert(string fertName, int quantity)
+        public void updateFert(int fertID, string fertName, int quantity)
         {
-            string query = "UPDATE Fertilisers (FertiliserName, Quantity) VALUES ('" + fertName + "', '" + quantity + "');";
+            string query = "UPDATE Fertilisers (FertiliserName, Quantity) VALUES ('" + fertName + "', '" + quantity + "') WHERE FertiliserID = " + fertID + ";";
             con.ExecuteNonQuery(query);
             da.connectionToDB();
 
         }
+
+        
+
+
 
 
         //public void addTask(int ID, string )

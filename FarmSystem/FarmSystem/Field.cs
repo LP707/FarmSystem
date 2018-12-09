@@ -40,9 +40,11 @@ namespace FarmSystem
 
         private void Fields_Load(object sender, EventArgs e)
         {
-            refreshData();
+            //refreshData();
+            List<Fields> fieldlist = da.returnField();
+            cmbCrop.DataSource = fieldlist;
+            int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].cropID;
 
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -148,8 +150,7 @@ namespace FarmSystem
 
         private void cmbCrop_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cmbCrop.DataSource = fieldlist;
-            int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].ID;
+            
         }
     }
 }
