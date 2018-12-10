@@ -424,6 +424,7 @@ namespace FarmSystem
             List<Treatments> tre = da.returnTreatments();
             List<Fields> fie = da.returnField();
             List<CropStorage> crSto = da.returnCropStorage();
+            List<Crops> cro = da.returnCropList();
 
             string type;
             int fID = 0;
@@ -472,12 +473,20 @@ namespace FarmSystem
                     newQty = tre[cmbMP.SelectedIndex].quant - quant;
                     ml.updTreatTask(treID, newQty);
                 }
+                else if (cmbType.SelectedValue == "Sowing")
+                {
+
+                    int cID = fie[cmbField.SelectedIndex].cropID;
+
+                    newQty = cro.Find(x => x.cropID == cID).seedQuant - quant;
+                    ml.updCropTask(cID, newQty);
+                }
             }
             else
             {
                 status = "Incomplete";
             }
-
+            //Sets the results to DB
             ml.updTask(tID, start, end, fID, type, ferID, treID, quant, details, status);
 
             clearInput();
@@ -493,6 +502,7 @@ namespace FarmSystem
             List<Treatments> tre = da.returnTreatments();
             List<Fields> fie = da.returnField();
             List<CropStorage> crSto = da.returnCropStorage();
+            List<Crops> cro = da.returnCropList();
 
             string type;
             int taskID;
@@ -545,6 +555,17 @@ namespace FarmSystem
                 if (newQty <= 0)
                 {
                     MessageBox.Show("Not enough Treatment", "Error");
+                    return;
+                }
+            }
+            else if (cmbMP.SelectedValue == "Sowing")
+            {
+                fID = fie[cmbField.SelectedIndex].fieldID;
+                
+                newQty = cro[cmbMP.SelectedIndex].seedQuant - quant;
+                if (newQty <= 0)
+                {
+                    MessageBox.Show("Not enough Seeds", "Error");
                     return;
                 }
             }
@@ -602,6 +623,13 @@ namespace FarmSystem
         private void cmbFS_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            Field fl = new Field();
+            this.Hide();
+            fl.Show();
         }
     }
 }

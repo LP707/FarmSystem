@@ -14,8 +14,9 @@ namespace FarmSystem
         public string growthTime { get; set; }
         public string harvestMethod { get; set; }
         public int cropPrice { get; set; }
-       
+        public int seedQuant { get; set; }
 
-        
+
+
     }
 }

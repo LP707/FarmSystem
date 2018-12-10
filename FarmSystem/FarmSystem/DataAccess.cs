@@ -136,7 +136,7 @@ namespace FarmSystem
                         cr.growthTime = dr.GetString(3);
                         cr.harvestMethod = dr.GetString(4);
                         cr.cropPrice = dr.GetInt32(5);
-
+                        cr.seedQuant = dr.GetInt32(6);
                     }
                     //adds to the labourer list
                     Crops.Add(cr);

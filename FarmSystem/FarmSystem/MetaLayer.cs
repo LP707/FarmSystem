@@ -154,6 +154,13 @@ namespace FarmSystem
             con.ExecuteNonQuery(query);
             da.connectionToDB();
         }
+        public void updCropTask(int cID, int qty)
+        {
+            string query = "UPDATE Crops SET SeedQuant = " + qty + " WHERE CropID = " + cID + ";";
+
+            con.ExecuteNonQuery(query);
+            da.connectionToDB();
+        }
 
         public void addField(int fieldID, string fieldName, string growthStatus, string soilType, int cropID)
         {

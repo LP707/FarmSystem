@@ -35,17 +35,15 @@ namespace FarmSystem
         MetaLayer ml = MetaLayer.instance();
         DbConection con = DBCheck.instance();
         DataAccess da = DataAccess.instance();
+        List<Crops> cl = new List<Crops>();
+        List<Storage> cs = new List<Storage>();
+        List<Storage> stoList = new List<Storage>();
         //List<Field> fiel;
 
 
-        private void Fields_Load(object sender, EventArgs e)
-        {
-            //refreshData();
-            List<Fields> fieldlist = da.returnField();
-            //cmbCrop.DataSource = fieldlist;
-            //int theidofthecrop = fieldlist[cmbCrop.SelectedIndex].cropID;
 
-        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -78,7 +76,26 @@ namespace FarmSystem
         {
             List<Fields> fiel = da.returnField();
             dgvField.DataSource = fiel;
-            dgvField.Update();
+            dgvField.Refresh();
+
+            dgvCrop.DataSource = null;
+            dgvCrop.DataSource = cl;
+            dgvCrop.Refresh();
+
+            dgvStorage.DataSource = null;
+            dgvStorage.DataSource = cs;
+            dgvStorage.Refresh();
+
+            hideColumns();
+        }
+
+        public void hideColumns()
+        {
+            dgvField.Columns[0].Visible = false;
+            dgvField.Columns[4].Visible = false;
+
+            dgvCrop.Columns[0].Visible = false;
+            dgvStorage.Columns[0].Visible = false;
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -91,7 +108,41 @@ namespace FarmSystem
         private void Field_Load(object sender, EventArgs e)
         {
             List<Fields> fiel = da.returnField();
+            
             dgvField.DataSource = fiel;
+            dgvCrop.DataSource = da.returnCropList(); 
+            dgvStorage.DataSource = da.returnStorage();
+            hideColumns();
+
+
+        }
+
+        public void retriveData()
+        {
+            List<Fields> fieldlist = da.returnField();
+            List<Crops> cropList = da.returnCropList();
+            List<CropStorage> cropStoList = da.returnCropStorage();
+            Fields selectedField = (Fields)dgvField.CurrentRow.DataBoundItem;
+
+            int i = 0;
+            cl.Clear();
+            cs.Clear();
+
+            foreach (var c in cropList.Where(c => c.cropID == selectedField.cropID))
+            {   
+                cl.Add(c);
+            }
+
+            foreach (var s in cropStoList.Where(s => cropList.Select(c => c.cropID).Contains(s.cID)))
+            {
+
+                cs.Add(stoList.Find(x => x.storeID == s.sID));
+                
+               
+            }
+
+            //dgvCrop.DataSource = cl;
+            refreshData();
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -149,6 +200,11 @@ namespace FarmSystem
         private void cmbCrop_SelectedIndexChanged(object sender, EventArgs e)
         {
             
+        }
+
+        private void dgvField_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            retriveData();
         }
     }
 }
