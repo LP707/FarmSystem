@@ -32,6 +32,7 @@ namespace FarmSystem
         private void ManageCrops_Load(object sender, EventArgs e)
         {
             refreshForm();
+            dataView.Columns[0].Visible = false;
         }
 
         public void refreshForm()

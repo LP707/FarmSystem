@@ -38,7 +38,6 @@
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.containersToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.label2 = new System.Windows.Forms.Label();
@@ -106,7 +105,6 @@
             this.vehiclesToolStripMenuItem,
             this.cropsToolStripMenuItem,
             this.containersToolStripMenuItem,
-            this.containersToolStripMenuItem1,
             this.fieldsToolStripMenuItem});
             this.managmentToolStripMenuItem.Name = "managmentToolStripMenuItem";
             this.managmentToolStripMenuItem.Size = new System.Drawing.Size(101, 24);
@@ -141,13 +139,6 @@
             this.containersToolStripMenuItem.Text = "Task Manager";
             this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
             // 
-            // containersToolStripMenuItem1
-            // 
-            this.containersToolStripMenuItem1.Name = "containersToolStripMenuItem1";
-            this.containersToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
-            this.containersToolStripMenuItem1.Text = "Containers";
-            this.containersToolStripMenuItem1.Click += new System.EventHandler(this.containersToolStripMenuItem1_Click);
-            // 
             // fieldsToolStripMenuItem
             // 
             this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
@@ -159,7 +150,7 @@
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(16, 142);
-            this.dataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataView.Margin = new System.Windows.Forms.Padding(4);
             this.dataView.Name = "dataView";
             this.dataView.Size = new System.Drawing.Size(1128, 548);
             this.dataView.TabIndex = 10;
@@ -189,7 +180,7 @@
             // txtLastN
             // 
             this.txtLastN.Location = new System.Drawing.Point(1260, 444);
-            this.txtLastN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLastN.Margin = new System.Windows.Forms.Padding(4);
             this.txtLastN.Name = "txtLastN";
             this.txtLastN.Size = new System.Drawing.Size(132, 22);
             this.txtLastN.TabIndex = 15;
@@ -197,7 +188,7 @@
             // txtFirstN
             // 
             this.txtFirstN.Location = new System.Drawing.Point(1260, 412);
-            this.txtFirstN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFirstN.Margin = new System.Windows.Forms.Padding(4);
             this.txtFirstN.Name = "txtFirstN";
             this.txtFirstN.Size = new System.Drawing.Size(132, 22);
             this.txtFirstN.TabIndex = 14;
@@ -205,7 +196,7 @@
             // btnUpd
             // 
             this.btnUpd.Location = new System.Drawing.Point(1165, 625);
-            this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpd.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(100, 28);
             this.btnUpd.TabIndex = 13;
@@ -216,7 +207,7 @@
             // btnDel
             // 
             this.btnDel.Location = new System.Drawing.Point(1164, 661);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(100, 28);
             this.btnDel.TabIndex = 12;
@@ -228,7 +219,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(29, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(385, 76);
             this.pictureBox1.TabIndex = 22;
@@ -237,7 +228,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(1260, 508);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(132, 22);
             this.txtPhone.TabIndex = 24;
@@ -245,7 +236,7 @@
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(1260, 540);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(132, 22);
             this.txtPass.TabIndex = 25;
@@ -283,7 +274,7 @@
             // txtStatus
             // 
             this.txtStatus.Location = new System.Drawing.Point(1260, 574);
-            this.txtStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtStatus.Margin = new System.Windows.Forms.Padding(4);
             this.txtStatus.Name = "txtStatus";
             this.txtStatus.Size = new System.Drawing.Size(132, 22);
             this.txtStatus.TabIndex = 29;
@@ -302,7 +293,7 @@
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(1260, 476);
-            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(135, 22);
             this.dtpDOB.TabIndex = 31;
@@ -332,7 +323,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManagerForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Management Form";
@@ -375,7 +366,6 @@
         private System.Windows.Forms.TextBox txtStatus;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
     }
 }

@@ -38,9 +38,8 @@
             this.vehiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.btnDel = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
@@ -104,7 +103,6 @@
             this.vehiclesToolStripMenuItem,
             this.cropsToolStripMenuItem,
             this.taskManagerToolStripMenuItem,
-            this.containersToolStripMenuItem,
             this.fieldsToolStripMenuItem,
             this.homeToolStripMenuItem});
             this.managementToolStripMenuItem.Name = "managementToolStripMenuItem";
@@ -139,20 +137,6 @@
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
-            // 
-            // containersToolStripMenuItem
-            // 
-            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.containersToolStripMenuItem.Text = "Containers";
-            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
-            // 
             // fieldsToolStripMenuItem
             // 
             this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
@@ -160,11 +144,18 @@
             this.fieldsToolStripMenuItem.Text = "Fields";
             this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // dataView
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(16, 143);
-            this.dataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataView.Margin = new System.Windows.Forms.Padding(4);
             this.dataView.Name = "dataView";
             this.dataView.Size = new System.Drawing.Size(1148, 556);
             this.dataView.TabIndex = 1;
@@ -173,7 +164,7 @@
             // btnDel
             // 
             this.btnDel.Location = new System.Drawing.Point(1175, 667);
-            this.btnDel.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDel.Margin = new System.Windows.Forms.Padding(4);
             this.btnDel.Name = "btnDel";
             this.btnDel.Size = new System.Drawing.Size(100, 28);
             this.btnDel.TabIndex = 2;
@@ -184,7 +175,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(1176, 631);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 3;
@@ -195,7 +186,7 @@
             // txtFirstN
             // 
             this.txtFirstN.Location = new System.Drawing.Point(1267, 374);
-            this.txtFirstN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtFirstN.Margin = new System.Windows.Forms.Padding(4);
             this.txtFirstN.Name = "txtFirstN";
             this.txtFirstN.Size = new System.Drawing.Size(132, 22);
             this.txtFirstN.TabIndex = 4;
@@ -203,7 +194,7 @@
             // txtLastN
             // 
             this.txtLastN.Location = new System.Drawing.Point(1267, 405);
-            this.txtLastN.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtLastN.Margin = new System.Windows.Forms.Padding(4);
             this.txtLastN.Name = "txtLastN";
             this.txtLastN.Size = new System.Drawing.Size(132, 22);
             this.txtLastN.TabIndex = 5;
@@ -232,7 +223,7 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(16, 66);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(740, 69);
             this.pictureBox1.TabIndex = 10;
@@ -241,7 +232,7 @@
             // txtPhone
             // 
             this.txtPhone.Location = new System.Drawing.Point(1267, 469);
-            this.txtPhone.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPhone.Margin = new System.Windows.Forms.Padding(4);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(132, 22);
             this.txtPhone.TabIndex = 12;
@@ -270,7 +261,7 @@
             // txtPass
             // 
             this.txtPass.Location = new System.Drawing.Point(1267, 501);
-            this.txtPass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPass.Margin = new System.Windows.Forms.Padding(4);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(132, 22);
             this.txtPass.TabIndex = 16;
@@ -289,7 +280,7 @@
             // 
             this.dtpDOB.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpDOB.Location = new System.Drawing.Point(1267, 437);
-            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtpDOB.Margin = new System.Windows.Forms.Padding(4);
             this.dtpDOB.Name = "dtpDOB";
             this.dtpDOB.Size = new System.Drawing.Size(132, 22);
             this.dtpDOB.TabIndex = 18;
@@ -317,7 +308,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManageLabourer";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Labourers Management";
@@ -358,7 +349,6 @@
         private System.Windows.Forms.TextBox txtPass;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker dtpDOB;
-        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
     }
 }

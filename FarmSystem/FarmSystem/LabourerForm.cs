@@ -42,6 +42,10 @@ namespace FarmSystem
             List<Task> EmpTasks = new List<Task>();
             EmpTasks = ml.getTimetable();
             dgvTimetable.DataSource = EmpTasks;
+            dgvTimetable.Columns[0].Visible = false;
+            dgvTimetable.Columns[5].Visible = false;
+            dgvTimetable.Columns[6].Visible = false;
+            dgvTimetable.Columns[7].Visible = false;
             dgvTimetable.Refresh();
         }
 
@@ -53,7 +57,7 @@ namespace FarmSystem
 
         private void LabourerForm_Load(object sender, EventArgs e)
         {
-           
+            
         }
     }
 }

@@ -38,9 +38,8 @@
             this.vahiclesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cropsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.taskManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.containersToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fieldsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataView = new System.Windows.Forms.DataGridView();
             this.txtReg = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -51,11 +50,9 @@
             this.btnUpd = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.dataViewTask = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTask)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -102,7 +99,6 @@
             this.vahiclesToolStripMenuItem,
             this.cropsToolStripMenuItem,
             this.taskManagerToolStripMenuItem,
-            this.containersToolStripMenuItem,
             this.fieldsToolStripMenuItem,
             this.homeToolStripMenuItem});
             this.managmentToolStripMenuItem.Name = "managmentToolStripMenuItem";
@@ -137,20 +133,6 @@
             this.taskManagerToolStripMenuItem.Text = "Task Manager";
             this.taskManagerToolStripMenuItem.Click += new System.EventHandler(this.taskManagerToolStripMenuItem_Click);
             // 
-            // homeToolStripMenuItem
-            // 
-            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.homeToolStripMenuItem.Text = "Home";
-            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
-            // 
-            // containersToolStripMenuItem
-            // 
-            this.containersToolStripMenuItem.Name = "containersToolStripMenuItem";
-            this.containersToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
-            this.containersToolStripMenuItem.Text = "Containers";
-            this.containersToolStripMenuItem.Click += new System.EventHandler(this.containersToolStripMenuItem_Click);
-            // 
             // fieldsToolStripMenuItem
             // 
             this.fieldsToolStripMenuItem.Name = "fieldsToolStripMenuItem";
@@ -158,21 +140,28 @@
             this.fieldsToolStripMenuItem.Text = "Fields";
             this.fieldsToolStripMenuItem.Click += new System.EventHandler(this.fieldsToolStripMenuItem_Click);
             // 
+            // homeToolStripMenuItem
+            // 
+            this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
+            // 
             // dataView
             // 
             this.dataView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataView.Location = new System.Drawing.Point(16, 135);
-            this.dataView.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataView.Margin = new System.Windows.Forms.Padding(4);
             this.dataView.Name = "dataView";
-            this.dataView.Size = new System.Drawing.Size(753, 567);
+            this.dataView.Size = new System.Drawing.Size(1037, 567);
             this.dataView.TabIndex = 2;
             this.dataView.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dataViewT_CellMouseClick);
             this.dataView.Click += new System.EventHandler(this.dataViewT_Click);
             // 
             // txtReg
             // 
-            this.txtReg.Location = new System.Drawing.Point(1020, 418);
-            this.txtReg.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtReg.Location = new System.Drawing.Point(1290, 428);
+            this.txtReg.Margin = new System.Windows.Forms.Padding(4);
             this.txtReg.Name = "txtReg";
             this.txtReg.Size = new System.Drawing.Size(132, 22);
             this.txtReg.TabIndex = 20;
@@ -180,7 +169,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(915, 427);
+            this.label2.Location = new System.Drawing.Point(1185, 437);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(88, 17);
@@ -190,7 +179,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(915, 459);
+            this.label1.Location = new System.Drawing.Point(1185, 469);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(95, 17);
@@ -199,24 +188,24 @@
             // 
             // txtAtch
             // 
-            this.txtAtch.Location = new System.Drawing.Point(1020, 482);
-            this.txtAtch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAtch.Location = new System.Drawing.Point(1290, 492);
+            this.txtAtch.Margin = new System.Windows.Forms.Padding(4);
             this.txtAtch.Name = "txtAtch";
             this.txtAtch.Size = new System.Drawing.Size(132, 22);
             this.txtAtch.TabIndex = 15;
             // 
             // txtName
             // 
-            this.txtName.Location = new System.Drawing.Point(1020, 450);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtName.Location = new System.Drawing.Point(1290, 460);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(132, 22);
             this.txtName.TabIndex = 14;
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(805, 634);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Location = new System.Drawing.Point(1075, 644);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 13;
@@ -226,8 +215,8 @@
             // 
             // btnUpd
             // 
-            this.btnUpd.Location = new System.Drawing.Point(804, 670);
-            this.btnUpd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpd.Location = new System.Drawing.Point(1074, 680);
+            this.btnUpd.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpd.Name = "btnUpd";
             this.btnUpd.Size = new System.Drawing.Size(100, 28);
             this.btnUpd.TabIndex = 12;
@@ -238,7 +227,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(915, 491);
+            this.label3.Location = new System.Drawing.Point(1185, 501);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(90, 17);
@@ -249,20 +238,11 @@
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.Location = new System.Drawing.Point(17, 49);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(633, 79);
             this.pictureBox1.TabIndex = 22;
             this.pictureBox1.TabStop = false;
-            // 
-            // dataViewTask
-            // 
-            this.dataViewTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataViewTask.Location = new System.Drawing.Point(919, 15);
-            this.dataViewTask.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.dataViewTask.Name = "dataViewTask";
-            this.dataViewTask.Size = new System.Drawing.Size(493, 361);
-            this.dataViewTask.TabIndex = 23;
             // 
             // ManageVehicle
             // 
@@ -270,7 +250,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.ClientSize = new System.Drawing.Size(1433, 718);
-            this.Controls.Add(this.dataViewTask);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtReg);
@@ -284,7 +263,7 @@
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "ManageVehicle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vehicle Management";
@@ -294,7 +273,6 @@
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataViewTask)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -322,8 +300,6 @@
         private System.Windows.Forms.ToolStripMenuItem cropsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem taskManagerToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.DataGridView dataViewTask;
-        private System.Windows.Forms.ToolStripMenuItem containersToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fieldsToolStripMenuItem;
     }
 }

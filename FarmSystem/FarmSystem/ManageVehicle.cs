@@ -31,6 +31,8 @@ namespace FarmSystem
             vehicles = da.returnVehicleList();
             dataView.DataSource = vehicles;
             dataView.Refresh();
+            dataView.Columns[0].Visible = false;
+            dataView.Columns[4].Visible = false;
             
         }
 
@@ -79,7 +81,6 @@ namespace FarmSystem
             txtReg.Text = vh.reg;
             txtName.Text = vh.name;
             txtAtch.Text = vh.attach;
-
         }
 
         //private void dataViewC_Click(object sender, EventArgs e)

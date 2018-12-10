@@ -69,6 +69,13 @@ namespace FarmSystem
             Lab = da.returnLabourerList();
             dataView.DataSource = Lab;
             dataView.Update();
+            hideCollums();
+        }
+
+        public void hideCollums()
+        {
+            dataView.Columns[0].Visible = false;
+            dataView.Columns[7].Visible = false;
         }
 
         private void dataView_MouseClick(object sender, MouseEventArgs e)

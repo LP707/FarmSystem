@@ -68,7 +68,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(1486, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1227, 28);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -107,7 +107,7 @@
             // viewTimetableToolStripMenuItem
             // 
             this.viewTimetableToolStripMenuItem.Name = "viewTimetableToolStripMenuItem";
-            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.viewTimetableToolStripMenuItem.Size = new System.Drawing.Size(187, 26);
             this.viewTimetableToolStripMenuItem.Text = "View Timetable";
             this.viewTimetableToolStripMenuItem.Click += new System.EventHandler(this.viewTimetableToolStripMenuItem_Click);
             // 
@@ -115,9 +115,9 @@
             // 
             this.dgvTimetable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTimetable.Location = new System.Drawing.Point(16, 73);
-            this.dgvTimetable.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgvTimetable.Margin = new System.Windows.Forms.Padding(4);
             this.dgvTimetable.Name = "dgvTimetable";
-            this.dgvTimetable.Size = new System.Drawing.Size(1448, 630);
+            this.dgvTimetable.Size = new System.Drawing.Size(1172, 630);
             this.dgvTimetable.TabIndex = 13;
             // 
             // LabourerForm
@@ -125,12 +125,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.ClientSize = new System.Drawing.Size(1486, 718);
+            this.ClientSize = new System.Drawing.Size(1227, 718);
             this.Controls.Add(this.dgvTimetable);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "LabourerForm";

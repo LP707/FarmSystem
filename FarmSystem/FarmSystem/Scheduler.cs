@@ -10,5 +10,6 @@ namespace FarmSystem
     {
         public int taskID { get; set; }
         public int empID { get; set; }
+        public int vehID { get; set; }
     }
 }

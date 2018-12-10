@@ -28,6 +28,7 @@ namespace FarmSystem
         string soilType;
         int cropID;
 
+
         public Field()
         {
             InitializeComponent();
@@ -39,11 +40,6 @@ namespace FarmSystem
         List<Storage> cs = new List<Storage>();
         List<Storage> stoList = new List<Storage>();
         //List<Field> fiel;
-
-
-
-
-
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -83,7 +79,7 @@ namespace FarmSystem
             dgvCrop.Refresh();
 
             dgvStorage.DataSource = null;
-            dgvStorage.DataSource = cs;
+            dgvStorage.DataSource = stoList;
             dgvStorage.Refresh();
 
             hideColumns();
@@ -92,10 +88,13 @@ namespace FarmSystem
         public void hideColumns()
         {
             dgvField.Columns[0].Visible = false;
+            dgvField.Columns[2].Visible = false;
             dgvField.Columns[4].Visible = false;
+            dgvField.Columns[5].Visible = false;
 
             dgvCrop.Columns[0].Visible = false;
             dgvStorage.Columns[0].Visible = false;
+            dgvStorage.Columns[3].Visible = false;
         }
 
         private void labourersToolStripMenuItem_Click(object sender, EventArgs e)
@@ -108,7 +107,6 @@ namespace FarmSystem
         private void Field_Load(object sender, EventArgs e)
         {
             List<Fields> fiel = da.returnField();
-            
             dgvField.DataSource = fiel;
             dgvCrop.DataSource = da.returnCropList(); 
             dgvStorage.DataSource = da.returnStorage();
@@ -133,13 +131,7 @@ namespace FarmSystem
                 cl.Add(c);
             }
 
-            foreach (var s in cropStoList.Where(s => cropList.Select(c => c.cropID).Contains(s.cID)))
-            {
-
-                cs.Add(stoList.Find(x => x.storeID == s.sID));
-                
-               
-            }
+            stoList = da.returnStorage();
 
             //dgvCrop.DataSource = cl;
             refreshData();

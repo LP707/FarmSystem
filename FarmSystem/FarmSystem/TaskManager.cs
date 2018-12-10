@@ -631,5 +631,41 @@ namespace FarmSystem
             this.Hide();
             fl.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int result = 0;
+            List<Task> tasks = da.returnTaskList();
+            foreach (var t in tasks.Where(t => t.taskType == "Fertilising"))
+            {
+                int newR = t.quantity;
+                result = result + newR;
+            }
+            MessageBox.Show("Quantity needed : " + result + " KG");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int result = 0;
+            List<Task> tasks = da.returnTaskList();
+            foreach (var t in tasks.Where(t => t.taskType == "Storing"))
+            {
+                int newR = t.quantity;
+                result = result + newR;
+            }
+            MessageBox.Show("Quantity needed : " + result + " KG");
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int result = 0;
+            List<Task> tasks = da.returnTaskList();
+            foreach (var t in tasks.Where(t => t.taskType == "Harvesting"))
+            {
+                int newR = t.quantity;
+                result = result + newR;
+            }
+            MessageBox.Show("Quantity needed : " + result + " KG");
+        }
     }
 }
