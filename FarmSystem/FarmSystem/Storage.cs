@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Storage
+    public class Storage
     {
         public int storeID { get; set; }
         public string storeType { get; set; }

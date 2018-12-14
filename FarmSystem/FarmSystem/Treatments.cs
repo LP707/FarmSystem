@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Treatments
+    public class Treatments
     {
         public int treatID { get; set; }
         public string treatName { get; set; }

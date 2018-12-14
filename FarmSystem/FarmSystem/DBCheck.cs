@@ -11,17 +11,20 @@ using System.Data.Common;
 
 namespace FarmSystem
 {
-    class DBCheck
+    public class DBCheck
     {
         private static DbConection m_instance = null;
         Dictionary<string, string> m_properties;
         private static string propfile = "properties.dat";
-
-        private DBCheck()
+        public int InstanceCount { get; set; }
+        public DBCheck()
         {
             m_properties = new Dictionary<string, string>();
+            InstanceCount++;
             //m_properties = new Dictionary<string, string> { get; { return propfile; }
         }
+
+       
 
         public static DbConection instance()
         {

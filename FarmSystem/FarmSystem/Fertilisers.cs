@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Fertilisers
+    public class Fertilisers
     {
         public int fertID { get; set; }
         public string fertName { get; set; }

@@ -6,14 +6,18 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class MetaLayer
+    public class MetaLayer
     {
         DataAccess da = DataAccess.instance();
         DbConection con = DBCheck.instance();
+        public int InstanceCount { get; set; }
 
         static private MetaLayer m_instance = null;
 
-        private MetaLayer() { }
+        public MetaLayer()
+        {
+            InstanceCount++;
+        }
 
         static public MetaLayer instance()
         {

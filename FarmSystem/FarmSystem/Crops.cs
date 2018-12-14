@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Crops
+    public class Crops
     {
         public int cropID { get; set; }
         public string cropName { get; set; }

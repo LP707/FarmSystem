@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class Scheduler
+    public class Scheduler
     {
         public int taskID { get; set; }
         public int empID { get; set; }

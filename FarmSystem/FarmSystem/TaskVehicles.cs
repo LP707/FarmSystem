@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class TaskVehicles
+    public class TaskVehicles
     {
         public int taskVehID { get; set; }
         public int vehTaskID { get; set; }

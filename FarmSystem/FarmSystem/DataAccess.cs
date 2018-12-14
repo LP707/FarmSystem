@@ -8,11 +8,12 @@ using System.Data.OleDb;
 using System.Data;
 using Microsoft.SqlServer.Server;
 using System.ComponentModel;
+using System.Diagnostics.PerformanceData;
 
 
 namespace FarmSystem
 {
-    class DataAccess
+    public class DataAccess
     {
         DbConection db = DBCheck.instance();
         List<Employee.Manager> Managers = new List<Employee.Manager>();
@@ -27,11 +28,12 @@ namespace FarmSystem
         List<Scheduler> Schedule = new List<Scheduler>();
         List<TaskVehicles> taskVehicles = new List<TaskVehicles>();
         List<CropStorage> CropStored = new List<CropStorage>();
-
-
+        public int InstanceCount { get; set; }
+        
 
         DbConection conn = DBCheck.instance();
 
+     
         public void returnConString(string theConString)
         {
             //theConString = 
@@ -39,7 +41,13 @@ namespace FarmSystem
 
         static private DataAccess m_instance = null;
 
-        private DataAccess() { }
+        public DataAccess()
+        {
+            InstanceCount++;
+
+        }
+
+  
 
         static public DataAccess instance()
         {

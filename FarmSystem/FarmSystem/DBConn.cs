@@ -9,7 +9,7 @@ using System.Data;
 
 namespace FarmSystem
 {
-    class DBConn : DbConection
+    public class DBConn : DbConection
     {
         private Dictionary<string, string> m_properties;
         public OleDbConnection connection;

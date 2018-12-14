@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace FarmSystem
 {
-    class CropStorage
+    public class CropStorage
     {
         public int cID { get; set; }
         public int sID { get; set; }
